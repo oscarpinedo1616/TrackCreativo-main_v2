@@ -3,19 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formacion por suscripcion | INSTALLERSONTRUCK</title>
+  <title>Formación por Suscripción | INSTALLERSONTRUCK</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="placeholder.css">
+  <style>
+    .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; text-align: left; margin: 32px 0; }
+    .course-card-premium { background: rgba(0, 0, 0, 0.4); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
+    .course-card-premium::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--orange), var(--yellow)); border-radius: 20px 20px 0 0; }
+    .badge { align-self: flex-start; padding: 4px 10px; font-size: 0.75rem; border-radius: 6px; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; letter-spacing: 0.05em; }
+    .badge-premium { background: var(--orange); color: #000; }
+    .badge-free { background: var(--lime); color: #000; }
+    .course-card-premium h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; margin: 0 0 12px 0; letter-spacing: 0.04em; color: #fff; }
+    .course-card-premium ul { margin: 14px 0; padding-left: 18px; font-size: 0.9rem; color: var(--muted); }
+    .course-card-premium li { margin-bottom: 6px; }
+    .price-tag { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--yellow); margin-top: 16px; border-top: 1px solid var(--line); padding-top: 14px; }
+  </style>
 </head>
 <body>
   <main class="placeholder-page">
-    <div class="placeholder-card">
-      <span class="placeholder-eyebrow">INSTALLERSONTRUCK</span>
-      <h1>Formacion por suscripcion</h1>
-      <p>Esta es la pagina de Formacion por suscripcion.</p>
-      <a class="placeholder-button" href="index.html">Volver a home</a>
+    <div class="placeholder-card" style="max-width: 1040px;">
+      <span class="placeholder-eyebrow">Academia Online</span>
+      <h1>Acceso Completo y Aprendizaje Continuo</h1>
+      <p style="max-width: 75ch;">
+        Fórmate desde cero y sin experiencia previa a través de contenidos súper concentrados distribuidos en nuestras 4 líneas formativas estratégicas.
+      </p>
+
+      <div class="course-grid">
+        <!-- Opción 1 -->
+        <div class="course-card-premium">
+          <div>
+            <span class="badge badge-premium">Contenido Premium</span>
+            <h2>Instaladores con Fundamentos</h2>
+            <p style="font-size: 0.95rem; margin: 0;">Domina los principios estructurales del wrapping analizados desde tres puntos de vista esenciales del mercado real:</p>
+            <ul>
+              <li><strong>Como empleado:</strong> Consigue destacar y ser altamente cotizado.</li>
+              <li><strong>Como dueño de negocio:</strong> Optimización de márgenes y flujos.</li>
+              <li><strong>Como servicio tercerizado:</strong> Logística eficiente para talleres externos.</li>
+            </ul>
+          </div>
+          <div class="price-tag">159,00 €</div>
+        </div>
+
+        <!-- Opción 2 -->
+        <div class="course-card-premium">
+          <div>
+            <span class="badge badge-free">Acceso Gratuito</span>
+            <h2>Instalación Paint Protection Film (PPF)</h2>
+            <p style="font-size: 0.95rem; margin: 0;">Entra en el sector de mayor rentabilidad dentro del cuidado de vehículos. El flujo completo estructurado en lecciones en vídeo:</p>
+            <ul>
+              <li>Protocolo de recepción segura del vehículo.</li>
+              <li>Resolución de problemas críticos en el flujo de trabajo.</li>
+              <li>Catálogo de herramientas idóneas y líquidos recomendados.</li>
+            </ul>
+          </div>
+          <div class="price-tag">0,00 €</div>
+        </div>
+
+        <!-- Opción 3 -->
+        <div class="course-card-premium">
+          <div>
+            <span class="badge badge-free">Acceso Gratuito</span>
+            <h2>Cambio de Color Paso a Paso</h2>
+            <p style="font-size: 0.95rem; margin: 0;">Aprende las metodologías precisas para realizar un cambio de color completo y transformarte en un referente.</p>
+            <ul>
+              <li>Explicación técnica detallada de todo el proceso de trabajo.</li>
+              <li>Técnicas avanzadas para solventar rincones complejos.</li>
+              <li>Análisis de comportamiento de las marcas principales del mercado.</li>
+            </ul>
+          </div>
+          <div class="price-tag">0,00 €</div>
+        </div>
+
+        <!-- Opción 4 -->
+        <div class="course-card-premium">
+          <div>
+            <span class="badge badge-premium">Lecciones Especiales</span>
+            <h2>Análisis de Materiales Avanzados</h2>
+            <p style="font-size: 0.95rem; margin: 0;">Actualizaciones periódicas analizando las últimas innovaciones físicas de la industria del restyling.</p>
+            <ul>
+              <li>Test de comportamiento de láminas de última generación (Chrome PPF).</li>
+              <li>Análisis comparativo de estabilidad y elasticidad térmica.</li>
+              <li>Revisiones de durabilidad y acabados estéticos premium.</li>
+            </ul>
+          </div>
+          <div class="price-tag">Incluido en suscripción</div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <a class="placeholder-button" href="registro.html">Crear cuenta e iniciar lecciones</a>
+        <a class="placeholder-button placeholder-button-secondary" href="formacion-presencial.html">Ver opciones presenciales</a>
+      </div>
     </div>
   </main>
 </body>
