@@ -7,96 +7,561 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="placeholder.css">
   <style>
-    .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; text-align: left; margin: 32px 0; }
-    .course-card-premium { background: rgba(0, 0, 0, 0.4); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
-    .course-card-premium::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--orange), var(--yellow)); border-radius: 20px 20px 0 0; }
-    .badge { align-self: flex-start; padding: 4px 10px; font-size: 0.75rem; border-radius: 6px; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; letter-spacing: 0.05em; }
-    .badge-premium { background: var(--orange); color: #000; }
-    .badge-free { background: var(--lime); color: #000; }
-    .course-card-premium h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; margin: 0 0 12px 0; letter-spacing: 0.04em; color: #fff; }
-    .course-card-premium ul { margin: 14px 0; padding-left: 18px; font-size: 0.9rem; color: var(--muted); }
-    .course-card-premium li { margin-bottom: 6px; }
-    .price-tag { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--yellow); margin-top: 16px; border-top: 1px solid var(--line); padding-top: 14px; }
+    :root {
+      --bg: #050505;
+      --bg-soft: #111111;
+      --line: rgba(255, 255, 255, 0.08);
+      --text: #f6f0e8;
+      --muted: #c2baae;
+      --orange: #ff6a00;
+      --yellow: #ffbf1f;
+      --shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
+      --max: 1180px;
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255, 106, 0, 0.22), transparent 24%),
+        radial-gradient(circle at 85% 18%, rgba(255, 44, 180, 0.16), transparent 20%),
+        linear-gradient(135deg, #030303, #0d0d0d 58%, #040404);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 82px 82px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 92%);
+      pointer-events: none; z-index: -1;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    
+    .page-shell { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
+    
+    .site-header {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(180deg, rgba(5, 5, 5, 0.92), rgba(5, 5, 5, 0.58));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 16px 0;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    
+    .btn-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 12px;
+      background: rgba(255, 106, 0, 0.15); border: 1px solid var(--orange, #ff6a00);
+      color: var(--orange, #ff6a00);
+      font-size: 0.95rem; font-weight: 700; transition: all 0.2s ease;
+      margin-left: 10px;
+    }
+    .btn-back:hover {
+      background: var(--orange, #ff6a00);
+      color: #000;
+      transform: translateX(-4px);
+    }
+
+    .social-links { display: flex; gap: 12px; }
+    .social-links a { font-size: 0.85rem; color: var(--yellow); text-transform: uppercase; letter-spacing: 0.1em; }
+
+    .hero { padding: 60px 0 40px; text-align: center; }
+    .eyebrow { display: inline-block; padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,0.03); color: var(--orange); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.8rem; margin-bottom: 20px; }
+    h1 { font-family: "Bebas Neue", sans-serif; font-size: clamp(3rem, 8vw, 5.5rem); margin: 0 0 20px; line-height: 0.9; letter-spacing: 0.03em; text-transform: uppercase; }
+    .hero p { max-width: 800px; margin: 0 auto 30px; font-size: 1.1rem; line-height: 1.6; color: #dfd7cb; }
+    
+    .mini-points {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 40px; text-align: left;
+    }
+    .mini-point { padding: 20px; border-radius: 22px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--line); }
+    .mini-point strong { display: block; font-family: "Bebas Neue", sans-serif; font-size: 2.2rem; color: var(--yellow); margin-bottom: 6px; }
+    .mini-point span { font-size: 0.9rem; color: var(--muted); line-height: 1.5; display: block; }
+
+    section { padding: 50px 0; }
+    .section-title { font-family: "Bebas Neue", sans-serif; font-size: 3rem; margin: 0 0 16px; color: var(--orange); }
+    .section-desc { font-size: 1rem; color: var(--muted); max-width: 700px; line-height: 1.6; margin-bottom: 40px; }
+
+    /* Flip Cards Grid */
+    .offer-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+    .offer-card { position: relative; min-height: 320px; perspective: 1400px; }
+    .offer-card-inner { position: relative; min-height: 100%; transform-style: preserve-3d; transition: transform 0.75s ease; }
+    .offer-card.is-flipped .offer-card-inner { transform: rotateY(180deg); }
+    .offer-face { position: absolute; inset: 0; overflow: hidden; border-radius: 16px; border: 1px solid var(--line); box-shadow: var(--shadow); backface-visibility: hidden; padding: 20px; display: flex; flex-direction: column; }
+    
+    .offer-front { justify-content: flex-end; background: rgba(12, 12, 12, 0.92); pointer-events: auto; }
+    .offer-front img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
+    .offer-front::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,5,5,0.1), rgba(5,5,5,0.95)); }
+    .offer-front > *, .offer-back > * { position: relative; z-index: 1; }
+    
+    .offer-back { background: radial-gradient(circle at top right, rgba(255, 106, 0, 0.15), transparent 50%), #0a0a0a; transform: rotateY(180deg); justify-content: flex-start; pointer-events: none; overflow-y: auto; text-align: left; }
+    .offer-card.is-flipped .offer-front { pointer-events: none; }
+    .offer-card.is-flipped .offer-back { pointer-events: auto; }
+
+    .offer-tag { display: inline-flex; padding: 4px 8px; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid var(--line); color: var(--yellow); font-size: 0.65rem; text-transform: uppercase; margin-bottom: 12px; width: fit-content; }
+    .offer-front h3 { margin: 0 0 8px; font-family: "Bebas Neue", sans-serif; font-size: 1.8rem; text-transform: uppercase; line-height: 1; }
+    .offer-front p { color: #e8dfd3; margin-bottom: 16px; font-size: 0.85rem; max-width: 100%; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .offer-back h3 { font-family: "Bebas Neue", sans-serif; font-size: 1.5rem; color: var(--orange); margin: 0 0 10px; line-height: 1.1; }
+    .offer-back p { color: #f0e6d8; font-size: 0.8rem; line-height: 1.4; margin-bottom: 10px; }
+    
+    .offer-button { display: inline-flex; align-items: center; justify-content: center; min-height: 34px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.08); color: var(--text); font-size: 0.8rem; font-weight: 700; cursor: pointer; transition: all 0.25s ease; width: fit-content; }
+    .offer-button:hover { background: rgba(255,255,255,0.15); transform: translateY(-2px); }
+    .offer-button-primary { background: linear-gradient(135deg, var(--yellow), var(--orange)); color: #170900; border-color: transparent; }
+    .offer-actions { margin-top: auto; padding-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+
+    /* Community & Chat Section */
+    .community-box { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--line); border-radius: var(--radius); padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .chat-mockup { background: #000; border: 1px solid var(--line); border-radius: 20px; padding: 20px; height: 300px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+    .chat-mockup::before { content: "Foro General / Chat por Vídeo"; position: absolute; top: 0; left: 0; right: 0; background: rgba(255, 106, 0, 0.1); padding: 12px; text-align: center; font-size: 0.8rem; color: var(--yellow); font-weight: bold; text-transform: uppercase; border-bottom: 1px solid var(--line); }
+    .chat-messages { margin-top: 40px; display: flex; flex-direction: column; gap: 12px; }
+    .msg { background: rgba(255,255,255,0.05); padding: 12px 16px; border-radius: 12px; font-size: 0.85rem; width: 80%; }
+    .msg.own { background: rgba(255, 106, 0, 0.2); align-self: flex-end; }
+
+    /* Partnerships & Store */
+    .partnerships, .tienda-banner { margin-top: 40px; padding: 30px; border-radius: 20px; border: 1px dashed var(--orange); background: linear-gradient(135deg, rgba(255,106,0,0.05), rgba(255,191,31,0.02)); text-align: center; }
+    .partnerships h3, .tienda-banner h3 { font-family: "Bebas Neue", sans-serif; font-size: 2.2rem; margin: 0 0 10px; }
+    
+    /* YouTube Style Video Grid */
+    .video-category { margin-top: 40px; margin-bottom: 20px; }
+    .video-category h3 { font-family: "Space Grotesk", sans-serif; font-size: 1.8rem; color: #fff; margin-bottom: 20px; border-bottom: 1px solid var(--line); padding-bottom: 10px; font-weight: 700; }
+    .yt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; margin-bottom: 40px; }
+    @media (min-width: 1400px) { .yt-grid { grid-template-columns: repeat(6, 1fr); } }
+    @media (max-width: 1399px) and (min-width: 1100px) { .yt-grid { grid-template-columns: repeat(5, 1fr); } }
+    @media (max-width: 1099px) and (min-width: 800px) { .yt-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 799px) and (min-width: 500px) { .yt-grid { grid-template-columns: repeat(2, 1fr); } }
+    .yt-video { display: flex; flex-direction: column; gap: 12px; cursor: pointer; transition: transform 0.2s ease; }
+    .yt-video:hover { transform: translateY(-4px); }
+    .yt-thumbnail { background-color: #000; aspect-ratio: 16 / 9; border-radius: 8px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); padding: 16px; box-shadow: inset 0 0 20px rgba(255,255,255,0.02); }
+    .yt-thumbnail-text { color: rgba(255,255,255,0.6); font-size: 0.85rem; text-align: center; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+    .yt-lock { position: absolute; bottom: 8px; left: 8px; color: #fff; display: flex; align-items: center; justify-content: center; }
+    .yt-info { display: flex; flex-direction: column; align-items: center; padding: 0 10px; }
+    .yt-title { color: var(--orange); font-size: 0.9rem; font-weight: 500; line-height: 1.3; text-align: center; text-transform: uppercase; }
+
+    /* Modal Styles */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 100; display: none; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+    .modal-overlay.active { display: flex; }
+    .modal-content { background: #222; border: 1px solid var(--orange); border-radius: 8px; max-width: 900px; width: 90%; position: relative; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+    .modal-close { position: absolute; top: 12px; right: 16px; background: transparent; border: none; color: #fff; font-size: 2rem; cursor: pointer; z-index: 10; line-height: 1; }
+    .modal-close:hover { color: var(--orange); }
+    .modal-layout { display: grid; grid-template-columns: 1fr 1.2fr; }
+    .modal-left { background: #111; padding: 20px; display: flex; align-items: center; justify-content: center; border-right: 1px solid rgba(255,255,255,0.05); }
+    .modal-thumbnail { width: 100%; aspect-ratio: 16/9; background: #000; position: relative; display: flex; align-items: center; justify-content: center; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); }
+    .modal-right { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+    .modal-title { color: var(--orange); font-family: "Space Grotesk", sans-serif; font-size: 2.2rem; margin: 0 0 16px; line-height: 1.1; font-weight: 700; }
+    .modal-desc { color: #ddd; font-size: 0.95rem; line-height: 1.5; margin-bottom: 24px; }
+    .modal-link { color: var(--orange); font-size: 0.9rem; text-decoration: none; margin-bottom: 30px; display: inline-block; transition: opacity 0.2s; font-weight: 500; }
+    .modal-link:hover { opacity: 0.8; }
+    .modal-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-orange { background: var(--orange); color: #fff; padding: 12px 24px; border-radius: 4px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; transition: background 0.2s; border: none; cursor: pointer; text-align: center; }
+    .btn-orange:hover { background: #e65c00; }
+
+    @media (max-width: 768px) {
+      .modal-layout { grid-template-columns: 1fr; }
+      .modal-left { padding: 20px 20px 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .modal-right { padding: 20px; }
+      .modal-title { font-size: 1.8rem; }
+    }
+
+    @media (max-width: 1100px) {
+      .offer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 900px) {
+      .mini-points, .offer-grid, .community-box { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-  <main class="placeholder-page">
-    <div class="placeholder-card" style="max-width: 1040px;">
-      <span class="placeholder-eyebrow">Academia Online</span>
-      <h1>Acceso Completo y Aprendizaje Continuo</h1>
-      <p style="max-width: 75ch;">
-        Fórmate desde cero y sin experiencia previa a través de contenidos súper concentrados distribuidos en nuestras 4 líneas formativas estratégicas.
-      </p>
-
-      <div class="course-grid">
-        <!-- Opción 1 -->
-        <div class="course-card-premium">
-          <div>
-            <span class="badge badge-premium">Contenido Premium</span>
-            <h2>Instaladores con Fundamentos</h2>
-            <p style="font-size: 0.95rem; margin: 0;">Domina los principios estructurales del wrapping analizados desde tres puntos de vista esenciales del mercado real:</p>
-            <ul>
-              <li><strong>Como empleado:</strong> Consigue destacar y ser altamente cotizado.</li>
-              <li><strong>Como dueño de negocio:</strong> Optimización de márgenes y flujos.</li>
-              <li><strong>Como servicio tercerizado:</strong> Logística eficiente para talleres externos.</li>
-            </ul>
-          </div>
-          <div class="price-tag">159,00 €</div>
-        </div>
-
-        <!-- Opción 2 -->
-        <div class="course-card-premium">
-          <div>
-            <span class="badge badge-free">Acceso Gratuito</span>
-            <h2>Instalación Paint Protection Film (PPF)</h2>
-            <p style="font-size: 0.95rem; margin: 0;">Entra en el sector de mayor rentabilidad dentro del cuidado de vehículos. El flujo completo estructurado en lecciones en vídeo:</p>
-            <ul>
-              <li>Protocolo de recepción segura del vehículo.</li>
-              <li>Resolución de problemas críticos en el flujo de trabajo.</li>
-              <li>Catálogo de herramientas idóneas y líquidos recomendados.</li>
-            </ul>
-          </div>
-          <div class="price-tag">0,00 €</div>
-        </div>
-
-        <!-- Opción 3 -->
-        <div class="course-card-premium">
-          <div>
-            <span class="badge badge-free">Acceso Gratuito</span>
-            <h2>Cambio de Color Paso a Paso</h2>
-            <p style="font-size: 0.95rem; margin: 0;">Aprende las metodologías precisas para realizar un cambio de color completo y transformarte en un referente.</p>
-            <ul>
-              <li>Explicación técnica detallada de todo el proceso de trabajo.</li>
-              <li>Técnicas avanzadas para solventar rincones complejos.</li>
-              <li>Análisis de comportamiento de las marcas principales del mercado.</li>
-            </ul>
-          </div>
-          <div class="price-tag">0,00 €</div>
-        </div>
-
-        <!-- Opción 4 -->
-        <div class="course-card-premium">
-          <div>
-            <span class="badge badge-premium">Lecciones Especiales</span>
-            <h2>Análisis de Materiales Avanzados</h2>
-            <p style="font-size: 0.95rem; margin: 0;">Actualizaciones periódicas analizando las últimas innovaciones físicas de la industria del restyling.</p>
-            <ul>
-              <li>Test de comportamiento de láminas de última generación (Chrome PPF).</li>
-              <li>Análisis comparativo de estabilidad y elasticidad térmica.</li>
-              <li>Revisiones de durabilidad y acabados estéticos premium.</li>
-            </ul>
-          </div>
-          <div class="price-tag">Incluido en suscripción</div>
-        </div>
-      </div>
-
-      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-        <a class="placeholder-button" href="registro.html">Crear cuenta e iniciar lecciones</a>
-        <a class="placeholder-button placeholder-button-secondary" href="formacion-presencial.html">Ver opciones presenciales</a>
+  <header class="site-header">
+    <div class="page-shell" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <a href="index.html" class="btn-back">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Regresar
+      </a>
+      <div class="social-links">
+        <a href="https://www.instagram.com/trackcreativo" target="_blank">Instagram</a>
+        <a href="https://linktr.ee/trackcreativo" target="_blank">YouTube</a>
+        <a href="mailto:info@installersontrack.com">info@installersontrack.com</a>
       </div>
     </div>
+  </header>
+
+  <main>
+    <section class="hero page-shell">
+      <span class="eyebrow">TRACKCREATIVO | INSTALLERSONTRUCK</span>
+      <h1>Formación por Suscripción</h1>
+      <p>
+        Comprueba que la formación en vídeo <strong>sí funciona</strong>. Más que un aprendizaje técnico, aquí vienes a encontrar tu camino profesional y rentabilizar tu pasión. Los que han acudido han mejorado sus técnicas de forma radical, y los que empiezan desde cero descubren cómo dedicarse a lo que les gusta. <strong>El cielo es el límite.</strong>
+      </p>
+      
+      <div class="mini-points">
+        <div class="mini-point">
+          <strong>+185K</strong>
+          <span>Seguidores sumando nuestras redes, atentos a los trucos del wrapping y el día a día.</span>
+        </div>
+        <div class="mini-point">
+          <strong>+600</strong>
+          <span>Alumnos en cursos presenciales no intensivos han validado nuestra técnica.</span>
+        </div>
+        <div class="mini-point">
+          <strong>+300</strong>
+          <span>Vídeos en la plataforma organizados por guías y metodologías directas al grano.</span>
+        </div>
+        <div class="mini-point">
+          <strong>A diario</strong>
+          <span>Contenido renovado cada día para mantenerte siempre a la vanguardia del sector.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-shell">
+      <h2 class="section-title" style="font-size: 2.4rem;">Nuestra Formación</h2>
+      <p class="section-desc" style="margin-bottom: 24px; font-size: 0.95rem; max-width: 600px;">
+        Huye de la teoría vacía. Te transmitimos el verdadero entendimiento del trabajo enriquecido por 19 años de experiencia, directo al grano y sin adornos.
+      </p>
+
+      <div class="offer-grid">
+        <!-- Card 1 -->
+        <article class="offer-card">
+          <div class="offer-card-inner">
+            <div class="offer-face offer-front">
+              <img src="Captura de pantalla 2026-05-08 142441.png" alt="Detalle de vinilo">
+              <span class="offer-tag">Técnica Profunda</span>
+              <h3>Entendimiento del Trabajo</h3>
+              <p>Domina las tolerancias en los materiales: PPF, PPF Color, Vinilos fundidos e híbridos.</p>
+              <div class="offer-actions">
+                <button class="offer-button offer-button-primary" type="button" data-flip-card>Saber más</button>
+              </div>
+            </div>
+            <div class="offer-face offer-back">
+              <span class="offer-tag">Multimarca</span>
+              <h3>Análisis de 8 Marcas</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Exploramos a fondo las debilidades y fortalezas de 8 de las mejores marcas de material del mercado.</p>
+              <p>Entendemos la importancia vital de ser un instalador multimarca para no cerrarte puertas. Todo lo que enseñamos es validado en el mundo real, con instructores que están constantemente haciendo coches en el taller.</p>
+              <div class="offer-actions">
+                <button class="offer-button" type="button" data-flip-card>Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="offer-card">
+          <div class="offer-card-inner">
+            <div class="offer-face offer-front">
+              <img src="Captura de pantalla 2026-05-08 133438.png" alt="Acabado profesional">
+              <span class="offer-tag">Mindset de Taller</span>
+              <h3>Acabado Profesional</h3>
+              <p>No transmitimos solo técnica, sino la actitud necesaria para triunfar en el wrapping.</p>
+              <div class="offer-actions">
+                <button class="offer-button offer-button-primary" type="button" data-flip-card>Saber más</button>
+              </div>
+            </div>
+            <div class="offer-face offer-back">
+              <span class="offer-tag">Criterio</span>
+              <h3>Manejar la Frustración</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Hacer wrapping a alto nivel requiere cabeza fría. Te enseñamos a manejar la frustración cuando la pieza se complica.</p>
+              <p>Nuestras guías incluyen los trucos del wrapping que nadie cuenta, creando un entorno sin presiones donde aprendes a resolver problemas reales de un negocio externalizado o propio.</p>
+              <div class="offer-actions">
+                <button class="offer-button" type="button" data-flip-card>Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="offer-card">
+          <div class="offer-card-inner">
+            <div class="offer-face offer-front">
+              <img src="Captura de pantalla 2026-05-08 142703.png" alt="Comunidad">
+              <span class="offer-tag">Escena Global</span>
+              <h3>Eventos y Expansión</h3>
+              <p>Presencia internacional: Desde Orlando hasta Chile, expandiendo la huella hispana.</p>
+              <div class="offer-actions">
+                <button class="offer-button offer-button-primary" type="button" data-flip-card>Saber más</button>
+              </div>
+            </div>
+            <div class="offer-face offer-back">
+              <span class="offer-tag">Encuentros reales</span>
+              <h3>Agenda de Referencia</h3>
+              <p>No hacemos simples "masterclass", hacemos eventos reales. Asistimos a SEPRING, ISA (el primer evento de este ámbito en Estados Unidos donde se habla español), FESPA, ROLLANDEXPERIENCE y SIMASHOW.</p>
+              <p>Además de organizar nuestro WrapDay público cada dos meses, trabajamos activamente en Estados Unidos (Orlando) y próximamente en Sudamérica (Chile).</p>
+              <div class="offer-actions">
+                <button class="offer-button" type="button" data-flip-card>Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="offer-card">
+          <div class="offer-card-inner">
+            <div class="offer-face offer-front">
+              <img src="Captura de pantalla 2026-05-08 142551.png" alt="Networking">
+              <span class="offer-tag">Networking Vital</span>
+              <h3>Comunidad Permanente</h3>
+              <p>Se crea un grupo que dura para toda la vida para seguir manteniendo contacto continuo.</p>
+              <div class="offer-actions">
+                <button class="offer-button offer-button-primary" type="button" data-flip-card>Saber más</button>
+              </div>
+            </div>
+            <div class="offer-face offer-back">
+              <span class="offer-tag">Relaciones</span>
+              <h3>Conexión Directa</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mantén el contacto directo con Luis y relaciones estrechas con marcas y multinacionales.</p>
+              <p>Al pasar por nuestra formación entras a una red internacional. Participamos en el WrapDay cada dos meses junto a 10 instaladores egresados para hacer coches enteros y fortalecer relaciones a nivel mundial.</p>
+              <div class="offer-actions">
+                <a class="offer-button offer-button-primary" href="sobre-nosotros.html">Sobre nosotros</a>
+                <button class="offer-button" type="button" data-flip-card>Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="video-section">
+      <div class="page-shell">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto; margin-bottom: 40px;">
+          <h2 class="section-title">Catálogo de Vídeos de la Plataforma</h2>
+          <p class="section-desc" style="margin: 0 auto;">Explora nuestra biblioteca de +300 vídeos. El contenido está bloqueado. Inicia sesión o suscríbete para acceder a todas las lecciones técnicas, guías paso a paso y trucos del wrapping.</p>
+        </div>
+
+        <div class="video-category">
+          <h3>Novedades</h3>
+          <div class="yt-grid">
+            <div class="yt-video">
+              <div class="yt-thumbnail">
+                <span class="yt-thumbnail-text">Descripción: Inicio Web, herramientas y primeros pasos esenciales para el wrapping.</span>
+                <div class="yt-lock">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+                </div>
+              </div>
+              <div class="yt-info">
+                <div class="yt-title">Vídeo Inicio Web</div>
+              </div>
+            </div>
+            <div class="yt-video">
+              <div class="yt-thumbnail">
+                <span class="yt-thumbnail-text">Descripción: Desarmado de puerta interna Stelvio. Pasos detallados para evitar romper grapas.</span>
+                <div class="yt-lock">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+                </div>
+              </div>
+              <div class="yt-info">
+                <div class="yt-title">ACADEMIA DESARMADO PUERTA INTERNA STELVIO DEF.mp4</div>
+              </div>
+            </div>
+            <div class="yt-video">
+              <div class="yt-thumbnail">
+                <span class="yt-thumbnail-text">Descripción: Técnicas de cromado en Audi. Preparación y aplicación de vinilos especiales.</span>
+                <div class="yt-lock">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+                </div>
+              </div>
+              <div class="yt-info">
+                <div class="yt-title">ACADEMIA CROMADO AUDI</div>
+              </div>
+            </div>
+            <div class="yt-video">
+              <div class="yt-thumbnail">
+                <span class="yt-thumbnail-text">Descripción: Aleta Audi gris. Técnica de fácil aplicación para principiantes.</span>
+                <div class="yt-lock">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+                </div>
+              </div>
+              <div class="yt-info">
+                <div class="yt-title">Aleta Audi gris</div>
+              </div>
+            </div>
+            <div class="yt-video">
+              <div class="yt-thumbnail">
+                <span class="yt-thumbnail-text">Descripción: Manilla puerta Corolla. Desmontaje y wrapping completo de la pieza.</span>
+                <div class="yt-lock">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+                </div>
+              </div>
+              <div class="yt-info">
+                <div class="yt-title">Manilla Puerta Corolla</div>
+              </div>
+            </div>
+            <div class="yt-video">
+              <div class="yt-thumbnail">
+                <span class="yt-thumbnail-text">Descripción: Parte externa manilla Panamera. Consejos sobre tensión de material.</span>
+                <div class="yt-lock">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+                </div>
+              </div>
+              <div class="yt-info">
+                <div class="yt-title">Parte Externa manilla (maneta) - Panamera</div>
+              </div>
+            </div>
+            <div class="yt-video">
+              <div class="yt-thumbnail">
+                <span class="yt-thumbnail-text">Descripción: Talonera Audi. Cómo manejar los bordes inferiores y cortes de seguridad.</span>
+                <div class="yt-lock">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+                </div>
+              </div>
+              <div class="yt-info">
+                <div class="yt-title">Talonera Audi</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-category">
+          <h3>Especial Audi</h3>
+          <div class="yt-grid">
+            <div class="yt-video">
+              <div class="yt-thumbnail">
+                <span class="yt-thumbnail-text">Descripción: Academia Cromado Audi. Pasos iniciales y herramientas necesarias.</span>
+                <div class="yt-lock">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+                </div>
+              </div>
+              <div class="yt-info">
+                <div class="yt-title">ACADEMIA CROMADO AUDI</div>
+              </div>
+            </div>
+            <div class="yt-video">
+              <div class="yt-thumbnail">
+                <span class="yt-thumbnail-text">Descripción: Aleta Audi Gris. Explicación de la técnica fácil aplicación.</span>
+                <div class="yt-lock">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+                </div>
+              </div>
+              <div class="yt-info">
+                <div class="yt-title">Aleta Audi gris</div>
+              </div>
+            </div>
+            <div class="yt-video">
+              <div class="yt-thumbnail">
+                <span class="yt-thumbnail-text">Descripción: Paragolpe Audi Academia. Detalles importantes de estiramiento.</span>
+                <div class="yt-lock">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+                </div>
+              </div>
+              <div class="yt-info">
+                <div class="yt-title">PARAGOLPE AUDI ACADEMIA</div>
+              </div>
+            </div>
+            <div class="yt-video">
+              <div class="yt-thumbnail">
+                <span class="yt-thumbnail-text">Descripción: Instalación lateral Audi con una pieza. Guía de tensión y cortes.</span>
+                <div class="yt-lock">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+                </div>
+              </div>
+              <div class="yt-info">
+                <div class="yt-title">Instalación lateral audi con una pieza</div>
+              </div>
+            </div>
+            <div class="yt-video">
+              <div class="yt-thumbnail">
+                <span class="yt-thumbnail-text">Descripción: Análisis para golpes Audi, realización del corte perimetral.</span>
+                <div class="yt-lock">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+                </div>
+              </div>
+              <div class="yt-info">
+                <div class="yt-title">Análisis para golpes Audi, realización de...</div>
+              </div>
+            </div>
+            <div class="yt-video">
+              <div class="yt-thumbnail">
+                <span class="yt-thumbnail-text">Descripción: Parachoque trasero Audi - cambio de color y remates.</span>
+                <div class="yt-lock">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+                </div>
+              </div>
+              <div class="yt-info">
+                <div class="yt-title">Parachoque trasero Audi - cambio</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-shell">
+      <div class="tienda-banner">
+        <h3>Tienda Oficial TRACKCREATIVO</h3>
+        <p>Encuentra las herramientas, rasquetas y accesorios recomendados en nuestros cursos para lograr un acabado profesional sin complicaciones.</p>
+        <a href="#" class="offer-button offer-button-primary" style="margin-top: 14px;">Visitar la Tienda</a>
+      </div>
+
+      <div class="partnerships">
+        <h3>Partnerships & Sponsors</h3>
+        <p>Tenemos las puertas abiertas para colaborar con marcas del sector. Si tienes un producto que aporta valor real al instalador, queremos probarlo y mostrarlo en la comunidad.</p>
+        <a href="mailto:info@installersontrack.com" class="offer-button" style="margin-top: 14px;">Contactar para Colaboración</a>
+      </div>
+    </section>
   </main>
+
+  <!-- Modal de Vídeo -->
+  <div id="video-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" id="close-modal">&times;</button>
+      <div class="modal-layout">
+        <div class="modal-left">
+          <div class="modal-thumbnail">
+            <svg class="modal-lock" width="64" height="64" viewBox="0 0 24 24" fill="white"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+          </div>
+        </div>
+        <div class="modal-right">
+          <h2 class="modal-title">Regístrate para ver el contenido</h2>
+          <p class="modal-desc" id="modal-desc-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. . Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+          </p>
+          <a href="#" class="modal-link">Más información</a>
+          <div class="modal-buttons">
+            <a href="mi-cuenta.html" class="btn-orange">ACCEDER</a>
+            <a href="registro.html" class="btn-orange">DARME DE ALTA</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll("[data-flip-card]").forEach((control) => {
+      control.addEventListener("click", () => {
+        const card = control.closest(".offer-card");
+        card.classList.toggle("is-flipped");
+      });
+    });
+
+    // Lógica del Modal
+    const modal = document.getElementById("video-modal");
+    const closeModal = document.getElementById("close-modal");
+    const modalDescText = document.getElementById("modal-desc-text");
+
+    document.querySelectorAll(".yt-video").forEach((video) => {
+      video.addEventListener("click", () => {
+        const descSpan = video.querySelector(".yt-thumbnail-text");
+        const titleSpan = video.querySelector(".yt-title");
+        if (descSpan && titleSpan) {
+          modalDescText.innerHTML = "<strong>" + titleSpan.innerText + "</strong><br><br>" + descSpan.innerText + "<br><br>Regístrate o accede a tu cuenta para ver el curso completo, con el desglose paso a paso y todos los trucos de instalación.";
+        }
+        modal.classList.add("active");
+      });
+    });
+
+    closeModal.addEventListener("click", () => {
+      modal.classList.remove("active");
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.classList.remove("active");
+      }
+    });
+  </script>
 </body>
 </html>
