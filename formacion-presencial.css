@@ -163,6 +163,12 @@ a {
   transform: translateY(-2px);
 }
 
+.header-cta.is-active,
+.header-ghost.is-active {
+  border-color: rgba(255, 166, 0, 0.38);
+  box-shadow: 0 14px 26px rgba(255, 106, 0, 0.18);
+}
+
 .header-nav-row {
   width: 100%;
   padding-top: 4px;
@@ -394,7 +400,7 @@ h1 {
 }
 
 .course-copy h1 {
-  max-width: 9ch;
+  max-width: 16ch;
 }
 
 .course-alert {
@@ -669,38 +675,60 @@ h1 {
     position: static;
   }
 
+  .header-inner {
+    gap: 10px;
+    padding: 12px 0 14px;
+  }
+
+  .header-top {
+    gap: 12px;
+  }
+
   .header-actions {
     width: 100%;
     flex-direction: column;
+    gap: 8px;
     margin-left: 0;
   }
 
   .header-cta,
   .header-ghost {
     width: 100%;
+    min-height: 42px;
+    border-radius: 12px;
+    font-size: 0.86rem;
+  }
+
+  .brand-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
   }
 
   .brand-name {
-    font-size: 1.7rem;
+    font-size: 1.42rem;
   }
 
   .brand-tag {
     white-space: normal;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
   }
 
   .nav {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    font-size: 0.84rem;
+    gap: 8px;
+    font-size: 0.76rem;
     overflow: visible;
+    padding-top: 8px;
     padding-bottom: 0;
     flex-wrap: initial;
   }
 
   .nav a {
-    min-height: 54px;
-    padding: 0 14px;
+    min-height: 50px;
+    padding: 0 10px;
     white-space: normal;
     text-align: center;
     line-height: 1.2;
