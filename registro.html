@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="placeholder.css">
+  <link rel="stylesheet" href="site-header.css">
   <style>
     .form-group {
       text-align: left;
@@ -53,44 +54,43 @@
       color: var(--yellow);
       text-decoration: underline;
     }
-    .btn-back-corner {
-      position: absolute;
-      top: 24px;
-      left: 24px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 18px;
-      border-radius: 12px;
-      background: rgba(255, 106, 0, 0.15);
-      border: 1px solid var(--orange, #ff6a00);
-      color: var(--orange, #ff6a00);
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 700;
-      transition: all 0.2s ease;
-      z-index: 10;
-    }
-    .btn-back-corner:hover {
-      background: var(--orange, #ff6a00);
-      color: #000;
-      transform: translateX(-4px);
-    }
-    @media (max-width: 600px) {
-      .btn-back-corner { top: 12px; left: 12px; padding: 8px 14px; font-size: 0.85rem; }
-    }
   </style>
 </head>
 <body>
-  <a href="javascript:history.back()" class="btn-back-corner">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-    Regresar
-  </a>
+  <header class="site-header">
+    <div class="page-shell header-inner">
+      <div class="header-top">
+        <a class="brand" href="index.html" aria-label="Ir al inicio">
+          <img class="brand-logo" src="logo.jpg" alt="Logo de INSTALLERSONTRUCK">
+          <div class="brand-copy">
+            <div class="brand-name">INSTALLERSONTRUCK</div>
+            <div class="brand-tag">Wrapping cars y sus derivados</div>
+          </div>
+        </a>
+
+        <div class="header-actions">
+          <a class="header-cta" href="mi-cuenta.html">Mi cuenta</a>
+          <a class="header-ghost is-active" href="registro.html" aria-current="page">Registro</a>
+        </div>
+      </div>
+
+      <div class="header-nav-row">
+        <nav class="nav" aria-label="Principal">
+          <a href="index.html">Home</a>
+          <a href="sobre-nosotros.html">Sobre nosotros</a>
+          <a href="formacion-presencial.html">Formación presencial</a>
+          <a href="formacion-suscripcion.html">Formación por suscripción</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
   <main class="placeholder-page">
     <div class="placeholder-card" style="max-width: 540px;">
-      <span class="placeholder-eyebrow">Únete a la Comunidad</span>
+      <span class="placeholder-eyebrow">Únete a la comunidad</span>
       <h1 style="font-size: clamp(2.5rem, 8vw, 4rem);">Crea tu cuenta</h1>
-      <p style="margin-bottom: 32px;">Regístrate para acceder a los cursos gratuitos de PPF y Cambio de Color.</p>
+      <p style="margin-bottom: 32px;">Regístrate para acceder a los cursos gratuitos de PPF y cambio de color.</p>
       
       <form action="#" method="POST" onsubmit="event.preventDefault();">
         <div class="form-group">
@@ -110,7 +110,7 @@
 
         <div class="form-checkbox">
           <input type="checkbox" id="terms" required>
-          <label for="terms">Acepto los <a href="#">Términos y Condiciones de Venta</a> y la política de privacidad de Track Creativo.</label>
+          <label for="terms">Acepto los <a href="#">términos y condiciones de venta</a> y la política de privacidad de Track Creativo.</label>
         </div>
 
         <button type="submit" class="placeholder-button" style="width: 100%; border: none; cursor: pointer;">

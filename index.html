@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="INSTALLERSONTRUCK es una academia y comunidad de wrapping en Madrid para aprender, perfeccionar tecnica y convertir una pasion en un camino profesional.">
+  <meta name="description" content="INSTALLERSONTRUCK es una academia y comunidad de wrapping en Madrid para aprender, perfeccionar técnica y convertir una pasión en un camino profesional.">
   <meta name="theme-color" content="#050505">
   <title>INSTALLERSONTRUCK | Academia de Wrapping</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -296,6 +296,12 @@
       transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
     }
 
+    .header-cta.is-active,
+    .header-ghost.is-active {
+      border-color: rgba(255, 166, 0, 0.38);
+      box-shadow: 0 14px 26px rgba(255, 106, 0, 0.18);
+    }
+
     .hero {
       padding: 64px 0 42px;
     }
@@ -330,21 +336,21 @@
       box-shadow: 0 0 18px rgba(255, 191, 31, 0.8);
     }
 
-    .hero-copy h1 {
-      margin: 22px 0 18px;
-      font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(4rem, 11vw, 7.5rem);
-      line-height: 0.88;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      max-width: 10ch;
-    }
+.hero-copy h1 {
+  margin: 22px 0 18px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(4rem, 11vw, 7.5rem);
+  line-height: 0.88;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  max-width: 10ch;
+}
 
-    .hero-copy h1 .outline {
-      display: block;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(246, 240, 232, 0.72);
-    }
+.hero-copy h1 .outline {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(246, 240, 232, 0.72);
+}
 
     .hero-copy p {
       margin: 0;
@@ -578,15 +584,15 @@
       display: block;
     }
 
-    .section-title {
-      margin: 0;
-      font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(2.5rem, 7vw, 4.4rem);
-      line-height: 0.92;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      max-width: 10ch;
-    }
+.section-title {
+  margin: 0;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2.5rem, 7vw, 4.4rem);
+  line-height: 0.92;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  max-width: 20ch;
+}
 
     .section-intro {
       margin: 0;
@@ -1255,16 +1261,33 @@
         position: static;
       }
 
+      .header-inner {
+        gap: 10px;
+        padding: 12px 0 14px;
+      }
+
+      .header-top {
+        gap: 12px;
+      }
+
       .hero {
         padding-top: 32px;
       }
 
+      .brand-logo {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+      }
+
       .brand-name {
-        font-size: 1.7rem;
+        font-size: 1.42rem;
       }
 
       .brand-tag {
         white-space: normal;
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
       }
 
       .hero-grid {
@@ -1292,32 +1315,40 @@
       .header-actions {
         width: 100%;
         flex-direction: column;
+        gap: 8px;
         margin-left: 0;
       }
 
       .header-cta {
         width: 100%;
+        min-height: 42px;
+        border-radius: 12px;
+        font-size: 0.86rem;
         justify-content: center;
       }
 
       .header-ghost {
         width: 100%;
+        min-height: 42px;
+        border-radius: 12px;
+        font-size: 0.86rem;
         justify-content: center;
       }
 
       .nav {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-        font-size: 0.84rem;
+        gap: 8px;
+        font-size: 0.76rem;
         overflow: visible;
+        padding-top: 8px;
         padding-bottom: 0;
         flex-wrap: initial;
       }
 
       .nav a {
-        min-height: 54px;
-        padding: 0 14px;
+        min-height: 50px;
+        padding: 0 10px;
         white-space: normal;
         text-align: center;
         line-height: 1.2;
@@ -1379,6 +1410,46 @@
       .panel-copy {
         padding: 22px;
       }
+
+      .offer-card,
+      .offer-card-inner {
+        min-height: auto;
+      }
+
+      .offer-card-inner {
+        transform-style: flat;
+        transition: none;
+      }
+
+      .offer-card.is-flipped .offer-card-inner {
+        transform: none;
+      }
+
+      .offer-face {
+        position: relative;
+        inset: auto;
+        min-height: auto;
+        backface-visibility: visible;
+        -webkit-backface-visibility: visible;
+      }
+
+      .offer-front {
+        min-height: 360px;
+      }
+
+      .offer-back {
+        display: none;
+        transform: none;
+        overflow: visible;
+      }
+
+      .offer-card.is-flipped .offer-front {
+        display: none;
+      }
+
+      .offer-card.is-flipped .offer-back {
+        display: flex;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1399,34 +1470,34 @@
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="page-shell header-inner">
-      <div class="header-top">
-        <a class="brand" href="index.html" aria-label="Ir al inicio">
-          <img class="brand-logo" src="logo.jpg" alt="Logo de INSTALLERSONTRUCK">
-          <div class="brand-copy">
-            <div class="brand-name">INSTALLERSONTRUCK</div>
-            <div class="brand-tag">Wrapping cars y sus derivados</div>
-          </div>
-        </a>
-
-        <div class="header-actions">
-          <a class="header-cta" href="mi-cuenta.html">Mi cuenta</a>
-          <a class="header-ghost" href="registro.html">Registro</a>
+<header class="site-header">
+  <div class="page-shell header-inner">
+    <div class="header-top">
+      <a class="brand" href="index.html" aria-label="Ir al inicio">
+        <img class="brand-logo" src="logo.jpg" alt="Logo de INSTALLERSONTRUCK">
+        <div class="brand-copy">
+          <div class="brand-name">INSTALLERSONTRUCK</div>
+          <div class="brand-tag">Wrapping cars y sus derivados</div>
         </div>
-      </div>
+      </a>
 
-      <div class="header-nav-row">
-        <nav class="nav" aria-label="Principal">
-          <a class="is-active" href="index.html">Home</a>
-          <a href="sobre-nosotros.html">Sobre nosotros</a>
-          <a href="formacion-presencial.html">Formacion presencial</a>
-          <a href="formacion-suscripcion.html">Formacion por suscripcion</a>
-          <a href="contacto.html">Contacto</a>
-        </nav>
+      <div class="header-actions">
+        <a class="header-cta" href="mi-cuenta.html">Mi cuenta</a>
+        <a class="header-ghost" href="registro.html">Registro</a>
       </div>
     </div>
-  </header>
+
+    <div class="header-nav-row">
+      <nav class="nav" aria-label="Principal">
+        <a class="is-active" href="index.html" aria-current="page">Home</a>
+        <a href="sobre-nosotros.html">Sobre nosotros</a>
+        <a href="formacion-presencial.html">Formación presencial</a>
+        <a href="formacion-suscripcion.html">Formación por suscripción</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </div>
+</header>
 
   <main id="inicio">
     <section class="hero">
@@ -1440,7 +1511,7 @@
           </h1>
           <p>
             INSTALLERSONTRUCK convierte el wrapping en una experiencia de taller, masterclass y
-            comunidad. Aqui se viene a mejorar tecnica, ganar criterio y dar pasos reales hacia una salida profesional
+            comunidad. Aquí se viene a mejorar técnica, ganar criterio y dar pasos reales hacia una salida profesional
             dentro del sector.
           </p>
 
@@ -1454,7 +1525,7 @@
         <div class="hero-visual" data-reveal>
           <div class="hero-stack">
             <figure class="visual-card visual-main">
-              <img src="Captura de pantalla 2026-05-08 133438.png" alt="Aplicacion de vinilo morado en la puerta de un coche">
+              <img src="Captura de pantalla 2026-05-08 133438.png" alt="Aplicación de vinilo morado en la puerta de un coche">
             </figure>
 
             <figure class="visual-card visual-side">
@@ -1467,8 +1538,8 @@
 
             <div class="visual-badge">
               <span class="card-kicker">Installer School</span>
-              <strong>Formacion con olor a taller</strong>
-              <p>Superficies reales, remates finos, curvaturas, tension y decisiones que solo se aprenden haciendolo.</p>
+              <strong>Formación con olor a taller</strong>
+              <p>Superficies reales, remates finos, curvaturas, tensión y decisiones que solo se aprenden haciéndolo.</p>
             </div>
 
             <div class="visual-note">
@@ -1482,7 +1553,7 @@
         <div class="mini-points">
           <div class="mini-point">
             <strong>185K+</strong>
-            <span>Seguidores sumando todas las redes sociales, atentos al trabajo, las clases y el dia a dia del taller.</span>
+            <span>Seguidores sumando todas las redes sociales, atentos al trabajo, las clases y el día a día del taller.</span>
           </div>
           <div class="mini-point">
             <strong>+600</strong>
@@ -1490,11 +1561,11 @@
           </div>
           <div class="mini-point">
             <strong>+300</strong>
-            <span>Videos disponibles en la plataforma web para seguir aprendiendo con contenido tecnico y practico.</span>
+            <span>Vídeos disponibles en la plataforma web para seguir aprendiendo con contenido técnico y práctico.</span>
           </div>
           <div class="mini-point">
             <strong>A diario</strong>
-            <span>Contenido renovado constantemente con nuevas explicaciones, recursos y material util cada dia.</span>
+            <span>Contenido renovado constantemente con nuevas explicaciones, recursos y material útil cada día.</span>
           </div>
         </div>
       </div>
@@ -1519,13 +1590,13 @@
       <div class="page-shell">
         <div class="section-top" data-reveal>
           <div>
-            <span class="section-label">Metodo</span>
+            <span class="section-label">Método</span>
             <h2 class="section-title">Aprender, practicar y elevar el nivel</h2>
           </div>
           <p class="section-intro">
-            No es solo un aprendizaje tecnico. Quien llega con experiencia mejora procesos, pule remates y gana mas
+            No es solo un aprendizaje técnico. Quien llega con experiencia mejora procesos, pule remates y gana más
             seguridad en cada trabajo; y quien empieza desde cero encuentra una forma real de convertir lo que le gusta
-            en un camino profesional. INSTALLERSONTRUCK acompaña ese avance con practica, criterio de taller y una
+            en un camino profesional. INSTALLERSONTRUCK acompaña ese avance con práctica, criterio de taller y una
             comunidad que ayuda a encontrar sitio dentro del sector.
           </p>
         </div>
@@ -1538,29 +1609,29 @@
               <div class="method-item">
                 <div class="method-number">01</div>
                 <div>
-                  <strong>Base tecnica</strong>
-                  <p>Aqui no se memoriza por repetir: se entiende el comportamiento real del material. Trabajamos tolerancias en PPF, PPF color, vinilos fundidos e hibridos, comparando fortalezas y limites de 8 marcas para formar instaladores con criterio multimarca desde el principio.</p>
+                  <strong>Base técnica</strong>
+                  <p>Aquí no memorizas, entiendes el material. Trabajamos con tolerancias en PPF, vinilos e híbridos comparando 8 marcas para formarte con criterio multimarca.</p>
                 </div>
               </div>
               <div class="method-item">
                 <div class="method-number">02</div>
                 <div>
                   <strong>Trabajo real</strong>
-                  <p>Lo que se transmite nace del oficio de verdad: 19 a&ntilde;os de experiencia, formadores que siguen haciendo coches de manera constante y una vision enriquecida por colaboraciones con otras academias y relaciones activas con marcas multinacionales.</p>
+                  <p>Formación basada en el oficio real con 19 años de experiencia. Formadores en activo y una visión conectada a marcas líderes y academias internacionales.</p>
                 </div>
               </div>
               <div class="method-item">
                 <div class="method-number">03</div>
                 <div>
                   <strong>Acabado profesional</strong>
-                  <p>No solo se ense&ntilde;a tecnica: se entrena la actitud que pide este oficio. Aprendes a resolver con cabeza, gestionar la frustracion cuando la pieza se complica y sostener un nivel profesional en el acabado, no solo en la ejecucion.</p>
+                  <p>Entrenamos la actitud que exige el oficio: aprenderás a resolver bajo presión, gestionar la frustración en piezas críticas y garantizar la máxima excelencia técnica.</p>
                 </div>
               </div>
               <div class="method-item">
                 <div class="method-number">04</div>
                 <div>
                   <strong>Escena y networking</strong>
-                  <p>Entrar aqui es quedarse dentro de una red. Se crea un grupo con contacto continuo, conexion directa con Luis Vizcarrondo, relacion con marcas y Wrap Days publicos cada dos meses junto a instaladores que ya han pasado por la formacion para seguir creciendo y abrir puertas incluso a nivel internacional.</p>
+                  <p>Entrar aquí es unirse a una red activa: contacto continuo con Luis Vizcarrondo, Wrap Days bimensuales con antiguos alumnos y conexiones con marcas que abren puertas internacionales.</p>
                 </div>
               </div>
             </div>
@@ -1570,7 +1641,7 @@
             <img src="Captura de pantalla 2026-05-08 142551.png" alt="Instructor mostrando un coche rotulado durante una masterclass">
             <div class="method-quote">
               <strong>Habla con hechos</strong>
-              <p>INSTALLERSONTRUCK transmite tecnica visible, energia real y mucha presencia en cada proyecto que toca.</p>
+              <p>INSTALLERSONTRUCK transmite técnica visible, energía real y mucha presencia en cada proyecto que toca.</p>
             </div>
           </article>
         </div>
@@ -1582,10 +1653,10 @@
         <div class="section-top" data-reveal>
           <div>
             <span class="section-label">Experiencia</span>
-            <h2 class="section-title">Cuatro formas de vivir INSTALLERSONTRUCK</h2>
+            <h2 class="section-title">Cuatro formas<br>de vivir INSTALLERSONTRUCK</h2>
           </div>
           <p class="section-intro">
-            Formacion presencial por niveles, contenido online que alarga el aprendizaje, eventos con visibilidad real
+            Formación presencial por niveles, contenido online que alarga el aprendizaje, eventos con visibilidad real
             y colaboraciones con marcas que quieren sumar dentro del oficio.
           </p>
         </div>
@@ -1594,35 +1665,35 @@
           <article class="offer-card" data-reveal>
             <div class="offer-card-inner">
               <div class="offer-face offer-front">
-                <img src="Captura de pantalla 2026-05-08 142731.png" alt="Aplicacion de wrapping rojo en el frontal de un coche">
-                <span class="offer-tag">Formacion</span>
+                <img src="Captura de pantalla 2026-05-08 142731.png" alt="Aplicación de wrapping rojo en el frontal de un coche">
+                <span class="offer-tag">Formación</span>
                 <h3>Presenciales</h3>
-                <p>Grupos reducidos, rutas por nivel y una formacion pensada para avanzar con criterio real de taller.</p>
+                <p>Grupos reducidos, rutas por nivel y una formación pensada para avanzar con criterio real de taller.</p>
                 <div class="offer-actions">
-                  <button class="offer-button offer-button-primary" type="button" data-flip-card aria-expanded="false">Ver mas info</button>
+                  <button class="offer-button offer-button-primary" type="button" data-flip-card aria-expanded="false">Ver más info</button>
                 </div>
               </div>
 
               <div class="offer-face offer-back">
-                <span class="offer-tag">Proximas fechas</span>
+                <span class="offer-tag">Próximas fechas</span>
                 <h3>Presenciales</h3>
-                <p>Cuatro formaciones muy enfocadas, con pocas plazas y seguimiento cercano para que cada dia cuente.</p>
+                <p>Cuatro formaciones muy enfocadas, con pocas plazas y seguimiento cercano para que cada día cuente.</p>
                 <div class="offer-detail-list">
                   <div class="offer-detail-item">
                     <strong>Wrap intermedio</strong>
-                    <span>Cambio de color con 8 marcas, fundidos, hibridos y PPF color. 3 dias - max 7 plazas.</span>
+                    <span>Cambio de color con 8 marcas, fundidos, híbridos y PPF color. 3 días - máx. 7 plazas.</span>
                   </div>
                   <div class="offer-detail-item">
                     <strong>Wrap avanzado</strong>
-                    <span>Umbrales, puertas internas y parachoques con mayor complejidad. 3 dias - max 2 plazas.</span>
+                    <span>Umbrales, puertas internas y parachoques con mayor complejidad. 3 días - máx. 2 plazas.</span>
                   </div>
                   <div class="offer-detail-item">
-                    <strong>Formacion PPF</strong>
-                    <span>Tres marcas, trabajo en bruto y precorte, clear PPF y color PPF. 3 dias - max 3 plazas.</span>
+                    <strong>Formación PPF</strong>
+                    <span>Tres marcas, trabajo en bruto y precorte, clear PPF y color PPF. 3 días - máx. 3 plazas.</span>
                   </div>
                   <div class="offer-detail-item">
                     <strong>Tintado de lunas</strong>
-                    <span>Metodo en bruto y con plantilla para salir con una base aplicable de verdad. 2 dias - max 3 plazas.</span>
+                    <span>Método en bruto y con plantilla para salir con una base aplicable de verdad. 2 días - máx. 3 plazas.</span>
                   </div>
                 </div>
                 <div class="offer-actions">
@@ -1635,19 +1706,19 @@
           <article class="offer-card" data-reveal>
             <div class="offer-card-inner">
               <div class="offer-face offer-front">
-                <img src="Captura de pantalla 2026-05-08 142703.png" alt="Demostracion profesional de wrapping en un evento">
+                <img src="Captura de pantalla 2026-05-08 142703.png" alt="Demostración profesional de wrapping en un evento">
                 <span class="offer-tag">Escena</span>
                 <h3>Eventos</h3>
-                <p>Presencia en citas potentes del sector y un formato propio para seguir conectando tecnica, personas y oportunidades.</p>
+                <p>Presencia en citas potentes del sector y un formato propio para seguir conectando técnica, personas y oportunidades.</p>
                 <div class="offer-actions">
-                  <button class="offer-button offer-button-primary" type="button" data-flip-card aria-expanded="false">Ver mas info</button>
+                  <button class="offer-button offer-button-primary" type="button" data-flip-card aria-expanded="false">Ver más info</button>
                 </div>
               </div>
 
               <div class="offer-face offer-back">
                 <span class="offer-tag">Destacados</span>
                 <h3>Eventos</h3>
-                <p>La formacion se proyecta tambien fuera del aula, con presencia en ferias y encuentros donde se mueve la industria.</p>
+                <p>La formación se proyecta también fuera del aula, con presencia en ferias y encuentros donde se mueve la industria.</p>
                 <div class="offer-detail-list">
                   <div class="offer-detail-item">
                     <strong>Agenda de referencia</strong>
@@ -1668,23 +1739,23 @@
           <article class="offer-card" data-reveal>
             <div class="offer-card-inner">
               <div class="offer-face offer-front">
-                <img src="Captura de pantalla 2026-05-08 133438.png" alt="Aplicacion de vinilo morado en la puerta de un coche">
+                <img src="Captura de pantalla 2026-05-08 133438.png" alt="Aplicación de vinilo morado en la puerta de un coche">
                 <span class="offer-tag">Comunidad</span>
                 <h3>YouTube</h3>
-                <p>El aprendizaje no acaba al salir del curso: sigue en videos, procesos reales y una comunidad que se mantiene activa.</p>
+                <p>El aprendizaje no acaba al salir del curso: sigue en vídeos, procesos reales y una comunidad que se mantiene activa.</p>
                 <div class="offer-actions">
-                  <button class="offer-button offer-button-primary" type="button" data-flip-card aria-expanded="false">Ver mas info</button>
+                  <button class="offer-button offer-button-primary" type="button" data-flip-card aria-expanded="false">Ver más info</button>
                 </div>
               </div>
 
               <div class="offer-face offer-back">
                 <span class="offer-tag">Contenido online</span>
                 <h3>YouTube</h3>
-                <p>El canal de YouTube prolonga la formacion con videos completos, procesos reales y contenido que ayuda a seguir afinando tecnica tambien fuera del taller.</p>
+                <p>El canal de YouTube prolonga la formación con vídeos completos, procesos reales y contenido que ayuda a seguir afinando técnica también fuera del taller.</p>
                 <div class="offer-detail-list">
                   <div class="offer-detail-item">
                     <strong>Contenido que suma</strong>
-                    <span>Una extension natural de la experiencia para aprender, inspirarse y seguir conectado al dia a dia del wrapping.</span>
+                    <span>Una extensión natural de la experiencia para aprender, inspirarse y seguir conectado al día a día del wrapping.</span>
                   </div>
                 </div>
                 <div class="offer-actions">
@@ -1701,9 +1772,9 @@
                 <img src="Captura de pantalla 2026-05-08 142039.png" alt="Reflejo de luces hexagonales sobre un coche gris">
                 <span class="offer-tag">Marca</span>
                 <h3>Colaboraciones</h3>
-                <p>Un espacio pensado para trabajar con marcas que quieren estar presentes de forma util y creible dentro del sector.</p>
+                <p>Un espacio pensado para trabajar con marcas que quieren estar presentes de forma útil y creíble dentro del sector.</p>
                 <div class="offer-actions">
-                  <button class="offer-button offer-button-primary" type="button" data-flip-card aria-expanded="false">Ver mas info</button>
+                  <button class="offer-button offer-button-primary" type="button" data-flip-card aria-expanded="false">Ver más info</button>
                 </div>
               </div>
 
@@ -1732,12 +1803,12 @@
 
         <div class="proof-band">
               <div class="proof-item" data-reveal>
-            <strong>Tecnica clara</strong>
-            <span>Conceptos explicados con enfoque practico para que cada gesto tenga sentido en trabajo real.</span>
+            <strong>Técnica clara</strong>
+            <span>Conceptos explicados con enfoque práctico para que cada gesto tenga sentido en trabajo real.</span>
           </div>
           <div class="proof-item" data-reveal>
             <strong>Material real</strong>
-            <span>Coches, piezas y superficies que obligan a resolver con precision de taller, no con teoria vacia.</span>
+            <span>Coches, piezas y superficies que obligan a resolver con precisión de taller, no con teoría vacía.</span>
           </div>
           <div class="proof-item" data-reveal>
             <strong>Comunidad activa</strong>
@@ -1756,7 +1827,7 @@
         <div class="section-top" data-reveal>
           <div>
             <span class="section-label">Galeria</span>
-            <h2 class="section-title">Trabajo fino, escena global y mucho detalle</h2>
+            <h2 class="section-title">Trabajo fino,<br>escena global y<br>mucho detalle</h2>
           </div>
           <p class="section-intro">
 Convertir una pasión en un camino profesional, desarrollando habilidades, adquiriendo experiencia y creciendo constantemente hasta lograr vivir de aquello que realmente motiva e inspira.
@@ -1784,10 +1855,10 @@ Convertir una pasión en un camino profesional, desarrollando habilidades, adqui
             </article>
 
             <article class="gallery-card medium" data-reveal>
-              <img src="Captura de pantalla 2026-05-08 142731.png" alt="Aplicacion de vinilo rojo sobre un coche blanco">
+              <img src="Captura de pantalla 2026-05-08 142731.png" alt="Aplicación de vinilo rojo sobre un coche blanco">
               <div class="gallery-overlay">
-                <strong>Tension, precision, remate</strong>
-                <p>El tipo de gesto tecnico que convierte una clase normal en una experiencia memorable.</p>
+                <strong>Tensión, precisión, remate</strong>
+                <p>El tipo de gesto técnico que convierte una clase normal en una experiencia memorable.</p>
               </div>
             </article>
           </div>
@@ -1800,7 +1871,7 @@ Convertir una pasión en un camino profesional, desarrollando habilidades, adqui
   <footer class="site-footer">
     <div class="page-shell footer-line">
       <span>INSTALLERSONTRUCK | Academia, masterclass y comunidad de wrapping.</span>
-      <span>Madrid, Espa&ntilde;a | Marca orientada a tecnica y salida profesional.</span>
+      <span>Madrid, Espa&ntilde;a | Marca orientada a técnica y salida profesional.</span>
     </div>
   </footer>
 

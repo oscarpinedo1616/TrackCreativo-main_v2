@@ -3,53 +3,353 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conoce la historia, los valores y la trayectoria detrás de INSTALLERSONTRUCK.">
+  <meta name="theme-color" content="#050505">
   <title>Sobre nosotros | INSTALLERSONTRUCK</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="placeholder.css">
   <style>
-    .about-content { text-align: left; margin-top: 32px; }
-    .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
-    .about-card { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--line); padding: 24px; border-radius: 20px; }
-    .about-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--orange); margin: 0 0 10px 0; letter-spacing: 0.05em; }
-    .about-card p { margin: 0; font-size: 0.95rem; max-width: 100%; }
+    :root {
+      --bg: #050505;
+      --bg-soft: #111111;
+      --panel: rgba(17, 17, 17, 0.6);
+      --line: rgba(255, 106, 0, 0.15); /* Líneas sutiles integradas con el tono naranja */
+      --text: #f6f0e8;
+      --muted: #c2baae;
+      --orange: #ff6a00;
+      --orange-rgb: 255, 106, 0;
+      --yellow: #ffbf1f;
+      --magenta: #ff2cb4;
+      --shadow: 0 22px 60px rgba(0, 0, 0, 0.6);
+      --max: 1100px;
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 15%, rgba(var(--orange-rgb), 0.25), transparent 30%),
+        radial-gradient(circle at 85% 40%, rgba(255, 191, 31, 0.15), transparent 25%),
+        radial-gradient(circle at 50% 85%, rgba(var(--orange-rgb), 0.18), transparent 35%),
+        linear-gradient(135deg, #030303, #0d0d0d 60%, #040404);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Malla geométrica de fondo copiada del index */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 106, 0, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 106, 0, 0.02) 1px, transparent 1px);
+      background-size: 82px 82px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, transparent 95%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .main-wrapper {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+      padding: 60px 0 100px;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      color: var(--yellow);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .section-eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 10px var(--orange);
+    }
+
+    /* Títulos monumentales con el estilo del index */
+    h1 {
+      margin: 0 0 30px 0;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(3.5rem, 9vw, 6.5rem);
+      line-height: 0.85;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    h1 .orange-stroke {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--orange);
+    }
+
+    .main-intro {
+      font-size: 1.25rem;
+      line-height: 1.75;
+      color: #eae3d8;
+      max-width: 85ch;
+      margin-bottom: 60px;
+    }
+
+    /* Cuadrícula de Atributos de Marca */
+    .brand-values {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      margin-bottom: 70px;
+    }
+
+    @media (max-width: 858px) {
+      .brand-values { grid-template-columns: 1fr; }
+    }
+
+    .value-box {
+      padding: 32px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255, 106, 0, 0.06), rgba(0, 0, 0, 0.3));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .value-box:hover {
+      border-color: rgba(var(--orange-rgb), 0.4);
+      transform: translateY(-4px);
+    }
+
+    .value-box strong {
+      display: block;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 1.9rem;
+      letter-spacing: 0.05em;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+
+    .value-box p {
+      margin: 0;
+      font-size: 0.98rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Bloque Estilo Panel de Contenido */
+    .narrative-panel {
+      background: linear-gradient(135deg, rgba(15, 15, 15, 0.8), rgba(5, 5, 5, 0.9));
+      border: 1px solid rgba(255, 106, 0, 0.12);
+      border-radius: var(--radius);
+      padding: 45px;
+      margin-bottom: 70px;
+      position: relative;
+    }
+
+    .narrative-panel::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 45px;
+      width: 80px;
+      height: 3px;
+      background: var(--orange);
+      box-shadow: 0 0 12px var(--orange);
+    }
+
+    .narrative-panel h2 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 2.4rem;
+      letter-spacing: 0.04em;
+      margin: 0 0 20px 0;
+      color: #fff;
+    }
+
+    .narrative-panel p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #dfd7cb;
+      margin: 0 0 20px 0;
+    }
+
+    .narrative-panel p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Grid de Pilares Metodológicos */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    @media (max-width: 680px) {
+      .pillars-grid { grid-template-columns: 1fr; }
+    }
+
+    .pillar-card {
+      display: flex;
+      gap: 18px;
+      padding: 24px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    .pillar-card:hover {
+      background: rgba(var(--orange-rgb), 0.02);
+      border-color: rgba(var(--orange-rgb), 0.15);
+    }
+
+    .pillar-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--orange);
+      margin-top: 6px;
+      flex-shrink: 0;
+      box-shadow: 0 0 10px var(--orange);
+    }
+
+    .pillar-card strong {
+      display: block;
+      color: #fff;
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .pillar-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+    }
   </style>
+  <link rel="stylesheet" href="site-header.css">
 </head>
 <body>
-  <main class="placeholder-page">
-    <div class="placeholder-card">
-      <span class="placeholder-eyebrow">Nuestra Historia</span>
-      <h1>La primera academia de habla hispana</h1>
-      
-      <div class="about-content">
-        <p style="max-width: 100%; text-align: justify;">
-          <strong>INSTALLERSONTRUCK</strong> (Track Creativo) nace con un propósito claro: profesionalizar el sector del Car Wrapping y sus derivados en el mercado de habla hispana. No somos solo instructores; somos instaladores activos que entienden los dolores del taller diario, la tensión del material y las exigencias de un acabado impecable. 
-        </p>
-        <p style="max-width: 100%; text-align: justify; margin-top: 14px;">
-          Enfocamos el aprendizaje desde tres puntos de vista clave: como empleado altamente cualificado, como dueño de negocio rentable y como un servicio externalizado premium. Aquí vienes a dominar la técnica y a transformar tu pasión en un camino financiero real.
-        </p>
+  <header class="site-header">
+    <div class="page-shell header-inner">
+      <div class="header-top">
+        <a class="brand" href="index.html" aria-label="Ir al inicio">
+          <img class="brand-logo" src="logo.jpg" alt="Logo de INSTALLERSONTRUCK">
+          <div class="brand-copy">
+            <div class="brand-name">INSTALLERSONTRUCK</div>
+            <div class="brand-tag">Wrapping cars y sus derivados</div>
+          </div>
+        </a>
 
-        <div class="about-grid">
-          <div class="about-card">
-            <h3>Actividad en Alza</h3>
-            <p>El Wrapping y la protección vehicular están en pleno crecimiento global. Un sector con alta demanda y poca mano de obra cualificada.</p>
-          </div>
-          <div class="about-card">
-            <h3>Oficio Valorado</h3>
-            <p>Aprende una habilidad técnica cotizada muy por encima de la media del sector de la automoción tradicional.</p>
-          </div>
-          <div class="about-card">
-            <h3>Libertad Geográfica</h3>
-            <p>Domina los fundamentos universales del vinilo y ejerce con soltura en cualquier taller o proyecto del mundo.</p>
-          </div>
+        <div class="header-actions">
+          <a class="header-cta" href="mi-cuenta.html">Mi cuenta</a>
+          <a class="header-ghost" href="registro.html">Registro</a>
         </div>
       </div>
 
-      <div style="margin-top: 40px;">
-        <a class="placeholder-button" href="index.html">Volver a home</a>
+      <div class="header-nav-row">
+        <nav class="nav" aria-label="Principal">
+          <a href="index.html">Home</a>
+          <a class="is-active" href="sobre-nosotros.html" aria-current="page">Sobre nosotros</a>
+          <a href="formacion-presencial.html">Formación presencial</a>
+          <a href="formacion-suscripcion.html">Formación por suscripción</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
       </div>
     </div>
-  </main>
+  </header>
+
+  <div class="main-wrapper">
+    <main>
+      <span class="section-eyebrow">Trayectoria e identidad</span>
+      <h1>
+        Instaladores en camino
+        <span class="orange-stroke">Nuestra Historia</span>
+      </h1>
+
+      <p class="main-intro">
+        INSTALLERSONTRUCK es el resultado directo de una larga, compleja y exigente trayectoria inmersa en el mundo de las artes gráficas y sus distintas variantes. Un recorrido forjado a base de carácter, criterio y una búsqueda incansable del remate técnico excelente.
+      </p>
+
+      <section class="brand-values">
+        <div class="value-box">
+          <strong>Fiel a nuestros valores</strong>
+          <p>Mantenerse firme en lo que uno cree y proyectar de forma transparente cada acción hacia ese nivel de exigencia profesional.</p>
+        </div>
+        <div class="value-box">
+          <strong>Pasión por Enseñar</strong>
+          <p>Amor absoluto por el arte del wrapping y, por encima de todo, por transmitir el conocimiento técnico de boxes sin secretos.</p>
+        </div>
+        <div class="value-box">
+          <strong>Evolución Abierta</strong>
+          <p>Una ventana creada para dar claridad, resolver dudas reales y agrupar a una comunidad que requería un punto de encuentro profesional.</p>
+        </div>
+      </section>
+
+      <section class="narrative-panel">
+        <h2>Aprender desde la carencia</h2>
+        <p>
+          Mi historia en este sector comenzó instalando vinilos publicitarios en quioscos de manera alternativa a mis estudios universitarios de Administración de Empresas. Aquel aprendizaje inicial fue solitario, tosco y, en muchas ocasiones, profundamente frustrante. No existían las academias dedicadas ni los contenidos estructurados de hoy en día.
+        </p>
+        <p>
+          Sin embargo, el ímpetu y la determinación jugaron un papel clave. Aprender de forma autodidacta y desde la falta de recursos te otorga un beneficio incomparable: te enseña a detectar exactamente qué información se necesita y cómo estructurar los flujos de trabajo para solventar cualquier problema técnico en tiempo real en el taller.
+        </p>
+      </section>
+
+      <section class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-indicator"></div>
+          <div>
+            <strong>Perfeccionista por Defecto</strong>
+            <p>Poner cuidado, atención y cariño absoluto a cada detalle para llevar los acabados lo más cerca posible de la perfección exigida.</p>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-indicator"></div>
+          <div>
+            <strong>Innovación Constante</strong>
+            <p>Implementar dinámicas metodológicas nuevas en cada curso para asegurar que tanto los alumnos como el equipo sigamos evolucionando.</p>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-indicator"></div>
+          <div>
+            <strong>Espíritu Solidario</strong>
+            <p>Creemos en el soporte mutuo, el compañerismo en boxes y el crecimiento colectivo dentro de la comunidad internacional de instaladores.</p>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-indicator"></div>
+          <div>
+            <strong>Retroalimentación Activa</strong>
+            <p>Capacidad constante de absorber y aprender del entorno, de los nuevos materiales del mercado y de las experiencias compartidas de los estudiantes.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+  </div>
+
 </body>
 </html>
