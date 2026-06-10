@@ -8,13 +8,42 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="placeholder.css">
+  <link rel="stylesheet" href="site-header.css">
 </head>
 <body>
+  <header class="site-header">
+    <div class="page-shell header-inner">
+      <div class="header-top">
+        <a class="brand" href="index.html" aria-label="Ir al inicio">
+          <img class="brand-logo" src="logo.jpg" alt="Logo de INSTALLERSONTRUCK">
+          <div class="brand-copy">
+            <div class="brand-name">INSTALLERSONTRUCK</div>
+            <div class="brand-tag">Wrapping cars y sus derivados</div>
+          </div>
+        </a>
+
+        <div class="header-actions">
+          <a class="header-cta" href="mi-cuenta.html">Mi cuenta</a>
+          <a class="header-ghost" href="registro.html">Registro</a>
+        </div>
+      </div>
+
+      <div class="header-nav-row">
+        <nav class="nav" aria-label="Principal">
+          <a href="index.html">Home</a>
+          <a href="sobre-nosotros.html">Sobre nosotros</a>
+          <a href="formacion-presencial.html">Formación presencial</a>
+          <a href="formacion-suscripcion.html">Formación por suscripción</a>
+          <a class="is-active" href="contacto.html" aria-current="page">Contacto</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
   <main class="placeholder-page">
     <section class="placeholder-card contact-page-card">
       <div class="contact-page-top">
-        <span class="placeholder-eyebrow">Contacto Directo</span>
-        <a class="contact-back-link" href="index.html">Volver a home</a>
+        <span class="placeholder-eyebrow">Contacto directo</span>
       </div>
 
       <div class="contact-hero">
@@ -33,11 +62,11 @@
 
         <aside class="contact-sidebar">
           <a class="contact-page-item" href="mailto:info@installersontrack.com">
-            <span class="contact-page-label">Correo Oficial</span>
+            <span class="contact-page-label">Correo oficial</span>
             <strong>info@installersontrack.com</strong>
           </a>
           <a class="contact-page-item" href="tel:+34655588489">
-            <span class="contact-page-label">Soporte Alumnos</span>
+            <span class="contact-page-label">Soporte alumnos</span>
             <strong>+(34) 655 58 84 89</strong>
           </a>
           <a class="contact-page-item" href="https://www.instagram.com/trackcreativo" target="_blank" rel="noreferrer">
@@ -45,7 +74,7 @@
             <strong>@trackcreativo</strong>
           </a>
           <div class="contact-page-item contact-page-item-static">
-            <span class="contact-page-label">Centro de Entrenamiento</span>
+            <span class="contact-page-label">Centro de entrenamiento</span>
             <strong>Madrid, España</strong>
           </div>
         </aside>

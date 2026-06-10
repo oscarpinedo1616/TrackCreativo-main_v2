@@ -64,20 +64,11 @@
       padding: 60px 0 100px;
     }
 
-    /* Barra de control superior limpia sin ventana flotante */
-    .navigation-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 50px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--line);
-    }
-
     .section-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
+      margin-bottom: 22px;
       color: var(--yellow);
       text-transform: uppercase;
       letter-spacing: 0.16em;
@@ -92,26 +83,6 @@
       border-radius: 50%;
       background: var(--orange);
       box-shadow: 0 0 10px var(--orange);
-    }
-
-    .back-link {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--text);
-      border: 1px solid var(--orange);
-      padding: 10px 22px;
-      border-radius: 999px;
-      background: rgba(var(--orange-rgb), 0.05);
-      transition: all 0.25s ease;
-      font-weight: 500;
-    }
-
-    .back-link:hover {
-      background: var(--orange);
-      color: #000;
-      box-shadow: 0 0 20px rgba(var(--orange-rgb), 0.4);
-      transform: translateY(-2px);
     }
 
     /* Títulos monumentales con el estilo del index */
@@ -274,17 +245,41 @@
       text-decoration: none;
     }
   </style>
+  <link rel="stylesheet" href="site-header.css">
 </head>
 <body>
+  <header class="site-header">
+    <div class="page-shell header-inner">
+      <div class="header-top">
+        <a class="brand" href="index.html" aria-label="Ir al inicio">
+          <img class="brand-logo" src="logo.jpg" alt="Logo de INSTALLERSONTRUCK">
+          <div class="brand-copy">
+            <div class="brand-name">INSTALLERSONTRUCK</div>
+            <div class="brand-tag">Wrapping cars y sus derivados</div>
+          </div>
+        </a>
+
+        <div class="header-actions">
+          <a class="header-cta" href="mi-cuenta.html">Mi cuenta</a>
+          <a class="header-ghost" href="registro.html">Registro</a>
+        </div>
+      </div>
+
+      <div class="header-nav-row">
+        <nav class="nav" aria-label="Principal">
+          <a href="index.html">Home</a>
+          <a class="is-active" href="sobre-nosotros.html" aria-current="page">Sobre nosotros</a>
+          <a href="formacion-presencial.html">Formación presencial</a>
+          <a href="formacion-suscripcion.html">Formación por suscripción</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
+      </div>
+    </div>
+  </header>
 
   <div class="main-wrapper">
-    
-    <header class="navigation-bar">
-      <span class="section-eyebrow">Trayectoria e Identidad</span>
-      <a href="index.html" class="back-link">← Volver al menú</a>
-    </header>
-
     <main>
+      <span class="section-eyebrow">Trayectoria e identidad</span>
       <h1>
         Instaladores en camino
         <span class="orange-stroke">Nuestra Historia</span>
