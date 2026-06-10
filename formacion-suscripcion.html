@@ -90,10 +90,10 @@
 
     /* Flip Cards Grid */
     .offer-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-    .offer-card { position: relative; min-height: 320px; perspective: 1400px; }
-    .offer-card-inner { position: relative; min-height: 100%; transform-style: preserve-3d; transition: transform 0.75s ease; }
-    .offer-card.is-flipped .offer-card-inner { transform: rotateY(180deg); }
-    .offer-face { position: absolute; inset: 0; overflow: hidden; border-radius: 16px; border: 1px solid var(--line); box-shadow: var(--shadow); backface-visibility: hidden; padding: 20px; display: flex; flex-direction: column; }
+    .offer-card { position: relative; min-height: 380px; perspective: 1400px; -webkit-perspective: 1400px; }
+    .offer-card-inner { position: relative; min-height: 100%; transform-style: preserve-3d; -webkit-transform-style: preserve-3d; transition: transform 0.75s ease; }
+    .offer-card.is-flipped .offer-card-inner { transform: rotateY(180deg); -webkit-transform: rotateY(180deg); }
+    .offer-face { position: absolute; inset: 0; overflow: hidden; border-radius: 16px; border: 1px solid var(--line); box-shadow: var(--shadow); backface-visibility: hidden; -webkit-backface-visibility: hidden; padding: 20px; display: flex; flex-direction: column; }
     
     .offer-front { justify-content: flex-end; background: rgba(12, 12, 12, 0.92); pointer-events: auto; }
     .offer-front img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
@@ -162,6 +162,7 @@
     .btn-orange:hover { background: #e65c00; }
 
     @media (max-width: 768px) {
+      .hide-mobile { display: none !important; }
       .modal-layout { grid-template-columns: 1fr; }
       .modal-left { padding: 20px 20px 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
       .modal-right { padding: 20px; }
@@ -186,7 +187,7 @@
       <div class="social-links">
         <a href="https://www.instagram.com/trackcreativo" target="_blank">Instagram</a>
         <a href="https://linktr.ee/trackcreativo" target="_blank">YouTube</a>
-        <a href="mailto:info@installersontrack.com">info@installersontrack.com</a>
+        <a href="mailto:info@installersontrack.com" class="hide-mobile">info@installersontrack.com</a>
       </div>
     </div>
   </header>
@@ -196,27 +197,8 @@
       <span class="eyebrow">TRACKCREATIVO | INSTALLERSONTRUCK</span>
       <h1>Formación por Suscripción</h1>
       <p>
-        Comprueba que la formación en vídeo <strong>sí funciona</strong>. Más que un aprendizaje técnico, aquí vienes a encontrar tu camino profesional y rentabilizar tu pasión. Los que han acudido han mejorado sus técnicas de forma radical, y los que empiezan desde cero descubren cómo dedicarse a lo que les gusta. <strong>El cielo es el límite.</strong>
+        Comprueba que la formación en vídeo <strong>sí funciona</strong>. Más que un aprendizaje técnico, aquí vienes a encontrar tu camino profesional y rentabilizar tu pasión. Los que han acudido han mejorado sus técnicas de forma radical, y los que empiezan desde cero descubren cómo dedicarse a lo que les gusta. <strong style="color: var(--orange); text-transform: uppercase; font-size: 1.3em; display: inline-block; margin-top: 8px;">El cielo es el límite.</strong>
       </p>
-      
-      <div class="mini-points">
-        <div class="mini-point">
-          <strong>+185K</strong>
-          <span>Seguidores sumando nuestras redes, atentos a los trucos del wrapping y el día a día.</span>
-        </div>
-        <div class="mini-point">
-          <strong>+600</strong>
-          <span>Alumnos en cursos presenciales no intensivos han validado nuestra técnica.</span>
-        </div>
-        <div class="mini-point">
-          <strong>+300</strong>
-          <span>Vídeos en la plataforma organizados por guías y metodologías directas al grano.</span>
-        </div>
-        <div class="mini-point">
-          <strong>A diario</strong>
-          <span>Contenido renovado cada día para mantenerte siempre a la vanguardia del sector.</span>
-        </div>
-      </div>
     </section>
 
     <section class="page-shell">
@@ -496,11 +478,7 @@
         <a href="#" class="offer-button offer-button-primary" style="margin-top: 14px;">Visitar la Tienda</a>
       </div>
 
-      <div class="partnerships">
-        <h3>Partnerships & Sponsors</h3>
-        <p>Tenemos las puertas abiertas para colaborar con marcas del sector. Si tienes un producto que aporta valor real al instalador, queremos probarlo y mostrarlo en la comunidad.</p>
-        <a href="mailto:info@installersontrack.com" class="offer-button" style="margin-top: 14px;">Contactar para Colaboración</a>
-      </div>
+
     </section>
   </main>
 
