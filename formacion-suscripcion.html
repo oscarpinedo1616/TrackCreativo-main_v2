@@ -48,13 +48,13 @@
     
     .hero { padding: 52px 0 34px; text-align: center; }
     .eyebrow { display: inline-block; padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,0.03); color: var(--orange); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.8rem; margin-bottom: 20px; }
-    h1 { font-family: "Bebas Neue", sans-serif; font-size: clamp(3rem, 8vw, 5.5rem); margin: 0 auto 20px; max-width: 18ch; line-height: 0.9; letter-spacing: 0.03em; text-transform: uppercase; }
-    .hero p { max-width: 800px; margin: 0 auto 30px; font-size: 1.1rem; line-height: 1.6; color: #dfd7cb; }
+    h1 { font-family: "Bebas Neue", sans-serif; font-size: clamp(3rem, 8vw, 5.5rem); margin: 0 auto 20px; max-width: none; line-height: 0.9; letter-spacing: 0.03em; text-transform: uppercase; }
+    .hero p { max-width: none; margin: 0 auto 30px; font-size: 1.1rem; line-height: 1.6; color: #dfd7cb; }
     .hero-limit {
       display: block;
       margin: 24px auto 0;
       font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(2.35rem, 6.5vw, 4.1rem);
+      font-size: clamp(1.8rem, 4.5vw, 2.6rem);
       line-height: 0.88;
       color: transparent;
       background: linear-gradient(180deg, #fff5c7 0%, var(--yellow) 38%, var(--orange) 100%);
@@ -169,9 +169,9 @@
       .page-shell { width: min(calc(100% - 22px), var(--max)); }
       .hero { padding: 32px 0 26px; }
       .eyebrow { font-size: 0.68rem; letter-spacing: 0.1em; }
-      h1 { font-size: clamp(2.55rem, 13vw, 3.6rem); line-height: 0.95; max-width: 14ch; }
+      h1 { font-size: clamp(2.55rem, 13vw, 3.6rem); line-height: 0.95; max-width: none; }
       .hero p { font-size: 0.96rem; line-height: 1.55; margin-bottom: 22px; }
-      .hero-limit { margin-top: 22px; font-size: clamp(2rem, 10vw, 2.8rem); line-height: 0.9; text-align: center; }
+      .hero-limit { margin-top: 22px; font-size: clamp(1.4rem, 8vw, 2.0rem); line-height: 0.9; text-align: left; }
       section { padding: 34px 0; }
       .section-title { font-size: 2.35rem; line-height: 0.96; }
       .offer-card,
@@ -204,24 +204,39 @@
 
     .hero h1 {
       margin: 18px 0 14px;
-      max-width: 18ch;
-      font-size: clamp(3.6rem, 9vw, 6.4rem);
-      line-height: 0.88;
-      letter-spacing: 0.05em;
+      max-width: none;
+      font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+      line-height: 0.92;
+      letter-spacing: 0.04em;
+      text-align: left;
     }
 
     .hero p {
       margin: 0;
-      max-width: 68ch;
+      max-width: none;
       color: #dfd7cb;
-      font-size: 1.04rem;
+      font-size: 1.22rem;
       line-height: 1.7;
     }
 
     .hero-limit {
+      position: relative;
       width: fit-content;
-      margin: 24px 0 0;
+      margin: 24px 0 60px;
       text-align: left;
+      padding-bottom: 12px;
+    }
+
+    .hero-limit::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--yellow) 15%, var(--orange) 85%, transparent);
+      border-radius: 99px;
+      box-shadow: 0 2px 10px rgba(255, 106, 0, 0.4);
     }
 
     section {
@@ -230,10 +245,11 @@
 
     .section-title,
     .section-title[style] {
-      max-width: 18ch;
+      max-width: none;
       margin: 0 0 14px;
+      text-align: left;
       color: var(--text);
-      font-size: clamp(2.4rem, 6vw, 4.2rem) !important;
+      font-size: clamp(2.4rem, 5vw, 3.8rem) !important;
       line-height: 0.95;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -242,6 +258,7 @@
     .section-desc {
       color: #dfd7cb;
       line-height: 1.7;
+      font-size: 1.2rem;
     }
 
     .mini-points {
@@ -321,6 +338,9 @@
 
     .offer-button,
     .btn-orange {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       min-height: 44px;
       padding: 0 18px;
       border-radius: 999px;
@@ -406,8 +426,9 @@
       }
 
       .hero h1 {
-        max-width: 14ch;
-        font-size: clamp(3rem, 14vw, 4rem);
+        max-width: none;
+        font-size: clamp(1.8rem, 8vw, 2.8rem);
+        text-align: left;
       }
 
       .hero p {
@@ -415,7 +436,7 @@
       }
 
       .hero-limit {
-        font-size: clamp(2rem, 10vw, 2.7rem);
+        font-size: clamp(1.4rem, 8vw, 2.0rem);
       }
 
       section {
@@ -471,125 +492,19 @@
 
   <main>
     <section class="hero page-shell">
-      <span class="eyebrow">TRACKCREATIVO | INSTALLERSONTRUCK</span>
       <h1>Formación por suscripción</h1>
       <p>
-        Comprueba que la formación en vídeo <strong>sí funciona</strong>. Más que un aprendizaje técnico, aquí vienes a encontrar tu camino profesional y rentabilizar tu pasión. Los que han acudido han mejorado sus técnicas de forma radical, y los que empiezan desde cero descubren cómo dedicarse a lo que les gusta.
-        <span class="hero-limit">EL CIELO ES<br>EL LÍMITE</span>
+        Más que un aprendizaje técnico, aquí vienes a encontrar tu camino profesional y rentabilizar tu pasión.<br>
+        Los que han acudido han mejorado sus técnicas de forma radical, y los que empiezan desde cero descubren cómo dedicarse a lo que les gusta.
+        <span class="hero-limit">EL CIELO ES EL LÍMITE</span>
       </p>
-    </section>
-
-    <section class="page-shell">
-      <h2 class="section-title" style="font-size: 2.4rem;">Nuestra formación</h2>
-      <p class="section-desc" style="margin-bottom: 24px; font-size: 0.95rem; max-width: 600px;">
-        Huye de la teoría vacía. Te transmitimos el verdadero entendimiento del trabajo enriquecido por 19 años de experiencia, directo al grano y sin adornos.
-      </p>
-
-      <div class="offer-grid">
-        <!-- Card 1 -->
-        <article class="offer-card">
-          <div class="offer-card-inner">
-            <div class="offer-face offer-front">
-              <img src="Captura de pantalla 2026-05-08 142441.png" alt="Detalle de vinilo">
-              <span class="offer-tag">Técnica profunda</span>
-              <h3>Entendimiento del Trabajo</h3>
-              <p>Domina las tolerancias en los materiales: PPF, PPF Color, Vinilos fundidos e híbridos.</p>
-              <div class="offer-actions">
-                <button class="offer-button offer-button-primary" type="button" data-flip-card>Saber más</button>
-              </div>
-            </div>
-            <div class="offer-face offer-back">
-              <span class="offer-tag">Multimarca</span>
-              <h3>Análisis de 8 Marcas</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Exploramos a fondo las debilidades y fortalezas de 8 de las mejores marcas de material del mercado.</p>
-              <p>Entendemos la importancia vital de ser un instalador multimarca para no cerrarte puertas. Todo lo que enseñamos es validado en el mundo real, con instructores que están constantemente haciendo coches en el taller.</p>
-              <div class="offer-actions">
-                <button class="offer-button" type="button" data-flip-card>Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 2 -->
-        <article class="offer-card">
-          <div class="offer-card-inner">
-            <div class="offer-face offer-front">
-              <img src="Captura de pantalla 2026-05-08 133438.png" alt="Acabado profesional">
-              <span class="offer-tag">Mindset de Taller</span>
-              <h3>Acabado Profesional</h3>
-              <p>No transmitimos solo técnica, sino la actitud necesaria para triunfar en el wrapping.</p>
-              <div class="offer-actions">
-                <button class="offer-button offer-button-primary" type="button" data-flip-card>Saber más</button>
-              </div>
-            </div>
-            <div class="offer-face offer-back">
-              <span class="offer-tag">Criterio</span>
-              <h3>Manejar la frustración</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Hacer wrapping a alto nivel requiere cabeza fría. Te enseñamos a manejar la frustración cuando la pieza se complica.</p>
-              <p>Nuestras guías incluyen los trucos del wrapping que nadie cuenta, creando un entorno sin presiones donde aprendes a resolver problemas reales de un negocio externalizado o propio.</p>
-              <div class="offer-actions">
-                <button class="offer-button" type="button" data-flip-card>Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="offer-card">
-          <div class="offer-card-inner">
-            <div class="offer-face offer-front">
-              <img src="Captura de pantalla 2026-05-08 142703.png" alt="Comunidad">
-              <span class="offer-tag">Escena Global</span>
-              <h3>Eventos y Expansión</h3>
-              <p>Presencia internacional: Desde Orlando hasta Chile, expandiendo la huella hispana.</p>
-              <div class="offer-actions">
-                <button class="offer-button offer-button-primary" type="button" data-flip-card>Saber más</button>
-              </div>
-            </div>
-            <div class="offer-face offer-back">
-              <span class="offer-tag">Encuentros reales</span>
-              <h3>Agenda de Referencia</h3>
-              <p>No hacemos simples "masterclass", hacemos eventos reales. Asistimos a SEPRING, ISA (el primer evento de este ámbito en Estados Unidos donde se habla español), FESPA, ROLLANDEXPERIENCE y SIMASHOW.</p>
-              <p>Además de organizar nuestro WrapDay público cada dos meses, trabajamos activamente en Estados Unidos (Orlando) y próximamente en Sudamérica (Chile).</p>
-              <div class="offer-actions">
-                <button class="offer-button" type="button" data-flip-card>Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 4 -->
-        <article class="offer-card">
-          <div class="offer-card-inner">
-            <div class="offer-face offer-front">
-              <img src="Captura de pantalla 2026-05-08 142551.png" alt="Networking">
-              <span class="offer-tag">Networking Vital</span>
-              <h3>Comunidad Permanente</h3>
-              <p>Se crea un grupo que dura para toda la vida para seguir manteniendo contacto continuo.</p>
-              <div class="offer-actions">
-                <button class="offer-button offer-button-primary" type="button" data-flip-card>Saber más</button>
-              </div>
-            </div>
-            <div class="offer-face offer-back">
-              <span class="offer-tag">Relaciones</span>
-              <h3>Conexión Directa</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mantén el contacto directo con Luis y relaciones estrechas con marcas y multinacionales.</p>
-              <p>Al pasar por nuestra formación entras a una red internacional. Participamos en el WrapDay cada dos meses junto a 10 instaladores egresados para hacer coches enteros y fortalecer relaciones a nivel mundial.</p>
-              <div class="offer-actions">
-                <a class="offer-button offer-button-primary" href="sobre-nosotros.html">Sobre nosotros</a>
-                <button class="offer-button" type="button" data-flip-card>Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
     </section>
 
     <section class="video-section">
       <div class="page-shell">
-        <div style="text-align: center; max-width: 700px; margin: 0 auto; margin-bottom: 40px;">
+        <div style="text-align: left; margin: 0 0 40px 0;">
           <h2 class="section-title">Catálogo de vídeos de la plataforma</h2>
-          <p class="section-desc" style="margin: 0 auto;">Explora nuestra biblioteca de +300 vídeos. El contenido está bloqueado. Inicia sesión o suscríbete para acceder a todas las lecciones técnicas, guías paso a paso y trucos del wrapping.</p>
+          <p class="section-desc" style="margin: 0; max-width: none;">Explora nuestra biblioteca de +300 vídeos. El contenido está bloqueado. Inicia sesión o suscríbete para acceder a todas las lecciones técnicas, guías paso a paso y trucos del wrapping.</p>
         </div>
 
         <div class="video-category">
@@ -773,7 +688,6 @@
           <p class="modal-desc" id="modal-desc-text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. . Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
           </p>
-          <a href="#" class="modal-link">Más información</a>
           <div class="modal-buttons">
             <a href="mi-cuenta.html" class="btn-orange">ACCEDER</a>
             <a href="registro.html" class="btn-orange">DARME DE ALTA</a>
@@ -817,5 +731,6 @@
       }
     });
   </script>
+  <!-- Minor update to trigger GitHub action -->
 </body>
 </html>
