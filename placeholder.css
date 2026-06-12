@@ -25,22 +25,26 @@ body {
 }
 
 .placeholder-page {
-  min-height: 100vh;
+  min-height: calc(100vh - 180px);
   display: grid;
-  place-items: center;
-  padding: 24px;
+  place-items: start center;
+  padding: 54px 24px 78px;
 }
 
 .placeholder-card {
   width: min(100%, 760px);
-  padding: 44px 38px;
+  padding: 42px;
   text-align: center;
-  border-radius: 34px;
+  border-radius: 28px;
   background:
-    linear-gradient(140deg, rgba(255, 106, 0, 0.18), rgba(255, 191, 31, 0.08) 38%, rgba(255, 255, 255, 0.03)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
     var(--panel);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
+}
+
+.auth-card {
+  max-width: 540px;
 }
 
 .placeholder-eyebrow {
@@ -60,7 +64,7 @@ body {
 h1 {
   margin: 20px 0 14px;
   font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(3rem, 10vw, 5.8rem);
+  font-size: clamp(2.8rem, 8vw, 4.8rem);
   line-height: 0.9;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -68,7 +72,7 @@ h1 {
 
 p {
   margin: 0 auto 28px;
-  max-width: 28ch;
+  max-width: 54ch;
   color: var(--muted);
   font-size: 1.05rem;
   line-height: 1.7;
@@ -224,13 +228,52 @@ p {
   gap: 14px;
 }
 
+.form-submit {
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+}
+
+.auth-footer {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.auth-footer.compact {
+  margin-top: 24px;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.auth-footer a {
+  color: var(--yellow);
+  font-weight: 700;
+}
+
+.auth-link {
+  width: 100%;
+  margin-top: 14px;
+}
+
+.remember-control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
 @media (max-width: 640px) {
   .placeholder-page {
-    padding: 16px;
+    padding: 28px 16px 54px;
   }
 
   .placeholder-card {
     padding: 30px 18px;
+    border-radius: 22px;
   }
 
   p {

@@ -70,8 +70,36 @@ a {
 .header-inner {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
   padding: 18px 0 20px;
+}
+
+.header-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, rgba(255, 106, 0, 0.14), rgba(255, 191, 31, 0.06)),
+    rgba(255, 255, 255, 0.03);
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.header-ribbon strong {
+  color: var(--yellow);
+}
+
+.ribbon-link {
+  color: var(--text);
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .header-top {
@@ -101,9 +129,8 @@ a {
 .brand-copy {
   min-width: 0;
   display: flex;
-  align-items: baseline;
-  gap: 16px;
-  flex-wrap: nowrap;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .brand-name {
@@ -116,9 +143,34 @@ a {
 
 .brand-tag {
   color: var(--muted);
-  font-size: 0.84rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
+  line-height: 1.25;
+}
+
+.header-trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-width: 220px;
+}
+
+.trust-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #eadfce;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   white-space: nowrap;
 }
 
@@ -237,6 +289,14 @@ a {
 
 .page-title {
   padding: 54px 0 28px;
+}
+
+.page-title p {
+  max-width: 68ch;
+  margin: 14px 0 0;
+  color: #dfd7cb;
+  font-size: 1.08rem;
+  line-height: 1.7;
 }
 
 .page-title .eyebrow,
@@ -643,9 +703,13 @@ h1 {
   }
 
   .brand-copy {
-    flex-direction: column;
-    align-items: flex-start;
     gap: 4px;
+  }
+
+  .header-trust {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .header-actions {
@@ -680,6 +744,17 @@ h1 {
     padding: 12px 0 14px;
   }
 
+  .header-ribbon {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+    min-height: 0;
+    padding: 10px 12px;
+    border-radius: 14px;
+    font-size: 0.66rem;
+    line-height: 1.35;
+  }
+
   .header-top {
     gap: 12px;
   }
@@ -710,9 +785,23 @@ h1 {
   }
 
   .brand-tag {
-    white-space: normal;
     font-size: 0.68rem;
     letter-spacing: 0.1em;
+  }
+
+  .header-trust {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .trust-pill {
+    justify-content: center;
+    min-height: 34px;
+    padding: 0 6px;
+    font-size: 0.62rem;
+    text-align: center;
+    white-space: normal;
   }
 
   .nav {
