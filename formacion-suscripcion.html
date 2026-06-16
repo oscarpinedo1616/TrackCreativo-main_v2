@@ -19,6 +19,9 @@
       --shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
       --max: 1180px;
       --radius: 28px;
+      --display-title: clamp(3.6rem, 9vw, 6.4rem);
+      --section-title-size: clamp(2.5rem, 7vw, 4.4rem);
+      --body-copy: 1.08rem;
     }
 
     * { box-sizing: border-box; }
@@ -48,8 +51,8 @@
     
     .hero { padding: 52px 0 34px; text-align: center; }
     .eyebrow { display: inline-block; padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,0.03); color: var(--orange); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.8rem; margin-bottom: 20px; }
-    h1 { font-family: "Bebas Neue", sans-serif; font-size: clamp(3rem, 8vw, 5.5rem); margin: 0 auto 20px; max-width: none; line-height: 0.9; letter-spacing: 0.03em; text-transform: uppercase; }
-    .hero p { max-width: none; margin: 0 auto 30px; font-size: 1.1rem; line-height: 1.6; color: #dfd7cb; }
+    h1 { font-family: "Bebas Neue", sans-serif; font-size: var(--display-title); margin: 0 auto 20px; max-width: none; line-height: 0.88; letter-spacing: 0.05em; text-transform: uppercase; }
+    .hero p { max-width: 68ch; margin: 0 auto 30px; font-size: var(--body-copy); line-height: 1.7; color: #dfd7cb; }
     .hero-limit {
       display: block;
       margin: 24px auto 0;
@@ -57,11 +60,13 @@
       font-size: clamp(1.8rem, 4.5vw, 2.6rem);
       line-height: 0.88;
       color: transparent;
+      max-width: 100%;
       background: linear-gradient(180deg, #fff5c7 0%, var(--yellow) 38%, var(--orange) 100%);
       -webkit-background-clip: text;
       background-clip: text;
       text-transform: uppercase;
       letter-spacing: 0.1em;
+      white-space: nowrap;
       text-shadow:
         0 0 18px rgba(255, 191, 31, 0.62),
         0 0 34px rgba(255, 106, 0, 0.5),
@@ -76,8 +81,8 @@
     .mini-point span { font-size: 0.9rem; color: var(--muted); line-height: 1.5; display: block; }
 
     section { padding: 50px 0; }
-    .section-title { font-family: "Bebas Neue", sans-serif; font-size: 3rem; margin: 0 0 16px; color: var(--orange); }
-    .section-desc { font-size: 1rem; color: var(--muted); max-width: 700px; line-height: 1.6; margin-bottom: 40px; }
+    .section-title { font-family: "Bebas Neue", sans-serif; font-size: var(--section-title-size); margin: 0 0 16px; color: var(--orange); }
+    .section-desc { font-size: var(--body-copy); color: var(--muted); max-width: 68ch; line-height: 1.7; margin-bottom: 40px; }
 
     /* Flip Cards Grid */
     .offer-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
@@ -169,11 +174,11 @@
       .page-shell { width: min(calc(100% - 22px), var(--max)); }
       .hero { padding: 32px 0 26px; }
       .eyebrow { font-size: 0.68rem; letter-spacing: 0.1em; }
-      h1 { font-size: clamp(2.55rem, 13vw, 3.6rem); line-height: 0.95; max-width: none; }
-      .hero p { font-size: 0.96rem; line-height: 1.55; margin-bottom: 22px; }
-      .hero-limit { margin-top: 22px; font-size: clamp(1.4rem, 8vw, 2.0rem); line-height: 0.9; text-align: left; }
+      h1 { font-size: clamp(3rem, 15vw, 3.6rem); line-height: 0.88; max-width: none; }
+      .hero p { font-size: 1.02rem; line-height: 1.62; margin-bottom: 22px; }
+      .hero-limit { margin-top: 22px; font-size: clamp(1.1rem, 5.5vw, 1.7rem); line-height: 0.9; text-align: left; letter-spacing: 0.06em; }
       section { padding: 34px 0; }
-      .section-title { font-size: 2.35rem; line-height: 0.96; }
+      .section-title { font-size: clamp(2.35rem, 12vw, 3.6rem); line-height: 0.96; }
       .offer-card,
       .offer-card-inner { min-height: auto; }
       .offer-card-inner { transform-style: flat; transition: none; }
@@ -205,17 +210,17 @@
     .hero h1 {
       margin: 18px 0 14px;
       max-width: none;
-      font-size: clamp(2.4rem, 5.5vw, 3.8rem);
-      line-height: 0.92;
-      letter-spacing: 0.04em;
+      font-size: var(--display-title);
+      line-height: 0.88;
+      letter-spacing: 0.05em;
       text-align: left;
     }
 
     .hero p {
       margin: 0;
-      max-width: none;
+      max-width: 68ch;
       color: #dfd7cb;
-      font-size: 1.22rem;
+      font-size: var(--body-copy);
       line-height: 1.7;
     }
 
@@ -249,7 +254,7 @@
       margin: 0 0 14px;
       text-align: left;
       color: var(--text);
-      font-size: clamp(2.4rem, 5vw, 3.8rem) !important;
+      font-size: var(--section-title-size) !important;
       line-height: 0.95;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -258,7 +263,7 @@
     .section-desc {
       color: #dfd7cb;
       line-height: 1.7;
-      font-size: 1.2rem;
+      font-size: var(--body-copy);
     }
 
     .section-heading {
@@ -441,16 +446,18 @@
 
       .hero h1 {
         max-width: none;
-        font-size: clamp(1.8rem, 8vw, 2.8rem);
+        font-size: clamp(3rem, 15vw, 3.6rem);
+        line-height: 0.88;
         text-align: left;
       }
 
       .hero p {
-        max-width: none;
+        max-width: 68ch;
       }
 
       .hero-limit {
-        font-size: clamp(1.4rem, 8vw, 2.0rem);
+        font-size: clamp(1.1rem, 5.5vw, 1.7rem);
+        letter-spacing: 0.06em;
       }
 
       section {
@@ -515,16 +522,18 @@
 
   <main>
     <section class="hero page-shell">
-      <h1>Formación por suscripción</h1>
+      <span class="eyebrow">TRACKCREATIVO | INSTALLERSONTRUCK</span>
+      <h1>Formación por<br>suscripción</h1>
       <p>
-        Aprende con una biblioteca técnica pensada para avanzar a tu ritmo, resolver dudas reales y mantener el criterio de taller entre clases presenciales.<span class="hero-limit">FORMACIÓN CONTINUA PARA INSTALADORES</span>
+        Comprueba que la formación en vídeo sí funciona. Más que un aprendizaje técnico, aquí vienes a encontrar tu camino profesional y rentabilizar tu pasión. Los que han acudido han mejorado sus técnicas de forma radical, y los que empiezan desde cero descubren cómo dedicarse a lo que les gusta.
+        <span class="hero-limit">EL CIELO ES EL LÍMITE</span>
       </p>
     </section>
 
     <section class="video-section">
       <div class="page-shell">
         <div class="section-heading">
-          <h2 class="section-title">Catálogo de vídeos de la plataforma</h2>
+          <h2 class="section-title">Nuestra formación</h2>
           <p class="section-desc wide">Explora una biblioteca técnica con lecciones paso a paso, casos reales de instalación y recursos pensados para seguir practicando con criterio profesional.</p>
         </div>
 
