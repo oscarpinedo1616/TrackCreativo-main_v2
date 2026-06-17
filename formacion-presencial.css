@@ -329,7 +329,7 @@ h1 {
   margin: 0;
   color: #dfd7cb;
   line-height: 1.7;
-  font-size: 1.08rem;
+  font-size: 1.04rem;
 }
 
 .course-index-grid {
@@ -337,6 +337,68 @@ h1 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
   padding: 22px 0 64px;
+}
+
+.learning-route {
+  padding: 0 0 64px;
+}
+
+.route-panel {
+  padding: 28px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(circle at top right, rgba(255, 191, 31, 0.16), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  box-shadow: var(--shadow);
+}
+
+.route-panel h2 {
+  margin: 0 0 12px;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 0.95;
+}
+
+.route-panel p {
+  max-width: 76ch;
+  margin: 0;
+  color: #dfd7cb;
+  line-height: 1.7;
+}
+
+.route-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.route-card {
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.route-card strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.route-card span {
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: 0.94rem;
+}
+
+.route-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
 }
 
 .course-card {
@@ -613,6 +675,64 @@ h1 {
   gap: 12px;
 }
 
+.course-faq {
+  margin-top: 14px;
+  padding: 22px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  box-shadow: var(--shadow);
+}
+
+.course-faq h2 {
+  margin: 0 0 16px;
+  color: var(--yellow);
+  font-size: 2rem;
+  line-height: 0.95;
+}
+
+.faq-list {
+  display: grid;
+  gap: 10px;
+}
+
+.faq-list details {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.faq-list summary {
+  cursor: pointer;
+  padding: 15px 18px;
+  color: #fff6ea;
+  font-weight: 700;
+  list-style: none;
+}
+
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list summary::after {
+  content: "+";
+  float: right;
+  color: var(--yellow);
+  font-size: 1.2rem;
+}
+
+.faq-list details[open] summary::after {
+  content: "-";
+}
+
+.faq-list p {
+  margin: 0;
+  padding: 0 18px 16px;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.96rem;
+}
+
 .button-primary,
 .button-secondary {
   display: inline-flex;
@@ -668,7 +788,8 @@ h1 {
 
 @media (max-width: 1120px) {
   .course-index-grid,
-  .detail-grid {
+  .detail-grid,
+  .route-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -728,6 +849,7 @@ h1 {
   .fact-grid {
     grid-template-columns: 1fr;
   }
+
 }
 
 @media (max-width: 640px) {
@@ -828,11 +950,12 @@ h1 {
   }
 
   h1 {
-    font-size: clamp(3rem, 15vw, 3.6rem);
+    font-size: 3.6rem;
   }
 
   .course-index-grid,
-  .detail-grid {
+  .detail-grid,
+  .route-grid {
     grid-template-columns: 1fr;
   }
 

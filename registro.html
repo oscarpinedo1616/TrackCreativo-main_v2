@@ -3,56 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro | INSTALLERSONTRUCK</title>
+  <title>Alta de alumno | INSTALLERSONTRUCK</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="placeholder.css">
   <link rel="stylesheet" href="site-header.css">
   <style>
-    .form-group {
-      text-align: left;
-      margin-bottom: 20px;
+    .signup-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.72fr);
+      gap: 24px;
+      align-items: start;
     }
-    .form-group label {
+
+    .signup-flow,
+    .signup-summary {
+      padding: 24px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .signup-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: left;
+    }
+
+    .signup-step:last-child {
+      border-bottom: 0;
+    }
+
+    .signup-number {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--yellow), var(--orange));
+      color: #170900;
+      font-weight: 700;
+    }
+
+    .signup-step strong,
+    .signup-summary strong {
       display: block;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+      color: #fff6ea;
+    }
+
+    .signup-step p,
+    .signup-summary p {
+      margin: 0;
       color: var(--muted);
-      margin-bottom: 8px;
+      line-height: 1.6;
     }
-    .form-control {
-      width: 100%;
-      min-height: 50px;
-      padding: 0 16px;
-      border-radius: 12px;
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid var(--line);
-      color: var(--text);
-      font-family: inherit;
-      font-size: 0.95rem;
-      transition: border-color 0.25s ease;
-    }
-    .form-control:focus {
-      outline: none;
-      border-color: var(--orange);
-    }
-    .form-checkbox {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
+
+    .signup-summary {
       text-align: left;
-      margin: 24px 0;
-      font-size: 0.85rem;
+    }
+
+    .signup-summary ul {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 24px;
+      padding: 0;
+      list-style: none;
       color: var(--muted);
     }
-    .form-checkbox input {
-      margin-top: 3px;
+
+    .signup-summary li {
+      padding-left: 18px;
+      position: relative;
     }
-    .form-checkbox a {
-      color: var(--yellow);
-      text-decoration: underline;
+
+    .signup-summary li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.58em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--yellow);
+    }
+
+    @media (max-width: 820px) {
+      .signup-layout {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -73,8 +116,6 @@
           </div>
         </a>
 
-        
-
         <div class="header-actions">
           <a class="header-cta" href="mi-cuenta.html">Mi cuenta</a>
           <a class="header-ghost is-active" href="registro.html" aria-current="page">Registro</a>
@@ -87,6 +128,7 @@
           <a href="sobre-nosotros.html">Sobre nosotros</a>
           <a href="formacion-presencial.html">Formación presencial</a>
           <a href="formacion-suscripcion.html">Formación por suscripción</a>
+          <a href="tienda.html">Tienda</a>
           <a href="contacto.html">Contacto</a>
         </nav>
       </div>
@@ -94,41 +136,54 @@
   </header>
 
   <main class="placeholder-page">
-    <div class="placeholder-card auth-card">
+    <section class="placeholder-card contact-page-card">
       <span class="placeholder-eyebrow">Alta de alumno</span>
-      <h1>Crea tu cuenta</h1>
-      <p>Regístrate para acceder a la plataforma, guardar tu progreso y recibir novedades de formación.</p>
-      
-      <form action="#" method="POST" onsubmit="event.preventDefault();">
-        <div class="form-group">
-          <label for="reg-name">Nombre completo</label>
-          <input type="text" id="reg-name" class="form-control" placeholder="Ej. Carlos Pérez" required>
+      <h1>Empieza dentro del ecosistema</h1>
+      <p class="contact-page-intro">
+        El alta de alumno se entiende como la puerta de entrada a la formación online, la comunidad privada, los directos y los recursos recomendados.
+      </p>
+
+      <div class="signup-layout">
+        <div class="signup-flow">
+          <div class="signup-step">
+            <div class="signup-number">1</div>
+            <div>
+              <strong>Elige tu ruta</strong>
+              <p>Suscripción online, curso presencial o asesoramiento para combinar ambas opciones.</p>
+            </div>
+          </div>
+          <div class="signup-step">
+            <div class="signup-number">2</div>
+            <div>
+              <strong>Accede a contenidos</strong>
+              <p>Vídeos, recursos técnicos, materiales asociados y módulos organizados por nivel.</p>
+            </div>
+          </div>
+          <div class="signup-step">
+            <div class="signup-number">3</div>
+            <div>
+              <strong>Entra en comunidad</strong>
+              <p>Comparte avances, pregunta dudas y participa en directos o sesiones grupales.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="form-group">
-          <label for="reg-email">Correo electrónico</label>
-          <input type="email" id="reg-email" class="form-control" placeholder="carlos@ejemplo.com" required>
-        </div>
-
-        <div class="form-group">
-          <label for="reg-password">Contraseña</label>
-          <input type="password" id="reg-password" class="form-control" placeholder="Mínimo 8 caracteres" required>
-        </div>
-
-        <div class="form-checkbox">
-          <input type="checkbox" id="terms" required>
-          <label for="terms">Acepto los <a href="#">términos y condiciones de venta</a> y la política de privacidad de Track Creativo.</label>
-        </div>
-
-        <button type="submit" class="placeholder-button form-submit">
-          Crear cuenta
-        </button>
-      </form>
-
-      <div class="auth-footer compact">
-        ¿Ya tienes cuenta? <a href="mi-cuenta.html">Inicia sesión</a>
+        <aside class="signup-summary">
+          <strong>Qué activa el alta</strong>
+          <p>Una cuenta de alumno concentra acceso, seguimiento y relación con todo el ecosistema.</p>
+          <ul>
+            <li>Acceso a plataforma y progreso.</li>
+            <li>Entrada a comunidad privada.</li>
+            <li>Notificaciones de directos y eventos.</li>
+            <li>Recomendaciones de tienda según curso.</li>
+          </ul>
+          <div class="contact-page-actions">
+            <a class="placeholder-button" href="contacto.html">Solicitar alta</a>
+            <a class="placeholder-button placeholder-button-secondary" href="formacion-suscripcion.html">Ver suscripción</a>
+          </div>
+        </aside>
       </div>
-    </div>
+    </section>
   </main>
 </body>
 </html>
