@@ -64,8 +64,8 @@ body {
 h1 {
   margin: 20px 0 14px;
   font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(3.6rem, 9vw, 6.4rem);
-  line-height: 0.88;
+  font-size: clamp(2.8rem, 8vw, 4.8rem);
+  line-height: 0.9;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -74,7 +74,7 @@ p {
   margin: 0 auto 28px;
   max-width: 54ch;
   color: var(--muted);
-  font-size: 1.08rem;
+  font-size: 1.05rem;
   line-height: 1.7;
 }
 
@@ -155,14 +155,14 @@ p {
 .contact-page-card h1 {
   margin: 0 0 18px;
   max-width: 16ch;
-  font-size: clamp(3.6rem, 9vw, 6.4rem);
-  line-height: 0.88;
+  font-size: clamp(3.6rem, 8vw, 6.3rem);
+  line-height: 0.9;
 }
 
 .contact-page-intro {
   margin: 0 0 28px;
   max-width: 54ch;
-  font-size: 1.08rem;
+  font-size: 1.06rem;
 }
 
 .contact-sidebar {
@@ -226,6 +226,135 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
+}
+
+.contact-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+  padding: 22px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.contact-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.field-group {
+  display: grid;
+  gap: 8px;
+}
+
+.field-group.full {
+  grid-column: 1 / -1;
+}
+
+.field-group label {
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.field-group input,
+.field-group select,
+.field-group textarea {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.28);
+  color: var(--text);
+  font: inherit;
+  padding: 12px 14px;
+  outline: none;
+}
+
+.field-group textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.field-group input:focus,
+.field-group select:focus,
+.field-group textarea:focus {
+  border-color: rgba(255, 191, 31, 0.5);
+  box-shadow: 0 0 0 3px rgba(255, 191, 31, 0.1);
+}
+
+.contact-form-note {
+  margin: 0;
+  max-width: none;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.quick-contact {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.whatsapp-card {
+  border-color: rgba(37, 211, 102, 0.35);
+  background:
+    linear-gradient(160deg, rgba(37, 211, 102, 0.14), rgba(255, 255, 255, 0.03) 58%),
+    rgba(255, 255, 255, 0.04);
+}
+
+.response-card {
+  border-style: dashed;
+}
+
+.contact-faq {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.contact-faq h2 {
+  margin: 0 0 14px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.2rem;
+  line-height: 0.95;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.contact-faq-list {
+  display: grid;
+  gap: 10px;
+}
+
+.contact-faq-list details {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.contact-faq-list summary {
+  cursor: pointer;
+  padding: 15px 18px;
+  color: #fff6ea;
+  font-weight: 700;
+  list-style: none;
+}
+
+.contact-faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.contact-faq-list p {
+  margin: 0;
+  max-width: none;
+  padding: 0 18px 16px;
+  color: var(--muted);
+  font-size: 0.96rem;
 }
 
 .form-submit {
@@ -300,14 +429,18 @@ p {
 
   .contact-page-card h1 {
     max-width: none;
-    font-size: clamp(3rem, 15vw, 3.6rem);
-    line-height: 0.88;
-    letter-spacing: 0.05em;
+    font-size: clamp(1.75rem, 7.8vw, 2.4rem);
+    line-height: 0.95;
+    letter-spacing: 0.03em;
     overflow-wrap: anywhere;
     word-break: break-word;
   }
 
   .contact-page-intro {
     font-size: 1rem;
+  }
+
+  .contact-form-grid {
+    grid-template-columns: 1fr;
   }
 }

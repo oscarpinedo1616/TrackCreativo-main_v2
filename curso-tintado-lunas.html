@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -10,6 +10,46 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="formacion-presencial.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Necesito experiencia previa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No es imprescindible. Es útil para alumnos que empiezan o profesionales de automoción, detailing o artes gráficas que quieren sumar el tintado de lunas a su servicio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se entrega certificado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Al finalizar se entrega certificado de asistencia y aprovechamiento del curso presencial."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué materiales están incluidos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La formación incluye materiales de práctica, kit de herramientas, camiseta y comida durante los dos días."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué resultados puedo esperar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aprenderás un método práctico para puertas, quarters, lunas traseras, desmontaje, gomas atípicas y vehículos con accesos difíciles."
+          }
+        }
+      ]
+    }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -40,6 +80,7 @@
           <a href="sobre-nosotros.html">Sobre nosotros</a>
           <a class="is-active" href="formacion-presencial.html" aria-current="page">Formación presencial</a>
           <a href="formacion-suscripcion.html">Formación por suscripción</a>
+          <a href="tienda.html">Tienda</a>
           <a href="contacto.html">Contacto</a>
         </nav>
       </div>
@@ -118,12 +159,32 @@
               <span>Las formaciones pautadas fuera de España pueden tener ligeros cambios.</span>
             </div>
           </article>
-        </div>
-
-        <div class="course-actions">
+        </div><div class="course-actions">
           <a class="button-primary" href="contacto.html">Inscríbete</a>
           <a class="button-secondary" href="formacion-presencial.html">Ver todos los cursos</a>
         </div>
+
+        <section class="course-faq" aria-labelledby="faq-tintado-lunas">
+          <h2 id="faq-tintado-lunas">Preguntas frecuentes</h2>
+          <div class="faq-list">
+            <details>
+              <summary>¿Necesito experiencia previa?</summary>
+              <p>No es imprescindible. Es una formación práctica para empezar con método o sumar el tintado a un servicio de automoción.</p>
+            </details>
+            <details>
+              <summary>¿Se entrega certificado?</summary>
+              <p>Sí, al finalizar se entrega certificado de asistencia y aprovechamiento del curso presencial.</p>
+            </details>
+            <details>
+              <summary>¿Qué materiales están incluidos?</summary>
+              <p>Materiales de práctica, kit de herramientas, camiseta y comida durante los dos días de formación.</p>
+            </details>
+            <details>
+              <summary>¿Qué resultados puedo esperar?</summary>
+              <p>Un método aplicable para puertas, quarters y lunas traseras, con lectura de desmontaje, gomas atípicas y accesos difíciles.</p>
+            </details>
+          </div>
+        </section>
       </section>
     </div>
   </main>
@@ -137,3 +198,5 @@
 
 </body>
 </html>
+
+

@@ -1052,65 +1052,201 @@
       font-size: 0.95rem;
     }
 
-    .gallery-grid {
+    .testimonial-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 0.95fr 1.05fr;
       gap: 20px;
+      align-items: stretch;
     }
 
-    .gallery-column {
-      display: grid;
-      gap: 20px;
-    }
-
-    .gallery-card {
-      position: relative;
-      overflow: hidden;
+    .testimonial-highlight {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 30px;
       border-radius: 30px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background:
+        linear-gradient(145deg, rgba(255, 106, 0, 0.22), rgba(255, 44, 180, 0.12)),
+        rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: var(--shadow);
-      min-height: 240px;
-      background: #101010;
+      min-height: 100%;
     }
 
-    .gallery-card.tall {
-      min-height: 520px;
-    }
-
-    .gallery-card.medium {
-      min-height: 360px;
-    }
-
-    .gallery-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .gallery-overlay {
-      position: absolute;
-      left: 18px;
-      right: 18px;
-      bottom: 18px;
-      padding: 18px 20px;
-      border-radius: 22px;
-      background: rgba(5, 5, 5, 0.72);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .gallery-overlay strong {
+    .testimonial-highlight strong {
       display: block;
       font-family: "Bebas Neue", sans-serif;
       letter-spacing: 0.06em;
-      font-size: 2rem;
-      margin-bottom: 8px;
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      line-height: 0.92;
+      color: var(--yellow);
+      margin-bottom: 16px;
     }
 
-    .gallery-overlay p {
+    .store-home {
+      padding-top: 44px;
+    }
+
+    .store-home-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .store-home-main,
+    .store-product-card {
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+      box-shadow: var(--shadow);
+    }
+
+    .store-home-main {
+      padding: 28px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 191, 31, 0.18), transparent 42%),
+        linear-gradient(180deg, rgba(255, 106, 0, 0.12), rgba(255, 255, 255, 0.02));
+    }
+
+    .store-home-main h3 {
+      margin: 0 0 12px;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      line-height: 0.92;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .store-home-main p {
       margin: 0;
       color: #dfd7cb;
-      line-height: 1.55;
+      line-height: 1.7;
+    }
+
+    .store-product-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .store-product-card {
+      display: flex;
+      min-height: 190px;
+      padding: 20px;
+      flex-direction: column;
+      justify-content: end;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .store-product-card:hover,
+    .store-product-card:focus-visible {
+      transform: translateY(-3px);
+      border-color: rgba(255, 191, 31, 0.32);
+    }
+
+    .store-product-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--yellow);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .store-product-card span {
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.94rem;
+    }
+
+    .testimonial-highlight p {
+      margin: 0;
+      color: #efe5d8;
+      line-height: 1.65;
+      font-size: 1.05rem;
+    }
+
+    .testimonial-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .testimonial-metric {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(5, 5, 5, 0.42);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .testimonial-metric b {
+      display: block;
+      font-family: "Bebas Neue", sans-serif;
+      letter-spacing: 0.06em;
+      font-size: 2.3rem;
+      line-height: 1;
+      color: var(--orange);
+    }
+
+    .testimonial-metric span {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .testimonial-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .testimonial-card {
+      display: grid;
+      gap: 18px;
+      padding: 24px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.22);
+    }
+
+    .testimonial-card p {
+      margin: 0;
+      color: #efe5d8;
+      line-height: 1.62;
+      font-size: 1.02rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .testimonial-author strong {
+      font-family: "Bebas Neue", sans-serif;
+      letter-spacing: 0.08em;
+      font-size: 1.55rem;
+      color: var(--text);
+    }
+
+    .testimonial-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 191, 31, 0.1);
+      border: 1px solid rgba(255, 191, 31, 0.2);
+      color: var(--yellow);
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .contact-wrap {
@@ -1215,7 +1351,8 @@
       .hero-grid,
       .method-grid,
       .contact-grid,
-      .gallery-grid {
+      .testimonial-grid,
+      .store-home-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1240,7 +1377,8 @@
       }
 
       .offer-grid,
-      .proof-band {
+      .proof-band,
+      .testimonial-metrics {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
@@ -1271,7 +1409,9 @@
 
       .mini-points,
       .offer-grid,
-      .proof-band {
+      .proof-band,
+      .testimonial-metrics,
+      .store-product-strip {
         grid-template-columns: 1fr;
       }
 
@@ -1579,6 +1719,7 @@
         <a href="sobre-nosotros.html">Sobre nosotros</a>
         <a href="formacion-presencial.html">Formación presencial</a>
         <a href="formacion-suscripcion.html">Formación por suscripción</a>
+        <a href="tienda.html">Tienda</a>
         <a href="contacto.html">Contacto</a>
       </nav>
     </div>
@@ -1603,7 +1744,7 @@
 
           <div class="cta-row">
             <a class="cta-primary" href="#programas">Ver experiencia</a>
-            <a class="cta-secondary" href="https://linktr.ee/trackcreativo" target="_blank" rel="noreferrer">Abrir Linktree</a>
+            <a class="cta-secondary" href="tienda.html">Ver tienda</a>
           </div>
 
         </div>
@@ -1671,6 +1812,47 @@
         <span>Eventos en vivo</span>
       </div>
     </div>
+
+    <section id="tienda-destacada" class="store-home">
+      <div class="page-shell">
+        <div class="section-top" data-reveal>
+          <div>
+            <span class="section-label">Tienda oficial</span>
+            <h2 class="section-title">Herramientas que usamos en formación</h2>
+          </div>
+          <p class="section-intro">
+            La tienda deja de ser un extra: es el lugar para comprar rasquetas, imanes, cuchillas y accesorios recomendados para practicar con el mismo criterio que se trabaja en los cursos.
+          </p>
+        </div>
+
+        <div class="store-home-grid">
+          <article class="store-home-main" data-reveal>
+            <span class="offer-tag">Kit recomendado</span>
+            <h3>Empieza con una base fiable</h3>
+            <p>Productos seleccionados para instalación, remate y preparación de superficies. Ideales para alumnos presenciales, suscriptores y profesionales que quieren renovar material.</p>
+            <div class="offer-actions">
+              <a class="offer-link offer-button-primary" href="tienda.html">Entrar en la tienda</a>
+              <a class="offer-button" href="formacion-presencial.html">Ver cursos</a>
+            </div>
+          </article>
+
+          <div class="store-product-strip" data-reveal>
+            <a class="store-product-card" href="tienda.html">
+              <strong>Rasquetas y fieltros</strong>
+              <span>Control de presión y acabado limpio.</span>
+            </a>
+            <a class="store-product-card" href="tienda.html">
+              <strong>Cuchillas y corte</strong>
+              <span>Precisión para remates seguros.</span>
+            </a>
+            <a class="store-product-card" href="tienda.html">
+              <strong>Imanes y accesorios</strong>
+              <span>Ayuda real en piezas grandes.</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="metodo">
       <div class="page-shell">
@@ -1908,43 +2090,67 @@
       </div>
     </section>
 
-    <section id="galeria">
+    <section id="testimonios">
       <div class="page-shell">
         <div class="section-top" data-reveal>
           <div>
-            <span class="section-label">Galeria</span>
-            <h2 class="section-title">Trabajo fino,<br>escena global y<br>mucho detalle</h2>
+            <span class="section-label">Testimonios</span>
+            <h2 class="section-title">Lo que cambia<br>cuando entrenas<br>con metodo real</h2>
           </div>
           <p class="section-intro">
-Convertir una pasión en un camino profesional, desarrollando habilidades, adquiriendo experiencia y creciendo constantemente hasta lograr vivir de aquello que realmente motiva e inspira.
+            Alumnos que llegan buscando tecnica y salen con criterio, seguridad y una forma mas profesional de mirar cada pieza. La prueba social debe hablar de progreso real, no solo de frases bonitas.
           </p>
         </div>
 
-        <div class="gallery-grid">
-          <div class="gallery-column">
-            <article class="gallery-card tall" data-reveal>
-              <img src="Captura de pantalla 2026-05-08 142551.png" alt="Masterclass con coche rotulado y asistentes en taller">
-              <div class="gallery-overlay">
-                <strong>Masterclass que se siente en directo</strong>
-                <p>Escala, explicacion visual y una puesta en escena que deja claro que la marca sabe ocupar espacio.</p>
+        <div class="testimonial-grid">
+          <article class="testimonial-highlight" data-reveal>
+            <div>
+              <span class="section-label">Confianza antes de reservar</span>
+              <strong>+600 alumnos</strong>
+              <p>El valor de la formacion no esta solo en ver aplicar vinilo: esta en entender por que se toma cada decision, practicar con supervision y salir con un metodo que puedas repetir en tu propio taller.</p>
+            </div>
+            <div class="testimonial-metrics" aria-label="Indicadores de confianza">
+              <div class="testimonial-metric">
+                <b>19</b>
+                <span>anos de experiencia trasladados a ejercicios concretos.</span>
+              </div>
+              <div class="testimonial-metric">
+                <b>8</b>
+                <span>marcas comparadas para aprender con criterio multimarca.</span>
+              </div>
+              <div class="testimonial-metric">
+                <b>3</b>
+                <span>dias intensivos en los cursos principales.</span>
+              </div>
+              <div class="testimonial-metric">
+                <b>1:1</b>
+                <span>feedback directo en grupos reducidos.</span>
+              </div>
+            </div>
+          </article>
+
+          <div class="testimonial-list">
+            <article class="testimonial-card" data-reveal>
+              <p>"Vine con dudas en piezas complejas y me fui entendiendo mejor el material, los tiempos de calor y donde podia corregir sin forzar. Ese cambio se nota al volver al taller."</p>
+              <div class="testimonial-author">
+                <strong>Alumno wrap intermedio</strong>
+                <span class="testimonial-tag">Mas criterio tecnico</span>
               </div>
             </article>
-          </div>
 
-          <div class="gallery-column">
-            <article class="gallery-card medium" data-reveal>
-              <img src="Captura de pantalla 2026-05-08 142703.png" alt="Profesionales posando junto a un coche en una feria">
-              <div class="gallery-overlay">
-                <strong>Presencia internacional</strong>
-                <p>Eventos y colaboraciones que elevan la percepcion de autoridad dentro del sector.</p>
+            <article class="testimonial-card" data-reveal>
+              <p>"Lo mejor fue practicar sobre problemas reales. No era una demo perfecta para mirar desde lejos: habia correcciones, tension, remates y decisiones como en un trabajo de verdad."</p>
+              <div class="testimonial-author">
+                <strong>Alumno wrap avanzado</strong>
+                <span class="testimonial-tag">Practica de taller</span>
               </div>
             </article>
 
-            <article class="gallery-card medium" data-reveal>
-              <img src="Captura de pantalla 2026-05-08 142731.png" alt="Aplicación de vinilo rojo sobre un coche blanco">
-              <div class="gallery-overlay">
-                <strong>Tensión, precisión, remate</strong>
-                <p>El tipo de gesto técnico que convierte una clase normal en una experiencia memorable.</p>
+            <article class="testimonial-card" data-reveal>
+              <p>"El curso me dio orden. Ahora preparo mejor cada instalacion, explico mejor el valor al cliente y tengo una red de gente del sector con la que seguir aprendiendo."</p>
+              <div class="testimonial-author">
+                <strong>Alumno PPF</strong>
+                <span class="testimonial-tag">Salida profesional</span>
               </div>
             </article>
           </div>
