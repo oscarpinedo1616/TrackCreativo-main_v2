@@ -525,15 +525,27 @@
 
     .community-system {
       margin: 24px 0;
-      padding: 24px;
+      padding: 0;
       border-radius: var(--radius);
-      border: 1px solid rgba(255, 191, 31, 0.22);
+      border: 1px solid rgba(255, 191, 31, 0.18);
       background:
-        radial-gradient(circle at top right, rgba(255, 191, 31, 0.18), transparent 42%),
-        rgba(255, 106, 0, 0.07);
+        radial-gradient(circle at 82% 8%, rgba(255, 191, 31, 0.2), transparent 34%),
+        linear-gradient(145deg, rgba(255, 106, 0, 0.12), rgba(255, 255, 255, 0.035));
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
-    .community-system-head h3 {
+    .forum-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.24);
+    }
+
+    .forum-head h3 {
       margin: 10px 0 12px;
       font-family: "Bebas Neue", sans-serif;
       font-size: clamp(2.2rem, 5vw, 3.2rem);
@@ -542,58 +554,185 @@
       text-transform: uppercase;
     }
 
-    .community-system-head p {
+    .forum-head p {
       margin: 0;
       color: #dfd7cb;
       line-height: 1.7;
+      max-width: 72ch;
     }
 
-    .community-grid {
+    .forum-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .forum-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.86rem;
+      white-space: nowrap;
+    }
+
+    .forum-button.primary {
+      background: linear-gradient(135deg, var(--yellow), var(--orange));
+      color: #170900;
+      border-color: transparent;
+    }
+
+    .forum-shell {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 18px;
+      gap: 0;
+    }
+
+    .forum-toolbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .forum-search {
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.24);
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      font-size: 0.94rem;
+    }
+
+    .forum-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .forum-tab {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .forum-tab.is-active {
+      color: var(--yellow);
+      border-color: rgba(255, 191, 31, 0.28);
+      background: rgba(255, 191, 31, 0.08);
+    }
+
+    .forum-list {
+      display: grid;
+    }
+
+    .forum-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 84px 84px minmax(190px, 0.52fr);
+      gap: 14px;
+      align-items: center;
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+    }
+
+    .forum-row:last-child {
+      border-bottom: 0;
+    }
+
+    .forum-row:hover {
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .forum-category {
+      display: flex;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .forum-icon {
+      display: inline-grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--yellow), var(--orange));
+      color: #170900;
+      flex: 0 0 auto;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .forum-category strong,
+    .forum-last strong {
+      display: block;
+      color: #fff6ea;
+      line-height: 1.2;
+    }
+
+    .forum-category p,
+    .forum-last span {
+      display: block;
+      margin: 6px 0 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.92rem;
+    }
+
+    .forum-count {
+      text-align: center;
+      color: #eadfce;
+    }
+
+    .forum-count b {
+      display: block;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 1.8rem;
+      line-height: 1;
+      letter-spacing: 0.05em;
+      color: var(--yellow);
+    }
+
+    .forum-count span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .forum-last {
+      min-width: 0;
+      padding-left: 14px;
+      border-left: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .live-panel {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.58fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
       align-items: center;
       margin-top: 18px;
-      padding: 18px;
-      border-radius: 22px;
-      border: 1px dashed rgba(255, 191, 31, 0.28);
-      background: rgba(0, 0, 0, 0.18);
-    }
-
-    .live-panel h4 {
-      margin: 0 0 8px;
-      font-family: "Bebas Neue", sans-serif;
-      font-size: 2rem;
-      line-height: 0.95;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .live-panel p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .live-list {
-      display: grid;
-      gap: 8px;
-    }
-
-    .live-list span {
-      display: block;
-      padding: 10px 12px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.045);
-      color: #eadfce;
-      font-size: 0.92rem;
     }
 
     .community-card,
@@ -733,11 +872,35 @@
       .mini-points,
       .value-layout,
       .preview-grid,
-      .community-grid,
       .ecosystem-map,
       .live-panel,
       .store-spotlight {
         grid-template-columns: 1fr;
+      }
+
+      .forum-head,
+      .forum-toolbar {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+      }
+
+      .forum-actions,
+      .forum-tabs {
+        justify-content: flex-start;
+      }
+
+      .forum-row {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+
+      .forum-count {
+        text-align: left;
+      }
+
+      .forum-last {
+        padding-left: 0;
+        border-left: 0;
       }
 
       .benefit-list {
@@ -748,6 +911,21 @@
     @media (max-width: 640px) {
       .hero {
         padding: 34px 0 28px;
+      }
+
+      .community-system {
+        border-radius: 22px;
+      }
+
+      .forum-head,
+      .forum-toolbar,
+      .forum-row {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .forum-category {
+        flex-direction: column;
       }
 
       .hero h1 {
@@ -927,34 +1105,108 @@
             </div>
 
             <section class="community-system" aria-labelledby="comunidad-mixta">
-              <div class="community-system-head">
-                <span class="eyebrow">Sistema mixto recomendado</span>
-                <h3 id="comunidad-mixta">Comunidad privada, dudas rápidas y directos</h3>
-                <p>La comunidad se plantea como uno de los argumentos principales de venta: no basta con ver vídeos, el alumno necesita preguntar, enseñar avances, recibir feedback y sentir que pertenece a un grupo que practica lo mismo.</p>
-              </div>
-              <div class="community-grid">
-                <div class="community-card">
-                  <strong>Foro privado</strong>
-                  <span>Dudas por tema, respuestas consultables y trabajos guardados para que el aprendizaje no se pierda.</span>
-                </div>
-                <div class="community-card">
-                  <strong>Chat grupal</strong>
-                  <span>Contacto ágil con alumnos que están practicando, compartiendo avances y resolviendo bloqueos concretos.</span>
-                </div>
-                <div class="community-card">
-                  <strong>Directos y Q&A</strong>
-                  <span>Masterclass, salas grupales y sesiones privadas para ver procesos, preguntar y recibir criterio de formadores.</span>
-                </div>
-              </div>
-              <div class="live-panel">
+              <div class="forum-head">
                 <div>
-                  <h4>Interacción directa con formadores</h4>
-                  <p>La plataforma se presenta como un espacio vivo con calendario, salas privadas y videollamadas. Comercialmente transmite seguimiento, cercanía y valor recurrente.</p>
+                  <span class="eyebrow">Foro privado</span>
+                  <h3 id="comunidad-mixta">Comunidad por temas para alumnos</h3>
+                  <p>Un foro cerrado para consultar dudas, abrir hilos por técnica y encontrar respuestas sin perderlas en un chat infinito.</p>
                 </div>
-                <div class="live-list">
-                  <span>Masterclass en directo</span>
-                  <span>Sesiones de preguntas y respuestas</span>
-                  <span>Revisión grupal de avances</span>
+                <div class="forum-actions" aria-label="Acciones del foro">
+                  <a class="forum-button primary" href="registro.html">Entrar al foro</a>
+                  <a class="forum-button" href="contacto.html">Pedir acceso</a>
+                </div>
+              </div>
+
+              <div class="forum-shell">
+                <div class="forum-toolbar">
+                  <div class="forum-search">Buscar en el foro: remates, PPF, lunas, herramientas...</div>
+                  <div class="forum-tabs" aria-label="Filtros de foro">
+                    <span class="forum-tab is-active">Todos</span>
+                    <span class="forum-tab">Sin responder</span>
+                    <span class="forum-tab">Destacados</span>
+                  </div>
+                </div>
+
+                <div class="forum-list" aria-label="Categorías del foro privado">
+                  <div class="forum-row">
+                    <div class="forum-category">
+                      <div class="forum-icon">WR</div>
+                      <div>
+                        <strong>Wrapping y cambio de color</strong>
+                        <p>Tensión, calor, cortes, esquinas, interiores y piezas complicadas.</p>
+                      </div>
+                    </div>
+                    <div class="forum-count"><b>128</b><span>Hilos</span></div>
+                    <div class="forum-count"><b>642</b><span>Respuestas</span></div>
+                    <div class="forum-last">
+                      <strong>Paragolpes con mucha curva</strong>
+                      <span>Última respuesta hace 18 min</span>
+                    </div>
+                  </div>
+
+                  <div class="forum-row">
+                    <div class="forum-category">
+                      <div class="forum-icon">PPF</div>
+                      <div>
+                        <strong>PPF transparente y color</strong>
+                        <p>Precorte, instalación al líquido, seco, adherencia y contaminación.</p>
+                      </div>
+                    </div>
+                    <div class="forum-count"><b>74</b><span>Hilos</span></div>
+                    <div class="forum-count"><b>311</b><span>Respuestas</span></div>
+                    <div class="forum-last">
+                      <strong>Marcas de agua bajo clear PPF</strong>
+                      <span>Última respuesta hoy</span>
+                    </div>
+                  </div>
+
+                  <div class="forum-row">
+                    <div class="forum-category">
+                      <div class="forum-icon">TL</div>
+                      <div>
+                        <strong>Tintado de lunas</strong>
+                        <p>Termoformado, cortes, gomas, desmontajes y lunas traseras difíciles.</p>
+                      </div>
+                    </div>
+                    <div class="forum-count"><b>39</b><span>Hilos</span></div>
+                    <div class="forum-count"><b>146</b><span>Respuestas</span></div>
+                    <div class="forum-last">
+                      <strong>Burbuja en esquina inferior</strong>
+                      <span>Última respuesta ayer</span>
+                    </div>
+                  </div>
+
+                  <div class="forum-row">
+                    <div class="forum-category">
+                      <div class="forum-icon">HT</div>
+                      <div>
+                        <strong>Herramientas y materiales</strong>
+                        <p>Espátulas, cuchillas, guantes, líquidos, marcas y mantenimiento.</p>
+                      </div>
+                    </div>
+                    <div class="forum-count"><b>56</b><span>Hilos</span></div>
+                    <div class="forum-count"><b>203</b><span>Respuestas</span></div>
+                    <div class="forum-last">
+                      <strong>Qué guante usar con acabado satinado</strong>
+                      <span>Última respuesta lunes</span>
+                    </div>
+                  </div>
+
+                  <div class="forum-row">
+                    <div class="forum-category">
+                      <div class="forum-icon">PRO</div>
+                      <div>
+                        <strong>Negocio y clientes</strong>
+                        <p>Presupuestos, entrega, garantías, comunicación y organización del taller.</p>
+                      </div>
+                    </div>
+                    <div class="forum-count"><b>31</b><span>Hilos</span></div>
+                    <div class="forum-count"><b>118</b><span>Respuestas</span></div>
+                    <div class="forum-last">
+                      <strong>Cómo explicar un extra de desmontaje</strong>
+                      <span>Última respuesta esta semana</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
