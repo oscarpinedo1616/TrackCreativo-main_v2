@@ -373,7 +373,6 @@ p,
 .forum-tab.is-active,
 .weekday.is-active,
 .store-home-main .product-tag,
-.course-cover-badge,
 .signup-number,
 .method-number,
 .forum-icon,
@@ -444,6 +443,22 @@ p,
 }
 
 .visual-badge p {
+  color: var(--tc-muted) !important;
+}
+
+.course-cover-badge {
+  background:
+    radial-gradient(circle at top left, rgba(255, 191, 31, 0.11), transparent 38%),
+    linear-gradient(180deg, rgba(12, 12, 12, 0.90), rgba(5, 5, 5, 0.80)) !important;
+  border: 1px solid rgba(255, 191, 31, 0.22) !important;
+  color: var(--tc-text) !important;
+}
+
+.course-cover-badge strong {
+  color: var(--tc-yellow) !important;
+}
+
+.course-cover-badge span {
   color: var(--tc-muted) !important;
 }
 
