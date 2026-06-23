@@ -373,7 +373,6 @@ p,
 .forum-tab.is-active,
 .weekday.is-active,
 .store-home-main .product-tag,
-.visual-badge,
 .course-cover-badge,
 .signup-number,
 .method-number,
@@ -430,6 +429,22 @@ p,
 .contact-block {
   background: rgba(0, 0, 0, 0.28) !important;
   border-color: var(--tc-line) !important;
+}
+
+.visual-badge {
+  background:
+    radial-gradient(circle at top left, rgba(255, 191, 31, 0.12), transparent 42%),
+    linear-gradient(180deg, rgba(12, 12, 12, 0.92), rgba(5, 5, 5, 0.82)) !important;
+  border: 1px solid rgba(255, 191, 31, 0.24) !important;
+  color: var(--tc-text) !important;
+}
+
+.visual-badge strong {
+  color: var(--tc-text) !important;
+}
+
+.visual-badge p {
+  color: var(--tc-muted) !important;
 }
 
 .hero-limit,
