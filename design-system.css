@@ -349,6 +349,49 @@ p,
   box-shadow: var(--tc-shadow) !important;
 }
 
+.hero-ribbon {
+  width: 100% !important;
+  overflow: hidden !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.ticker {
+  display: flex !important;
+  width: max-content !important;
+  min-width: max-content !important;
+  gap: clamp(18px, 3vw, 30px) !important;
+  white-space: nowrap !important;
+  font-family: "Bebas Neue", sans-serif !important;
+  font-size: clamp(2rem, 5vw, 3.25rem) !important;
+  line-height: 1 !important;
+  letter-spacing: 0.08em !important;
+  color: rgba(246, 240, 232, 0.94) !important;
+  text-transform: uppercase !important;
+  animation: tc-ticker 18s linear infinite !important;
+  will-change: transform;
+}
+
+.ticker span {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: clamp(18px, 3vw, 30px) !important;
+  font-family: "Bebas Neue", sans-serif !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+.ticker span::after {
+  content: "///";
+  color: var(--tc-orange);
+}
+
+@keyframes tc-ticker {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
 .hero-ribbon,
 .ticker,
 .course-alert,
@@ -374,6 +417,12 @@ p,
 .calendar-head {
   background: rgba(255, 255, 255, 0.045) !important;
   color: var(--tc-text) !important;
+}
+
+.hero-ribbon {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
 }
 
 .forum-tab.is-active,
