@@ -16,6 +16,18 @@
   --tc-radius: 24px;
   --tc-radius-sm: 16px;
   --tc-max: 1180px;
+
+  --bg: var(--tc-bg);
+  --bg-soft: var(--tc-bg-2);
+  --line: var(--tc-line);
+  --text: var(--tc-text);
+  --muted: var(--tc-muted);
+  --orange: var(--tc-orange);
+  --yellow: var(--tc-yellow);
+  --magenta: var(--tc-orange);
+  --shadow: var(--tc-shadow);
+  --radius: var(--tc-radius);
+  --max: var(--tc-max);
 }
 
 html {
@@ -33,6 +45,16 @@ body {
 
 body.subscription-page::before {
   display: none !important;
+}
+
+body::selection {
+  background: rgba(255, 191, 31, 0.28);
+  color: #fff6ea;
+}
+
+section {
+  padding-top: clamp(46px, 7vw, 76px);
+  padding-bottom: clamp(46px, 7vw, 76px);
 }
 
 .page-shell,
@@ -54,21 +76,30 @@ h1,
 .hero h1,
 .page-title h1,
 .contact-page-card h1,
-.course-copy h1 {
+.course-copy h1,
+.store-home h1,
+.brand-copy h1 {
   font-size: clamp(3.2rem, 7vw, 5.8rem) !important;
   line-height: 0.9 !important;
   color: var(--tc-text) !important;
+  margin-bottom: 20px !important;
 }
 
 .section-title,
+.section-heading,
 .route-panel h2,
 .bundle-panel h2,
 .support-panel h2,
 .contact-faq h2,
-.faq-panel h2 {
+.faq-panel h2,
+.video-category h3,
+.store-home-main h2,
+.narrative-panel h2 {
   font-size: clamp(2.35rem, 5vw, 3.9rem) !important;
   line-height: 0.95 !important;
   color: var(--tc-text) !important;
+  margin-top: 0 !important;
+  margin-bottom: 16px !important;
 }
 
 .detail-card h2,
@@ -76,9 +107,26 @@ h1,
 .course-faq h2,
 .product-card h2,
 .student-card h2,
-.signup-summary h2 {
+.signup-summary h2,
+.contact-page-item h2,
+.placeholder-card h2,
+.modal-title {
   font-size: 1.85rem !important;
   line-height: 0.98 !important;
+  color: var(--tc-yellow) !important;
+}
+
+h3,
+.offer-front h3,
+.offer-back h3,
+.pillar-card h3,
+.logic-card h3,
+.store-product-card h3,
+.mini-point strong,
+.fact strong,
+.testimonial-metric strong {
+  font-size: clamp(1.45rem, 2.4vw, 2.05rem) !important;
+  line-height: 1 !important;
   color: var(--tc-yellow) !important;
 }
 
@@ -97,7 +145,10 @@ p,
 .section-desc,
 .course-copy p,
 .contact-page-intro,
-.hero p {
+.hero p,
+.brand-copy p,
+.store-home-main p,
+.modal-desc {
   color: var(--tc-muted) !important;
   font-size: 1.02rem;
   line-height: 1.7;
@@ -105,11 +156,14 @@ p,
 
 .eyebrow,
 .section-label,
+.section-eyebrow,
 .course-label,
 .placeholder-eyebrow,
 .product-tag,
 .offer-tag,
-.contact-page-label {
+.contact-page-label,
+.card-kicker,
+.testimonial-tag {
   color: var(--tc-yellow) !important;
   border-color: var(--tc-line) !important;
   background: rgba(255, 255, 255, 0.045) !important;
@@ -148,6 +202,8 @@ p,
 .header-cta,
 .site-header .header-cta,
 .cta-primary,
+.form-submit,
+.forum-button.primary,
 .offer-button-primary,
 .offer-link.offer-button-primary,
 .btn-orange {
@@ -167,6 +223,7 @@ p,
 .header-ghost,
 .site-header .header-ghost,
 .cta-secondary,
+.forum-button,
 .offer-button,
 .store-link {
   min-height: 52px;
@@ -207,25 +264,46 @@ p,
 .route-panel,
 .route-card,
 .value-panel,
+.value-box,
 .preview-panel,
+.preview-item,
 .faq-panel,
 .community-system,
 .community-card,
 .store-spotlight,
 .store-spotlight-products a,
+.store-product-card,
+.store-product-strip,
 .product-card,
 .bundle-panel,
 .support-panel,
 .logic-card,
 .student-card,
 .signup-flow,
+.signup-step,
 .signup-summary,
 .contact-page-item,
+.contact-page-card,
 .contact-form,
 .contact-faq-list details,
 .faq-list details,
 .yt-video,
-.testimonial-card {
+.yt-thumbnail,
+.testimonial-card,
+.narrative-panel,
+.pillar-card,
+.method-item,
+.method-quote,
+.fact,
+.response-card,
+.response-note,
+.whatsapp-card,
+.forum-shell,
+.forum-toolbar,
+.forum-row,
+.modal-content,
+.mini-point,
+.ecosystem-step {
   border: 1px solid var(--tc-line) !important;
   border-radius: var(--tc-radius) !important;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.022)) !important;
@@ -238,7 +316,17 @@ p,
 .community-card,
 .store-spotlight-products a,
 .student-card,
-.product-card {
+.product-card,
+.store-product-card,
+.store-product-strip,
+.preview-item,
+.signup-step,
+.method-item,
+.fact,
+.forum-row,
+.yt-thumbnail,
+.mini-point,
+.ecosystem-step {
   border-radius: 18px !important;
   box-shadow: none !important;
 }
@@ -246,9 +334,91 @@ p,
 .visual-card,
 .course-cover,
 .offer-face,
-.gallery-card {
+.gallery-card,
+.method-figure,
+.hero-visual,
+.visual-main,
+.offer-logo-showcase {
   border-color: var(--tc-line) !important;
   box-shadow: var(--tc-shadow) !important;
+}
+
+.hero-ribbon,
+.ticker,
+.course-alert,
+.proof-band,
+.footer-line,
+.calendar-head,
+.weekday,
+.forum-tabs,
+.forum-category,
+.route-actions,
+.offer-actions,
+.contact-page-actions,
+.modal-buttons {
+  border-color: var(--tc-line) !important;
+}
+
+.hero-ribbon,
+.course-alert,
+.proof-band,
+.forum-tab,
+.forum-category,
+.weekday,
+.calendar-head {
+  background: rgba(255, 255, 255, 0.045) !important;
+  color: var(--tc-text) !important;
+}
+
+.forum-tab.is-active,
+.weekday.is-active,
+.ribbon-link,
+.store-home-main .product-tag,
+.visual-badge,
+.course-cover-badge,
+.signup-number,
+.method-number,
+.forum-icon,
+.testimonial-highlight,
+.benefit-item::before,
+.bundle-list li::before {
+  background: linear-gradient(135deg, var(--tc-yellow), var(--tc-orange)) !important;
+  color: #170900 !important;
+  border-color: transparent !important;
+}
+
+.hero-limit,
+.orange-stroke,
+.section-title strong,
+.brand-name,
+.yt-title,
+.modal-link,
+.testimonial-metric strong,
+.fact strong,
+.benefit-list strong {
+  color: var(--tc-yellow) !important;
+}
+
+.section-title,
+.section-heading,
+.main-intro h2,
+.store-home-main h2 {
+  color: var(--tc-text) !important;
+}
+
+.outline,
+.orange-stroke {
+  -webkit-text-stroke: 1px rgba(255, 191, 31, 0.82) !important;
+}
+
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.78) !important;
+  backdrop-filter: blur(10px);
+}
+
+.modal-close {
+  color: var(--tc-text) !important;
+  border-radius: 999px !important;
 }
 
 input,
@@ -274,6 +444,20 @@ textarea:focus,
   background: linear-gradient(180deg, #fff5c7 0%, var(--tc-yellow) 44%, var(--tc-orange) 100%) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
+}
+
+a:not(.header-cta):not(.header-ghost):not(.button-primary):not(.button-secondary):not(.cta-primary):not(.cta-secondary):not(.placeholder-button):not(.placeholder-button-secondary):not(.btn-orange) {
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+a:not(.header-cta):not(.header-ghost):not(.button-primary):not(.button-secondary):not(.cta-primary):not(.cta-secondary):not(.placeholder-button):not(.placeholder-button-secondary):not(.btn-orange):hover {
+  color: var(--tc-yellow) !important;
+}
+
+svg,
+.yt-lock,
+.modal-lock {
+  color: var(--tc-yellow) !important;
 }
 
 @media (max-width: 640px) {
