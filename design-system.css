@@ -165,8 +165,14 @@ p,
 .card-kicker,
 .testimonial-tag {
   color: var(--tc-yellow) !important;
-  border-color: var(--tc-line) !important;
-  background: rgba(255, 255, 255, 0.045) !important;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
   letter-spacing: 0.14em !important;
 }
 
@@ -372,7 +378,6 @@ p,
 
 .forum-tab.is-active,
 .weekday.is-active,
-.store-home-main .product-tag,
 .signup-number,
 .method-number,
 .forum-icon,
@@ -428,6 +433,28 @@ p,
 .contact-block {
   background: rgba(0, 0, 0, 0.28) !important;
   border-color: var(--tc-line) !important;
+}
+
+.forum-tabs {
+  gap: 18px !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.forum-tab {
+  min-height: auto !important;
+  padding: 0 0 5px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--tc-muted) !important;
+  box-shadow: none !important;
+}
+
+.forum-tab.is-active {
+  background: transparent !important;
+  color: var(--tc-yellow) !important;
+  border-bottom: 1px solid rgba(255, 191, 31, 0.55) !important;
 }
 
 .visual-badge {
