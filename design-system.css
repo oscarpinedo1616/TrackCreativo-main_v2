@@ -515,23 +515,57 @@ p,
   border-bottom: 1px solid rgba(255, 191, 31, 0.55) !important;
 }
 
-.forum-shell,
-.forum-toolbar,
-.forum-row,
-.forum-category,
-.forum-last {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.048), rgba(255, 255, 255, 0.02)) !important;
+.forum-shell {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018)) !important;
   border-color: var(--tc-line) !important;
 }
 
+.forum-toolbar {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.07) !important;
+  box-shadow: none !important;
+}
+
+.forum-list {
+  background: transparent !important;
+}
+
+.forum-row {
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.forum-row:last-child {
+  border-bottom: 0 !important;
+}
+
 .forum-row:hover {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025)) !important;
+  background: rgba(255, 255, 255, 0.025) !important;
+}
+
+.forum-category,
+.forum-last {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
 }
 
 .forum-icon {
-  background: rgba(0, 0, 0, 0.26) !important;
-  border: 1px solid rgba(255, 191, 31, 0.22) !important;
+  background: rgba(0, 0, 0, 0.22) !important;
+  border: 1px solid rgba(255, 191, 31, 0.20) !important;
   color: var(--tc-yellow) !important;
+  box-shadow: none !important;
+}
+
+.subscription-page .forum-category,
+.subscription-page .forum-last,
+.subscription-page .forum-count {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
 }
 
 .visual-badge {
