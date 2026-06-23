@@ -392,6 +392,13 @@ p,
   to { transform: translate3d(-50%, 0, 0); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .ticker {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
 .hero-ribbon,
 .ticker,
 .course-alert,
@@ -615,6 +622,21 @@ svg,
   .page-shell,
   .site-header .page-shell {
     width: min(calc(100% - 22px), var(--tc-max));
+  }
+
+  .hero-visual,
+  .hero-stack {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
+    overflow: hidden !important;
+  }
+
+  .visual-card,
+  .visual-main,
+  .visual-side,
+  .visual-detail {
+    max-width: 100% !important;
   }
 
   h1,
