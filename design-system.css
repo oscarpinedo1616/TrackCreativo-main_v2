@@ -165,8 +165,14 @@ p,
 .card-kicker,
 .testimonial-tag {
   color: var(--tc-yellow) !important;
-  border-color: var(--tc-line) !important;
-  background: rgba(255, 255, 255, 0.045) !important;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
   letter-spacing: 0.14em !important;
 }
 
@@ -343,6 +349,56 @@ p,
   box-shadow: var(--tc-shadow) !important;
 }
 
+.hero-ribbon {
+  width: 100% !important;
+  overflow: hidden !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.ticker {
+  display: flex !important;
+  width: max-content !important;
+  min-width: max-content !important;
+  gap: clamp(18px, 3vw, 30px) !important;
+  white-space: nowrap !important;
+  font-family: "Bebas Neue", sans-serif !important;
+  font-size: clamp(2rem, 5vw, 3.25rem) !important;
+  line-height: 1 !important;
+  letter-spacing: 0.08em !important;
+  color: rgba(246, 240, 232, 0.94) !important;
+  text-transform: uppercase !important;
+  animation: tc-ticker 18s linear infinite !important;
+  will-change: transform;
+}
+
+.ticker span {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: clamp(18px, 3vw, 30px) !important;
+  font-family: "Bebas Neue", sans-serif !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+.ticker span::after {
+  content: "///";
+  color: var(--tc-orange);
+}
+
+@keyframes tc-ticker {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
 .hero-ribbon,
 .ticker,
 .course-alert,
@@ -370,9 +426,14 @@ p,
   color: var(--tc-text) !important;
 }
 
+.hero-ribbon {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
 .forum-tab.is-active,
 .weekday.is-active,
-.store-home-main .product-tag,
 .signup-number,
 .method-number,
 .forum-icon,
@@ -428,6 +489,28 @@ p,
 .contact-block {
   background: rgba(0, 0, 0, 0.28) !important;
   border-color: var(--tc-line) !important;
+}
+
+.forum-tabs {
+  gap: 18px !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.forum-tab {
+  min-height: auto !important;
+  padding: 0 0 5px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--tc-muted) !important;
+  box-shadow: none !important;
+}
+
+.forum-tab.is-active {
+  background: transparent !important;
+  color: var(--tc-yellow) !important;
+  border-bottom: 1px solid rgba(255, 191, 31, 0.55) !important;
 }
 
 .visual-badge {
@@ -539,6 +622,21 @@ svg,
   .page-shell,
   .site-header .page-shell {
     width: min(calc(100% - 22px), var(--tc-max));
+  }
+
+  .hero-visual,
+  .hero-stack {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
+    overflow: hidden !important;
+  }
+
+  .visual-card,
+  .visual-main,
+  .visual-side,
+  .visual-detail {
+    max-width: 100% !important;
   }
 
   h1,
