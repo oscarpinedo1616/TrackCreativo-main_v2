@@ -372,14 +372,10 @@ p,
 
 .forum-tab.is-active,
 .weekday.is-active,
-.ribbon-link,
 .store-home-main .product-tag,
-.visual-badge,
-.course-cover-badge,
 .signup-number,
 .method-number,
 .forum-icon,
-.testimonial-highlight,
 .benefit-item::before,
 .bundle-list li::before {
   background: linear-gradient(135deg, var(--tc-yellow), var(--tc-orange)) !important;
@@ -387,8 +383,86 @@ p,
   border-color: transparent !important;
 }
 
+.site-header .ribbon-link,
+.ribbon-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 191, 31, 0.22) !important;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045) !important;
+  color: var(--tc-text) !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+
+.site-header .ribbon-link:hover,
+.ribbon-link:hover {
+  border-color: rgba(255, 191, 31, 0.42) !important;
+  background: rgba(255, 191, 31, 0.08) !important;
+  color: var(--tc-yellow) !important;
+}
+
+.testimonial-highlight,
+.contact-wrap {
+  background:
+    radial-gradient(circle at top right, rgba(255, 191, 31, 0.10), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.022)) !important;
+  color: var(--tc-text) !important;
+  border: 1px solid var(--tc-line) !important;
+}
+
+.testimonial-highlight p,
+.testimonial-metric span,
+.contact-wrap p {
+  color: var(--tc-muted) !important;
+}
+
+.testimonial-highlight strong,
+.testimonial-metric b {
+  color: var(--tc-yellow) !important;
+}
+
+.testimonial-metric,
+.contact-block {
+  background: rgba(0, 0, 0, 0.28) !important;
+  border-color: var(--tc-line) !important;
+}
+
+.visual-badge {
+  background:
+    radial-gradient(circle at top left, rgba(255, 191, 31, 0.12), transparent 42%),
+    linear-gradient(180deg, rgba(12, 12, 12, 0.92), rgba(5, 5, 5, 0.82)) !important;
+  border: 1px solid rgba(255, 191, 31, 0.24) !important;
+  color: var(--tc-text) !important;
+}
+
+.visual-badge strong {
+  color: var(--tc-text) !important;
+}
+
+.visual-badge p {
+  color: var(--tc-muted) !important;
+}
+
+.course-cover-badge {
+  background:
+    radial-gradient(circle at top left, rgba(255, 191, 31, 0.11), transparent 38%),
+    linear-gradient(180deg, rgba(12, 12, 12, 0.90), rgba(5, 5, 5, 0.80)) !important;
+  border: 1px solid rgba(255, 191, 31, 0.22) !important;
+  color: var(--tc-text) !important;
+}
+
+.course-cover-badge strong {
+  color: var(--tc-yellow) !important;
+}
+
+.course-cover-badge span {
+  color: var(--tc-muted) !important;
+}
+
 .hero-limit,
-.orange-stroke,
 .section-title strong,
 .brand-name,
 .yt-title,
@@ -408,6 +482,7 @@ p,
 
 .outline,
 .orange-stroke {
+  color: transparent !important;
   -webkit-text-stroke: 1px rgba(255, 191, 31, 0.82) !important;
 }
 
