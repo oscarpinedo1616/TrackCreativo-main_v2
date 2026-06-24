@@ -7,6 +7,7 @@
   --orange: #ff6a00;
   --yellow: #ffbf1f;
   --shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
+  --max: 1600px;
 }
 
 * {
@@ -128,7 +129,7 @@ p {
 }
 
 .contact-page-card {
-  width: min(100%, 1140px);
+  width: min(100%, var(--max));
   padding: 42px;
   text-align: left;
 }

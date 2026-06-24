@@ -15,7 +15,7 @@
   --tc-shadow: 0 22px 56px rgba(0, 0, 0, 0.42);
   --tc-radius: 24px;
   --tc-radius-sm: 16px;
-  --tc-max: 1180px;
+  --tc-max: 1600px;
 
   --bg: var(--tc-bg);
   --bg-soft: var(--tc-bg-2);
