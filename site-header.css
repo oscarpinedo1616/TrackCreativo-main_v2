@@ -17,7 +17,7 @@
 }
 
 .site-header .page-shell {
-  width: min(calc(100% - 32px), 1180px);
+  width: min(calc(100% - 32px), 1600px);
   margin: 0 auto;
 }
 
@@ -277,7 +277,7 @@
   }
 
   .site-header .page-shell {
-    width: min(calc(100% - 22px), 1180px);
+    width: min(calc(100% - 22px), 1600px);
   }
 
   .site-header .header-inner {

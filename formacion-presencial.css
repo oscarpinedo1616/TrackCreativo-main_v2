@@ -7,7 +7,7 @@
   --orange: #ff6a00;
   --yellow: #ffbf1f;
   --shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
-  --max: 1180px;
+  --max: 1600px;
 }
 
 * {
@@ -351,6 +351,10 @@ h1 {
     radial-gradient(circle at top right, rgba(255, 191, 31, 0.16), transparent 38%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
   box-shadow: var(--shadow);
+}
+
+.route-panel .eyebrow {
+  margin-bottom: 10px;
 }
 
 .route-panel h2 {
