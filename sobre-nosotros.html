@@ -170,8 +170,15 @@
       position: relative;
     }
 
-    .narrative-panel::after {
-      content: none;
+    .narrative-panel::before {
+      content: "";
+      display: block;
+      width: 86px;
+      height: 3px;
+      margin-bottom: 24px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--orange), var(--yellow));
+      box-shadow: 0 0 18px rgba(var(--orange-rgb), 0.35);
     }
 
     .narrative-panel h2 {
