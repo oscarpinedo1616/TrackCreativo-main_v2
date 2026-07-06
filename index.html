@@ -3,9 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="INSTALLERSONTRUCK es una academia y comunidad de wrapping en Madrid para aprender, perfeccionar técnica y convertir una pasión en un camino profesional.">
+  <meta name="description" content="INSTALLERSONTRACK es una academia y comunidad de wrapping en Madrid para aprender, perfeccionar técnica y convertir una pasión en un camino profesional.">
   <meta name="theme-color" content="#050505">
-  <title>INSTALLERSONTRUCK | Academia de Wrapping</title>
+  <meta property="og:title" content="INSTALLERSONTRACK | Academia de Wrapping">
+  <meta property="og:description" content="INSTALLERSONTRACK es una academia y comunidad de wrapping en Madrid para aprender, perfeccionar técnica y convertir una pasión en un camino profesional.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="logo.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="INSTALLERSONTRACK | Academia de Wrapping">
+  <meta name="twitter:description" content="INSTALLERSONTRACK es una academia y comunidad de wrapping en Madrid para aprender, perfeccionar técnica y convertir una pasión en un camino profesional.">
+  <meta name="twitter:image" content="logo.jpg">
+  <title>INSTALLERSONTRACK | Academia de Wrapping</title>
+  <link rel="icon" href="logo.jpg" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -22,7 +31,7 @@
       --magenta: #ff2cb4;
       --lime: #d7ff37;
       --shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
-      --max: 1180px;
+      --max: 1600px;
       --radius: 28px;
     }
 
@@ -131,8 +140,36 @@
     .header-inner {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
       padding: 18px 0 20px;
+    }
+
+    .header-ribbon {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 38px;
+      padding: 0 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      background:
+        linear-gradient(90deg, rgba(255, 106, 0, 0.14), rgba(255, 191, 31, 0.06)),
+        rgba(255, 255, 255, 0.03);
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .header-ribbon strong {
+      color: var(--yellow);
+    }
+
+    .ribbon-link {
+      color: var(--text);
+      font-weight: 700;
+      white-space: nowrap;
     }
 
     .header-top {
@@ -162,9 +199,8 @@
     .brand-copy {
       min-width: 0;
       display: flex;
-      align-items: baseline;
-      gap: 16px;
-      flex-wrap: nowrap;
+      flex-direction: column;
+      gap: 5px;
     }
 
     .brand-name {
@@ -177,9 +213,34 @@
 
     .brand-tag {
       color: var(--muted);
-      font-size: 0.84rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
+      line-height: 1.25;
+    }
+
+    .header-trust {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      min-width: 220px;
+    }
+
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      color: #eadfce;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
       white-space: nowrap;
     }
 
@@ -339,9 +400,9 @@
 .hero-copy h1 {
   margin: 22px 0 18px;
   font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(4rem, 11vw, 7.5rem);
+  font-size: clamp(3.6rem, 9vw, 6.4rem);
   line-height: 0.88;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   max-width: 10ch;
 }
@@ -599,13 +660,17 @@
       max-width: 58ch;
       color: #d6cec3;
       line-height: 1.7;
-      font-size: 1rem;
+      font-size: 1.08rem;
     }
 
     .method-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
       gap: 24px;
+    }
+
+    #metodo .section-top {
+      align-items: flex-start;
     }
 
     .panel {
@@ -1000,65 +1065,211 @@
       font-size: 0.95rem;
     }
 
-    .gallery-grid {
+    .testimonial-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 0.95fr 1.05fr;
       gap: 20px;
+      align-items: stretch;
     }
 
-    .gallery-column {
-      display: grid;
-      gap: 20px;
-    }
-
-    .gallery-card {
-      position: relative;
-      overflow: hidden;
+    .testimonial-highlight {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 30px;
       border-radius: 30px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background:
+        linear-gradient(145deg, rgba(255, 106, 0, 0.22), rgba(255, 44, 180, 0.12)),
+        rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: var(--shadow);
-      min-height: 240px;
-      background: #101010;
+      min-height: 100%;
     }
 
-    .gallery-card.tall {
-      min-height: 520px;
-    }
-
-    .gallery-card.medium {
-      min-height: 360px;
-    }
-
-    .gallery-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .gallery-overlay {
-      position: absolute;
-      left: 18px;
-      right: 18px;
-      bottom: 18px;
-      padding: 18px 20px;
-      border-radius: 22px;
-      background: rgba(5, 5, 5, 0.72);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .gallery-overlay strong {
+    .testimonial-highlight strong {
       display: block;
       font-family: "Bebas Neue", sans-serif;
       letter-spacing: 0.06em;
-      font-size: 2rem;
-      margin-bottom: 8px;
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      line-height: 0.92;
+      color: var(--yellow);
+      margin-bottom: 16px;
     }
 
-    .gallery-overlay p {
+    .store-home {
+      padding-top: 44px;
+    }
+
+    .store-home .section-top {
+      display: block;
+      max-width: 650px;
+    }
+
+    .store-home .section-intro {
+      margin-top: 16px;
+      max-width: 62ch;
+    }
+
+    .store-home-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .store-home-main,
+    .store-product-card {
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+      box-shadow: var(--shadow);
+    }
+
+    .store-home-main {
+      padding: 28px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 191, 31, 0.18), transparent 42%),
+        linear-gradient(180deg, rgba(255, 106, 0, 0.12), rgba(255, 255, 255, 0.02));
+    }
+
+    .store-home-main h3 {
+      margin: 0 0 12px;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      line-height: 0.92;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .store-home-main p {
       margin: 0;
       color: #dfd7cb;
-      line-height: 1.55;
+      line-height: 1.7;
+    }
+
+    .store-product-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .store-product-card {
+      display: flex;
+      min-height: 190px;
+      padding: 20px;
+      flex-direction: column;
+      justify-content: end;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .store-product-card:hover,
+    .store-product-card:focus-visible {
+      transform: translateY(-3px);
+      border-color: rgba(255, 191, 31, 0.32);
+    }
+
+    .store-product-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--yellow);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .store-product-card span {
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.94rem;
+    }
+
+    .testimonial-highlight p {
+      margin: 0;
+      color: #efe5d8;
+      line-height: 1.65;
+      font-size: 1.05rem;
+    }
+
+    .testimonial-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .testimonial-metric {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(5, 5, 5, 0.42);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .testimonial-metric b {
+      display: block;
+      font-family: "Bebas Neue", sans-serif;
+      letter-spacing: 0.06em;
+      font-size: 2.3rem;
+      line-height: 1;
+      color: var(--orange);
+    }
+
+    .testimonial-metric span {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .testimonial-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .testimonial-card {
+      display: grid;
+      gap: 18px;
+      padding: 24px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.22);
+    }
+
+    .testimonial-card p {
+      margin: 0;
+      color: #efe5d8;
+      line-height: 1.62;
+      font-size: 1.02rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .testimonial-author strong {
+      font-family: "Bebas Neue", sans-serif;
+      letter-spacing: 0.08em;
+      font-size: 1.55rem;
+      color: var(--text);
+    }
+
+    .testimonial-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 191, 31, 0.1);
+      border: 1px solid rgba(255, 191, 31, 0.2);
+      color: var(--yellow);
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .contact-wrap {
@@ -1163,7 +1374,8 @@
       .hero-grid,
       .method-grid,
       .contact-grid,
-      .gallery-grid {
+      .testimonial-grid,
+      .store-home-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1188,7 +1400,8 @@
       }
 
       .offer-grid,
-      .proof-band {
+      .proof-band,
+      .testimonial-metrics {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
@@ -1204,9 +1417,13 @@
       }
 
       .brand-copy {
-        flex-direction: column;
-        align-items: flex-start;
         gap: 4px;
+      }
+
+      .header-trust {
+        order: 3;
+        width: 100%;
+        justify-content: flex-start;
       }
 
       .header-actions {
@@ -1215,7 +1432,9 @@
 
       .mini-points,
       .offer-grid,
-      .proof-band {
+      .proof-band,
+      .testimonial-metrics,
+      .store-product-strip {
         grid-template-columns: 1fr;
       }
 
@@ -1266,6 +1485,17 @@
         padding: 12px 0 14px;
       }
 
+      .header-ribbon {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+        min-height: 0;
+        padding: 10px 12px;
+        border-radius: 14px;
+        font-size: 0.66rem;
+        line-height: 1.35;
+      }
+
       .header-top {
         gap: 12px;
       }
@@ -1285,9 +1515,23 @@
       }
 
       .brand-tag {
-        white-space: normal;
         font-size: 0.68rem;
         letter-spacing: 0.1em;
+      }
+
+      .header-trust {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6px;
+      }
+
+      .trust-pill {
+        justify-content: center;
+        min-height: 34px;
+        padding: 0 6px;
+        font-size: 0.62rem;
+        text-align: center;
+        white-space: normal;
       }
 
       .hero-grid {
@@ -1295,8 +1539,8 @@
       }
 
       .hero-copy h1 {
-        font-size: clamp(3.4rem, 17vw, 5rem);
-        line-height: 0.92;
+        font-size: clamp(3rem, 15vw, 3.6rem);
+        line-height: 0.88;
       }
 
       .hero-copy p {
@@ -1468,16 +1712,36 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="design-system.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Organization", "LocalBusiness"],
+    "@id": "https://installersontrack.com/#organization",
+    "name": "INSTALLERSONTRACK",
+    "url": "https://installersontrack.com/",
+    "logo": "logo.jpg",
+    "description": "Academia y comunidad de wrapping, PPF y tintado en Madrid con formación presencial, suscripción online, tienda y soporte para alumnos.",
+    "areaServed": "ES",
+    "sameAs": ["https://www.instagram.com/trackcreativo"]
+  }
+  </script>
 </head>
 <body>
 <header class="site-header">
   <div class="page-shell header-inner">
+    <div class="header-ribbon">
+      <span><strong>Academia de wrapping en Madrid</strong> · Taller real, criterio y comunidad</span>
+      <a class="ribbon-link" href="contacto.html">Solicita asesoramiento</a>
+    </div>
+
     <div class="header-top">
       <a class="brand" href="index.html" aria-label="Ir al inicio">
-        <img class="brand-logo" src="logo.jpg" alt="Logo de INSTALLERSONTRUCK">
+        <img decoding="async" class="brand-logo" src="logo.jpg" alt="Logo de INSTALLERSONTRACK">
         <div class="brand-copy">
-          <div class="brand-name">INSTALLERSONTRUCK</div>
-          <div class="brand-tag">Wrapping cars y sus derivados</div>
+          <div class="brand-name">INSTALLERSONTRACK</div>
+          <div class="brand-tag">Cursos profesionales en wrapping, PPF y tintado</div>
         </div>
       </a>
 
@@ -1489,10 +1753,11 @@
 
     <div class="header-nav-row">
       <nav class="nav" aria-label="Principal">
-        <a class="is-active" href="index.html" aria-current="page">Home</a>
+        <a class="is-active" href="index.html" aria-current="page">Inicio</a>
         <a href="sobre-nosotros.html">Sobre nosotros</a>
         <a href="formacion-presencial.html">Formación presencial</a>
         <a href="formacion-suscripcion.html">Formación por suscripción</a>
+        <a href="tienda.html">Tienda</a>
         <a href="contacto.html">Contacto</a>
       </nav>
     </div>
@@ -1510,14 +1775,14 @@
             con criterio real
           </h1>
           <p>
-            INSTALLERSONTRUCK convierte el wrapping en una experiencia de taller, masterclass y
+            INSTALLERSONTRACK convierte el wrapping en una experiencia de taller, masterclass y
             comunidad. Aquí se viene a mejorar técnica, ganar criterio y dar pasos reales hacia una salida profesional
             dentro del sector.
           </p>
 
           <div class="cta-row">
             <a class="cta-primary" href="#programas">Ver experiencia</a>
-            <a class="cta-secondary" href="https://linktr.ee/trackcreativo" target="_blank" rel="noreferrer">Abrir Linktree</a>
+            <a class="cta-secondary" href="tienda.html">Ver tienda</a>
           </div>
 
         </div>
@@ -1525,15 +1790,15 @@
         <div class="hero-visual" data-reveal>
           <div class="hero-stack">
             <figure class="visual-card visual-main">
-              <img src="Captura de pantalla 2026-05-08 133438.png" alt="Aplicación de vinilo morado en la puerta de un coche">
+              <img loading="eager" fetchpriority="high" decoding="async" src="Captura de pantalla 2026-05-08 133438.png" alt="Aplicación de vinilo morado en la puerta de un coche">
             </figure>
 
             <figure class="visual-card visual-side">
-              <img src="Captura de pantalla 2026-05-08 142039.png" alt="Capo gris con reflejos geometricos de luces de taller">
+              <img loading="lazy" decoding="async" src="Captura de pantalla 2026-05-08 142039.png" alt="Capo gris con reflejos geometricos de luces de taller">
             </figure>
 
             <figure class="visual-card visual-detail">
-              <img src="Captura de pantalla 2026-05-08 142441.png" alt="Detalle de vinilo amarillo en una llanta">
+              <img loading="lazy" decoding="async" src="Captura de pantalla 2026-05-08 142441.png" alt="Detalle de vinilo amarillo en una llanta">
             </figure>
 
             <div class="visual-badge">
@@ -1586,6 +1851,33 @@
       </div>
     </div>
 
+    <section id="tienda-destacada" class="store-home">
+      <div class="page-shell">
+        <div class="section-top" data-reveal>
+          <div>
+            <span class="section-label">Tienda oficial</span>
+            <h2 class="section-title">Herramientas que usamos en formación</h2>
+          </div>
+          <p class="section-intro">
+            La tienda deja de ser un extra: es el lugar para comprar rasquetas, imanes, cuchillas y accesorios recomendados para practicar con el mismo criterio que se trabaja en los cursos.
+          </p>
+        </div>
+
+        <div class="store-home-grid">
+          <article class="store-home-main" data-reveal>
+            <span class="offer-tag">Kit recomendado</span>
+            <h3>Empieza con una base fiable</h3>
+            <p>Productos seleccionados para instalación, remate y preparación de superficies. Ideales para alumnos presenciales, suscriptores y profesionales que quieren renovar material.</p>
+            <div class="offer-actions">
+              <a class="offer-link offer-button-primary" href="tienda.html">Entrar en la tienda</a>
+              <a class="offer-button" href="formacion-presencial.html">Ver cursos</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
     <section id="metodo">
       <div class="page-shell">
         <div class="section-top" data-reveal>
@@ -1596,7 +1888,7 @@
           <p class="section-intro">
             No es solo un aprendizaje técnico. Quien llega con experiencia mejora procesos, pule remates y gana más
             seguridad en cada trabajo; y quien empieza desde cero encuentra una forma real de convertir lo que le gusta
-            en un camino profesional. INSTALLERSONTRUCK acompaña ese avance con práctica, criterio de taller y una
+            en un camino profesional. INSTALLERSONTRACK acompaña ese avance con práctica, método de trabajo y una
             comunidad que ayuda a encontrar sitio dentro del sector.
           </p>
         </div>
@@ -1638,10 +1930,10 @@
           </article>
 
           <article class="panel method-figure" data-reveal>
-            <img src="Captura de pantalla 2026-05-08 142551.png" alt="Instructor mostrando un coche rotulado durante una masterclass">
+            <img loading="lazy" decoding="async" src="Captura de pantalla 2026-05-08 142551.png" alt="Instructor mostrando un coche rotulado durante una masterclass">
             <div class="method-quote">
               <strong>Habla con hechos</strong>
-              <p>INSTALLERSONTRUCK transmite técnica visible, energía real y mucha presencia en cada proyecto que toca.</p>
+              <p>INSTALLERSONTRACK transmite técnica visible, energía real y mucha presencia en cada proyecto que toca.</p>
             </div>
           </article>
         </div>
@@ -1653,7 +1945,7 @@
         <div class="section-top" data-reveal>
           <div>
             <span class="section-label">Experiencia</span>
-            <h2 class="section-title">Cuatro formas<br>de vivir INSTALLERSONTRUCK</h2>
+            <h2 class="section-title">Cuatro formas<br>de vivir INSTALLERSONTRACK</h2>
           </div>
           <p class="section-intro">
             Formación presencial por niveles, contenido online que alarga el aprendizaje, eventos con visibilidad real
@@ -1665,10 +1957,10 @@
           <article class="offer-card" data-reveal>
             <div class="offer-card-inner">
               <div class="offer-face offer-front">
-                <img src="Captura de pantalla 2026-05-08 142731.png" alt="Aplicación de wrapping rojo en el frontal de un coche">
+                <img loading="lazy" decoding="async" src="presenciales.png" alt="Grupo de alumnos en formación de wrapping observando la aplicación en un coche">
                 <span class="offer-tag">Formación</span>
                 <h3>Presenciales</h3>
-                <p>Grupos reducidos, rutas por nivel y una formación pensada para avanzar con criterio real de taller.</p>
+                <p>Grupos reducidos, rutas por nivel y una formación pensada para avanzar con práctica real.</p>
                 <div class="offer-actions">
                   <button class="offer-button offer-button-primary" type="button" data-flip-card aria-expanded="false">Ver más info</button>
                 </div>
@@ -1706,7 +1998,7 @@
           <article class="offer-card" data-reveal>
             <div class="offer-card-inner">
               <div class="offer-face offer-front">
-                <img src="Captura de pantalla 2026-05-08 142703.png" alt="Demostración profesional de wrapping en un evento">
+                <img loading="lazy" decoding="async" src="Captura de pantalla 2026-05-08 142703.png" alt="Demostración profesional de wrapping en un evento">
                 <span class="offer-tag">Escena</span>
                 <h3>Eventos</h3>
                 <p>Presencia en citas potentes del sector y un formato propio para seguir conectando técnica, personas y oportunidades.</p>
@@ -1739,7 +2031,7 @@
           <article class="offer-card" data-reveal>
             <div class="offer-card-inner">
               <div class="offer-face offer-front">
-                <img src="Captura de pantalla 2026-05-08 133438.png" alt="Aplicación de vinilo morado en la puerta de un coche">
+                <img loading="lazy" decoding="async" src="youtube.png" alt="Miniatura de YouTube sobre wrapping de coches">
                 <span class="offer-tag">Comunidad</span>
                 <h3>YouTube</h3>
                 <p>El aprendizaje no acaba al salir del curso: sigue en vídeos, procesos reales y una comunidad que se mantiene activa.</p>
@@ -1769,7 +2061,7 @@
           <article class="offer-card" data-reveal>
             <div class="offer-card-inner">
               <div class="offer-face offer-front">
-                <img src="Captura de pantalla 2026-05-08 142039.png" alt="Reflejo de luces hexagonales sobre un coche gris">
+                <img loading="lazy" decoding="async" src="Captura de pantalla 2026-05-08 142039.png" alt="Reflejo de luces hexagonales sobre un coche gris">
                 <span class="offer-tag">Marca</span>
                 <h3>Colaboraciones</h3>
                 <p>Un espacio pensado para trabajar con marcas que quieren estar presentes de forma útil y creíble dentro del sector.</p>
@@ -1822,43 +2114,67 @@
       </div>
     </section>
 
-    <section id="galeria">
+    <section id="testimonios">
       <div class="page-shell">
         <div class="section-top" data-reveal>
           <div>
-            <span class="section-label">Galeria</span>
-            <h2 class="section-title">Trabajo fino,<br>escena global y<br>mucho detalle</h2>
+            <span class="section-label">Testimonios</span>
+            <h2 class="section-title">Lo que cambia<br>cuando entrenas<br>con metodo real</h2>
           </div>
           <p class="section-intro">
-Convertir una pasión en un camino profesional, desarrollando habilidades, adquiriendo experiencia y creciendo constantemente hasta lograr vivir de aquello que realmente motiva e inspira.
+            Alumnos que llegan buscando tecnica y salen con criterio, seguridad y una forma mas profesional de mirar cada pieza. La prueba social debe hablar de progreso real, no solo de frases bonitas.
           </p>
         </div>
 
-        <div class="gallery-grid">
-          <div class="gallery-column">
-            <article class="gallery-card tall" data-reveal>
-              <img src="Captura de pantalla 2026-05-08 142551.png" alt="Masterclass con coche rotulado y asistentes en taller">
-              <div class="gallery-overlay">
-                <strong>Masterclass que se siente en directo</strong>
-                <p>Escala, explicacion visual y una puesta en escena que deja claro que la marca sabe ocupar espacio.</p>
+        <div class="testimonial-grid">
+          <article class="testimonial-highlight" data-reveal>
+            <div>
+              <span class="section-label">Confianza antes de reservar</span>
+              <strong>+600 alumnos</strong>
+              <p>El valor de la formacion no esta solo en ver aplicar vinilo: esta en entender por que se toma cada decision, practicar con supervision y salir con un metodo que puedas repetir en tu propio taller.</p>
+            </div>
+            <div class="testimonial-metrics" aria-label="Indicadores de confianza">
+              <div class="testimonial-metric">
+                <b>19</b>
+                <span>anos de experiencia trasladados a ejercicios concretos.</span>
+              </div>
+              <div class="testimonial-metric">
+                <b>8</b>
+                <span>marcas comparadas para aprender con criterio multimarca.</span>
+              </div>
+              <div class="testimonial-metric">
+                <b>3</b>
+                <span>dias intensivos en los cursos principales.</span>
+              </div>
+              <div class="testimonial-metric">
+                <b>1:1</b>
+                <span>feedback directo en grupos reducidos.</span>
+              </div>
+            </div>
+          </article>
+
+          <div class="testimonial-list">
+            <article class="testimonial-card" data-reveal>
+              <p>"Vine con dudas en piezas complejas y me fui entendiendo mejor el material, los tiempos de calor y donde podia corregir sin forzar. Ese cambio se nota al volver al taller."</p>
+              <div class="testimonial-author">
+                <strong>Alumno wrap intermedio</strong>
+                <span class="testimonial-tag">Mas criterio tecnico</span>
               </div>
             </article>
-          </div>
 
-          <div class="gallery-column">
-            <article class="gallery-card medium" data-reveal>
-              <img src="Captura de pantalla 2026-05-08 142703.png" alt="Profesionales posando junto a un coche en una feria">
-              <div class="gallery-overlay">
-                <strong>Presencia internacional</strong>
-                <p>Eventos y colaboraciones que elevan la percepcion de autoridad dentro del sector.</p>
+            <article class="testimonial-card" data-reveal>
+              <p>"Lo mejor fue practicar sobre problemas reales. No era una demo perfecta para mirar desde lejos: habia correcciones, tension, remates y decisiones como en un trabajo de verdad."</p>
+              <div class="testimonial-author">
+                <strong>Alumno wrap avanzado</strong>
+                <span class="testimonial-tag">Practica de taller</span>
               </div>
             </article>
 
-            <article class="gallery-card medium" data-reveal>
-              <img src="Captura de pantalla 2026-05-08 142731.png" alt="Aplicación de vinilo rojo sobre un coche blanco">
-              <div class="gallery-overlay">
-                <strong>Tensión, precisión, remate</strong>
-                <p>El tipo de gesto técnico que convierte una clase normal en una experiencia memorable.</p>
+            <article class="testimonial-card" data-reveal>
+              <p>"El curso me dio orden. Ahora preparo mejor cada instalacion, explico mejor el valor al cliente y tengo una red de gente del sector con la que seguir aprendiendo."</p>
+              <div class="testimonial-author">
+                <strong>Alumno PPF</strong>
+                <span class="testimonial-tag">Salida profesional</span>
               </div>
             </article>
           </div>
@@ -1870,7 +2186,7 @@ Convertir una pasión en un camino profesional, desarrollando habilidades, adqui
 
   <footer class="site-footer">
     <div class="page-shell footer-line">
-      <span>INSTALLERSONTRUCK | Academia, masterclass y comunidad de wrapping.</span>
+      <span>INSTALLERSONTRACK | Academia, masterclass y comunidad de wrapping.</span>
       <span>Madrid, Espa&ntilde;a | Marca orientada a técnica y salida profesional.</span>
     </div>
   </footer>
@@ -1900,3 +2216,11 @@ Convertir una pasión en un camino profesional, desarrollando habilidades, adqui
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
+

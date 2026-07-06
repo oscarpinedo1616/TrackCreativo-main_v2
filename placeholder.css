@@ -7,6 +7,7 @@
   --orange: #ff6a00;
   --yellow: #ffbf1f;
   --shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
+  --max: 1600px;
 }
 
 * {
@@ -25,22 +26,26 @@ body {
 }
 
 .placeholder-page {
-  min-height: 100vh;
+  min-height: calc(100vh - 180px);
   display: grid;
-  place-items: center;
-  padding: 24px;
+  place-items: start center;
+  padding: 54px 24px 78px;
 }
 
 .placeholder-card {
   width: min(100%, 760px);
-  padding: 44px 38px;
+  padding: 42px;
   text-align: center;
-  border-radius: 34px;
+  border-radius: 28px;
   background:
-    linear-gradient(140deg, rgba(255, 106, 0, 0.18), rgba(255, 191, 31, 0.08) 38%, rgba(255, 255, 255, 0.03)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
     var(--panel);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
+}
+
+.auth-card {
+  max-width: 540px;
 }
 
 .placeholder-eyebrow {
@@ -60,7 +65,7 @@ body {
 h1 {
   margin: 20px 0 14px;
   font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(3rem, 10vw, 5.8rem);
+  font-size: clamp(2.8rem, 8vw, 4.8rem);
   line-height: 0.9;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -68,7 +73,7 @@ h1 {
 
 p {
   margin: 0 auto 28px;
-  max-width: 28ch;
+  max-width: 54ch;
   color: var(--muted);
   font-size: 1.05rem;
   line-height: 1.7;
@@ -124,7 +129,7 @@ p {
 }
 
 .contact-page-card {
-  width: min(100%, 1140px);
+  width: min(100%, var(--max));
   padding: 42px;
   text-align: left;
 }
@@ -224,13 +229,181 @@ p {
   gap: 14px;
 }
 
+.contact-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+  padding: 22px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.contact-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.field-group {
+  display: grid;
+  gap: 8px;
+}
+
+.field-group.full {
+  grid-column: 1 / -1;
+}
+
+.field-group label {
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.field-group input,
+.field-group select,
+.field-group textarea {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.28);
+  color: var(--text);
+  font: inherit;
+  padding: 12px 14px;
+  outline: none;
+}
+
+.field-group textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.field-group input:focus,
+.field-group select:focus,
+.field-group textarea:focus {
+  border-color: rgba(255, 191, 31, 0.5);
+  box-shadow: 0 0 0 3px rgba(255, 191, 31, 0.1);
+}
+
+.contact-form-note {
+  margin: 0;
+  max-width: none;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.quick-contact {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.whatsapp-card {
+  border-color: rgba(37, 211, 102, 0.35);
+  background:
+    linear-gradient(160deg, rgba(37, 211, 102, 0.14), rgba(255, 255, 255, 0.03) 58%),
+    rgba(255, 255, 255, 0.04);
+}
+
+.response-card {
+  border-style: dashed;
+}
+
+.contact-faq {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.contact-faq h2 {
+  margin: 0 0 14px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.2rem;
+  line-height: 0.95;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.contact-faq-list {
+  display: grid;
+  gap: 10px;
+}
+
+.contact-faq-list details {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.contact-faq-list summary {
+  cursor: pointer;
+  padding: 15px 18px;
+  color: #fff6ea;
+  font-weight: 700;
+  list-style: none;
+}
+
+.contact-faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.contact-faq-list p {
+  margin: 0;
+  max-width: none;
+  padding: 0 18px 16px;
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
+.form-submit {
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+}
+
+.auth-footer {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.auth-footer.compact {
+  margin-top: 24px;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.auth-footer a {
+  color: var(--yellow);
+  font-weight: 700;
+}
+
+.auth-link {
+  width: 100%;
+  margin-top: 14px;
+}
+
+.remember-control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
 @media (max-width: 640px) {
   .placeholder-page {
-    padding: 16px;
+    padding: 28px 16px 54px;
   }
 
   .placeholder-card {
     padding: 30px 18px;
+    border-radius: 22px;
   }
 
   p {
@@ -266,5 +439,9 @@ p {
 
   .contact-page-intro {
     font-size: 1rem;
+  }
+
+  .contact-form-grid {
+    grid-template-columns: 1fr;
   }
 }

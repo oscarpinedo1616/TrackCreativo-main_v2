@@ -1,11 +1,20 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Conoce la historia, los valores y la trayectoria detrás de INSTALLERSONTRUCK.">
+  <meta name="description" content="Conoce la historia, los valores y la trayectoria detrás de INSTALLERSONTRACK.">
   <meta name="theme-color" content="#050505">
-  <title>Sobre nosotros | INSTALLERSONTRUCK</title>
+  <meta property="og:title" content="Sobre nosotros | INSTALLERSONTRACK">
+  <meta property="og:description" content="Conoce la historia, los valores y la trayectoria detrás de INSTALLERSONTRACK.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="logo.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sobre nosotros | INSTALLERSONTRACK">
+  <meta name="twitter:description" content="Conoce la historia, los valores y la trayectoria detrás de INSTALLERSONTRACK.">
+  <meta name="twitter:image" content="logo.jpg">
+  <title>Sobre nosotros | INSTALLERSONTRACK</title>
+  <link rel="icon" href="logo.jpg" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -22,7 +31,7 @@
       --yellow: #ffbf1f;
       --magenta: #ff2cb4;
       --shadow: 0 22px 60px rgba(0, 0, 0, 0.6);
-      --max: 1100px;
+      --max: 1600px;
       --radius: 24px;
     }
 
@@ -89,9 +98,9 @@
     h1 {
       margin: 0 0 30px 0;
       font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(3.5rem, 9vw, 6.5rem);
-      line-height: 0.85;
-      letter-spacing: 0.02em;
+      font-size: clamp(3.6rem, 9vw, 6.4rem);
+      line-height: 0.88;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
     }
 
@@ -102,8 +111,8 @@
     }
 
     .main-intro {
-      font-size: 1.25rem;
-      line-height: 1.75;
+      font-size: 1.08rem;
+      line-height: 1.7;
       color: #eae3d8;
       max-width: 85ch;
       margin-bottom: 60px;
@@ -161,15 +170,15 @@
       position: relative;
     }
 
-    .narrative-panel::after {
+    .narrative-panel::before {
       content: "";
-      position: absolute;
-      top: 0;
-      left: 45px;
-      width: 80px;
+      display: block;
+      width: 86px;
       height: 3px;
-      background: var(--orange);
-      box-shadow: 0 0 12px var(--orange);
+      margin-bottom: 24px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--orange), var(--yellow));
+      box-shadow: 0 0 18px rgba(var(--orange-rgb), 0.35);
     }
 
     .narrative-panel h2 {
@@ -181,7 +190,7 @@
     }
 
     .narrative-panel p {
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       line-height: 1.7;
       color: #dfd7cb;
       margin: 0 0 20px 0;
@@ -246,18 +255,36 @@
     }
   </style>
   <link rel="stylesheet" href="site-header.css">
+  <link rel="stylesheet" href="design-system.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "index.html" },
+      { "@type": "ListItem", "position": 2, "name": "Sobre nosotros", "item": "sobre-nosotros.html" }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
     <div class="page-shell header-inner">
+      <div class="header-ribbon">
+        <span><strong>Academia de wrapping en Madrid</strong> · Taller real, criterio y comunidad</span>
+        <a class="ribbon-link" href="contacto.html">Solicita asesoramiento</a>
+      </div>
+
       <div class="header-top">
         <a class="brand" href="index.html" aria-label="Ir al inicio">
-          <img class="brand-logo" src="logo.jpg" alt="Logo de INSTALLERSONTRUCK">
+          <img decoding="async" class="brand-logo" src="logo.jpg" alt="Logo de INSTALLERSONTRACK">
           <div class="brand-copy">
-            <div class="brand-name">INSTALLERSONTRUCK</div>
-            <div class="brand-tag">Wrapping cars y sus derivados</div>
+            <div class="brand-name">INSTALLERSONTRACK</div>
+            <div class="brand-tag">Cursos profesionales en wrapping, PPF y tintado</div>
           </div>
         </a>
+
 
         <div class="header-actions">
           <a class="header-cta" href="mi-cuenta.html">Mi cuenta</a>
@@ -267,10 +294,11 @@
 
       <div class="header-nav-row">
         <nav class="nav" aria-label="Principal">
-          <a href="index.html">Home</a>
+          <a href="index.html">Inicio</a>
           <a class="is-active" href="sobre-nosotros.html" aria-current="page">Sobre nosotros</a>
           <a href="formacion-presencial.html">Formación presencial</a>
           <a href="formacion-suscripcion.html">Formación por suscripción</a>
+          <a href="tienda.html">Tienda</a>
           <a href="contacto.html">Contacto</a>
         </nav>
       </div>
@@ -282,35 +310,45 @@
       <span class="section-eyebrow">Trayectoria e identidad</span>
       <h1>
         Instaladores en camino
-        <span class="orange-stroke">Nuestra Historia</span>
+        <span class="orange-stroke">Nuestra historia</span>
       </h1>
 
       <p class="main-intro">
-        INSTALLERSONTRUCK es el resultado directo de una larga, compleja y exigente trayectoria inmersa en el mundo de las artes gráficas y sus distintas variantes. Un recorrido forjado a base de carácter, criterio y una búsqueda incansable del remate técnico excelente.
+        INSTALLERSONTRACK nace de una trayectoria larga dentro de las artes gráficas, la rotulación, la automoción y el wrapping. No es una marca creada desde un despacho: es una forma de enseñar construida desde taller, errores, materiales reales, clientes reales y muchas horas de instalación.
       </p>
 
       <section class="brand-values">
         <div class="value-box">
-          <strong>Fiel a nuestros valores</strong>
-          <p>Mantenerse firme en lo que uno cree y proyectar de forma transparente cada acción hacia ese nivel de exigencia profesional.</p>
+          <strong>Fieles al oficio</strong>
+          <p>La formación parte de la realidad del taller: tensión, cortes, remates, tiempos, presión, materiales y decisiones que afectan al resultado final.</p>
         </div>
         <div class="value-box">
-          <strong>Pasión por Enseñar</strong>
-          <p>Amor absoluto por el arte del wrapping y, por encima de todo, por transmitir el conocimiento técnico de boxes sin secretos.</p>
+          <strong>Pasión por enseñar</strong>
+          <p>Compartimos procesos, trucos de oficio y criterio técnico sin ocultar lo que pasa cuando una instalación se complica.</p>
         </div>
         <div class="value-box">
-          <strong>Evolución Abierta</strong>
-          <p>Una ventana creada para dar claridad, resolver dudas reales y agrupar a una comunidad que requería un punto de encuentro profesional.</p>
+          <strong>Evolución continua</strong>
+          <p>Probamos materiales, comparamos métodos, escuchamos a los alumnos y ajustamos la formación para que siga conectada con el mercado.</p>
         </div>
       </section>
 
       <section class="narrative-panel">
-        <h2>Aprender desde la carencia</h2>
+        <h2>Aprender desde la práctica</h2>
         <p>
-          Mi historia en este sector comenzó instalando vinilos publicitarios en quioscos de manera alternativa a mis estudios universitarios de Administración de Empresas. Aquel aprendizaje inicial fue solitario, tosco y, en muchas ocasiones, profundamente frustrante. No existían las academias dedicadas ni los contenidos estructurados de hoy en día.
+          La historia empieza instalando vinilos publicitarios, resolviendo trabajos con pocos recursos y aprendiendo muchas veces de forma autodidacta. Esa etapa obliga a desarrollar una habilidad clave: entender qué información falta, cómo ordenar un proceso y cómo salir de un problema técnico cuando no hay una respuesta preparada.
         </p>
         <p>
-          Sin embargo, el ímpetu y la determinación jugaron un papel clave. Aprender de forma autodidacta y desde la falta de recursos te otorga un beneficio incomparable: te enseña a detectar exactamente qué información se necesita y cómo estructurar los flujos de trabajo para solventar cualquier problema técnico en tiempo real en el taller.
+          Esa experiencia marca nuestra manera de formar. No buscamos que el alumno copie una demo perfecta, sino que entienda por qué se calienta una zona, cuándo se libera tensión, qué cambia entre marcas y cómo adaptar el método al vehículo, al material y al acabado que tiene delante.
+        </p>
+      </section>
+
+      <section class="narrative-panel">
+        <h2>Una academia con mentalidad de taller</h2>
+        <p>
+          Cada curso está pensado para acercar al alumno a una situación real de trabajo: piezas con dificultad, límites de tiempo, remates visibles, dudas durante el proceso y feedback directo del formador. La técnica importa, pero el criterio es lo que permite repetir buenos resultados cuando cambia el coche o cambia el material.
+        </p>
+        <p>
+          Por eso combinamos formación presencial, contenido online, comunidad y seguimiento. El objetivo no es llenar la web de promesas, sino crear un entorno donde el alumno pueda practicar, preguntar, comparar avances y crecer con una base profesional.
         </p>
       </section>
 
@@ -318,32 +356,32 @@
         <div class="pillar-card">
           <div class="pillar-indicator"></div>
           <div>
-            <strong>Perfeccionista por Defecto</strong>
-            <p>Poner cuidado, atención y cariño absoluto a cada detalle para llevar los acabados lo más cerca posible de la perfección exigida.</p>
+            <strong>Detalle en cada remate</strong>
+            <p>Trabajamos cortes, tensiones y acabados con una exigencia clara: que el resultado se vea limpio y aguante el uso real.</p>
           </div>
         </div>
 
         <div class="pillar-card">
           <div class="pillar-indicator"></div>
           <div>
-            <strong>Innovación Constante</strong>
-            <p>Implementar dinámicas metodológicas nuevas en cada curso para asegurar que tanto los alumnos como el equipo sigamos evolucionando.</p>
+            <strong>Criterio multimarca</strong>
+            <p>Comparamos materiales y comportamientos para que el alumno aprenda a decidir, no a depender de una sola marca o receta.</p>
           </div>
         </div>
 
         <div class="pillar-card">
           <div class="pillar-indicator"></div>
           <div>
-            <strong>Espíritu Solidario</strong>
-            <p>Creemos en el soporte mutuo, el compañerismo en boxes y el crecimiento colectivo dentro de la comunidad internacional de instaladores.</p>
+            <strong>Acompañamiento real</strong>
+            <p>El aprendizaje mejora cuando hay preguntas, correcciones, seguimiento y compañeros con los que compartir avances.</p>
           </div>
         </div>
 
         <div class="pillar-card">
           <div class="pillar-indicator"></div>
           <div>
-            <strong>Retroalimentación Activa</strong>
-            <p>Capacidad constante de absorber y aprender del entorno, de los nuevos materiales del mercado y de las experiencias compartidas de los estudiantes.</p>
+            <strong>Comunidad profesional</strong>
+            <p>Queremos que la formación no termine al salir del aula: dudas, trabajos, recursos y contacto con otros instaladores suman valor real.</p>
           </div>
         </div>
       </section>
@@ -353,3 +391,11 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+

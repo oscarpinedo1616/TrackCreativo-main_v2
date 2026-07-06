@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tienda oficial TRACKCREATIVO con herramientas, rasquetas, cuchillas y accesorios recomendados para wrapping, PPF y tintado.">
+  <meta name="theme-color" content="#050505">
+  <meta property="og:title" content="Tienda oficial | TRACKCREATIVO">
+  <meta property="og:description" content="Tienda oficial TRACKCREATIVO con herramientas, rasquetas, cuchillas y accesorios recomendados para wrapping, PPF y tintado.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="logo.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tienda oficial | TRACKCREATIVO">
+  <meta name="twitter:description" content="Tienda oficial TRACKCREATIVO con herramientas, rasquetas, cuchillas y accesorios recomendados para wrapping, PPF y tintado.">
+  <meta name="twitter:image" content="logo.jpg">
+  <title>Tienda oficial | TRACKCREATIVO</title>
+  <link rel="icon" href="logo.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site-header.css">
+  <style>
+    :root {
+      --bg: #050505;
+      --line: rgba(255, 255, 255, 0.08);
+      --text: #f6f0e8;
+      --muted: #c2baae;
+      --orange: #ff6a00;
+      --yellow: #ffbf1f;
+      --shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
+      --max: 1600px;
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255, 106, 0, 0.22), transparent 24%),
+        radial-gradient(circle at 85% 18%, rgba(255, 191, 31, 0.14), transparent 20%),
+        linear-gradient(135deg, #030303, #0d0d0d 58%, #040404);
+    }
+    a { color: inherit; text-decoration: none; }
+    .page-shell { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
+    main { padding-bottom: 70px; }
+    .hero { padding: 54px 0 30px; }
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--yellow);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.76rem;
+    }
+    h1, h2, h3 {
+      font-family: "Bebas Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h1 {
+      margin: 18px 0 16px;
+      max-width: 16ch;
+      font-size: clamp(4rem, 10vw, 7rem);
+      line-height: 0.88;
+    }
+    .hero p, .section-intro {
+      max-width: 68ch;
+      margin: 0;
+      color: #dfd7cb;
+      line-height: 1.7;
+      font-size: 1.08rem;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+    .button-primary, .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .button-primary {
+      background: linear-gradient(135deg, var(--yellow), var(--orange));
+      color: #170900;
+      box-shadow: 0 18px 32px rgba(255, 136, 0, 0.28);
+    }
+    .button-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+    }
+    section { padding: 42px 0; }
+    .section-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+    .section-title {
+      margin: 0;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 0.95;
+    }
+    .product-grid,
+    .logic-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .bundle-panel, .support-panel, .logic-card {
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+      box-shadow: var(--shadow);
+    }
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 380px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 166, 0, 0.28);
+    }
+    .product-image {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      gap: 2px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .product-image img {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+    .product-card-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px;
+      flex-grow: 1;
+    }
+    .product-tag {
+      width: fit-content;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--yellow);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+    }
+    .product-card h2 {
+      margin: 0;
+      font-size: 2rem;
+      line-height: 0.95;
+    }
+    .product-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .logic-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .logic-card {
+      padding: 22px;
+    }
+    .logic-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--yellow);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .logic-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .bundle-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .bundle-panel, .support-panel {
+      padding: 28px;
+    }
+    .bundle-panel {
+      background:
+        radial-gradient(circle at top right, rgba(255, 191, 31, 0.18), transparent 42%),
+        linear-gradient(180deg, rgba(255, 106, 0, 0.12), rgba(255, 255, 255, 0.02));
+    }
+    .bundle-panel .eyebrow {
+      margin-bottom: 16px;
+    }
+    .bundle-panel h2, .support-panel h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      line-height: 0.95;
+    }
+    .support-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.72fr) auto;
+      gap: 18px 24px;
+      align-items: end;
+    }
+    .support-panel h2,
+    .support-panel .section-intro {
+      grid-column: 1;
+    }
+    .support-panel .cta-row {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      margin-top: 0;
+      justify-content: flex-end;
+    }
+    .bundle-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0;
+    }
+    .bundle-list span {
+      display: inline-flex;
+      min-height: 34px;
+      align-items: center;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #eadfce;
+      font-size: 0.88rem;
+    }
+    @media (max-width: 960px) {
+      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .logic-grid { grid-template-columns: 1fr; }
+      .bundle-layout { grid-template-columns: 1fr; }
+      .support-panel {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+      .support-panel .cta-row {
+        grid-column: 1;
+        grid-row: auto;
+        margin-top: 8px;
+        justify-content: flex-start;
+      }
+    }
+    @media (max-width: 640px) {
+      .page-shell { width: min(calc(100% - 22px), var(--max)); }
+      .section-top { flex-direction: column; align-items: start; }
+      .product-grid { grid-template-columns: 1fr; }
+      .button-primary, .button-secondary { width: 100%; }
+    }
+  </style>
+  <link rel="stylesheet" href="design-system.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "index.html" },
+      { "@type": "ListItem", "position": 2, "name": "Tienda", "item": "tienda.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ItemList",
+        "name": "Tienda oficial TRACKCREATIVO",
+        "description": "Herramientas, rasquetas, cuchillas, imanes y accesorios recomendados para wrapping, PPF y tintado.",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Rasquetas y fieltros" },
+          { "@type": "ListItem", "position": 2, "name": "Cuchillas y corte" },
+          { "@type": "ListItem", "position": 3, "name": "Imanes y soporte" },
+          { "@type": "ListItem", "position": 4, "name": "Aplicación y agua" }
+        ]
+      },
+      {
+        "@type": "Product",
+        "name": "Pack alumno INSTALLERSONTRACK",
+        "description": "Selección de herramientas recomendadas para practicar wrapping, PPF y tintado con rasqueta, fieltros, cutter, imanes y accesorios de aplicación.",
+        "brand": { "@type": "Brand", "name": "TRACKCREATIVO" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="page-shell header-inner">
+      <div class="header-ribbon">
+        <span><strong>Academia de wrapping en Madrid</strong> · Taller real, criterio y comunidad</span>
+        <a class="ribbon-link" href="contacto.html">Solicita asesoramiento</a>
+      </div>
+      <div class="header-top">
+        <a class="brand" href="index.html" aria-label="Ir al inicio">
+          <img decoding="async" class="brand-logo" src="logo.jpg" alt="Logo de INSTALLERSONTRACK">
+          <div class="brand-copy">
+            <div class="brand-name">INSTALLERSONTRACK</div>
+            <div class="brand-tag">Cursos profesionales en wrapping, PPF y tintado</div>
+          </div>
+        </a>
+        <div class="header-actions">
+          <a class="header-cta" href="mi-cuenta.html">Mi cuenta</a>
+          <a class="header-ghost" href="registro.html">Registro</a>
+        </div>
+      </div>
+      <div class="header-nav-row">
+        <nav class="nav" aria-label="Principal">
+          <a href="index.html">Inicio</a>
+          <a href="sobre-nosotros.html">Sobre nosotros</a>
+          <a href="formacion-presencial.html">Formación presencial</a>
+          <a href="formacion-suscripcion.html">Formación por suscripción</a>
+          <a class="is-active" href="tienda.html" aria-current="page">Tienda</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero page-shell">
+      <span class="eyebrow">Tienda oficial TRACKCREATIVO</span>
+      <h1>Herramientas para<br>instalar mejor</h1>
+      <p>Herramientas recomendadas para alumnos, suscriptores e instaladores que quieren practicar con material coherente con el método de INSTALLERSONTRACK.</p>
+      <div class="cta-row">
+        <a class="button-primary" href="contacto.html">Solicitar kit recomendado</a>
+        <a class="button-secondary" href="formacion-suscripcion.html">Ver formación online</a>
+      </div>
+    </section>
+
+    <section class="page-shell">
+      <div class="section-top">
+        <div>
+          <span class="eyebrow">Productos destacados</span>
+          <h2 class="section-title">Lo esencial para practicar</h2>
+        </div>
+        <p class="section-intro">La tienda se organiza con categorías claras, packs para alumnos y productos asociados a la práctica. El usuario entiende rápido qué puede encontrar y qué material encaja con su nivel.</p>
+      </div>
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-image">
+            <img loading="lazy" decoding="async" src="tienda-rasquetas.png" alt="Rasqueta de instalación de vinilo">
+          </div>
+          <div class="product-card-copy">
+            <span class="product-tag">Instalación</span>
+            <h2>Rasquetas y fieltros</h2>
+            <p>Control de presión, deslizamiento y acabado limpio en vinilo y PPF.</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-image">
+            <img loading="lazy" decoding="async" src="tienda-corte1.png" alt="Cinta de corte Knifeless">
+            <img loading="lazy" decoding="async" src="tienda-corte2.png" alt="Cutter para corte de vinilo">
+          </div>
+          <div class="product-card-copy">
+            <span class="product-tag">Precisión</span>
+            <h2>Cuchillas y corte</h2>
+            <p>Herramientas para remates seguros, cortes limpios y trabajo con criterio.</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-image">
+            <img loading="lazy" decoding="async" src="tienda-imanes.png" alt="Imanes de posicionamiento de vinilo">
+          </div>
+          <div class="product-card-copy">
+            <span class="product-tag">Taller</span>
+            <h2>Imanes y soporte</h2>
+            <p>Accesorios para sujetar material y trabajar con más control en piezas grandes.</p>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-image">
+            <img loading="lazy" decoding="async" src="tienda-aplicacion.png" alt="Pulverizador y accesorios de limpieza y aplicación">
+          </div>
+          <div class="product-card-copy">
+            <span class="product-tag">PPF y tintado</span>
+            <h2>Aplicación y agua</h2>
+            <p>Apoyo para preparación, líquido, limpieza y manipulación en trabajos técnicos.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-shell">
+      <div class="bundle-layout">
+        <article class="bundle-panel">
+          <span class="eyebrow">Kit recomendado</span>
+          <h2>Pack alumno INSTALLERSONTRACK</h2>
+          <p class="section-intro">Una selección pensada para quien empieza, quien viene a un curso presencial o quien sigue la suscripción y quiere practicar con herramientas coherentes.</p>
+          <div class="bundle-list">
+            <span>Rasqueta</span>
+            <span>Fieltros</span>
+            <span>Cuchilla</span>
+            <span>Imán</span>
+            <span>Accesorios de remate</span>
+          </div>
+          <a class="button-primary" href="contacto.html">Solicitar este pack</a>
+        </article>
+        <aside class="support-panel">
+          <h2>Compra guiada</h2>
+          <p class="section-intro">La tienda no solo vende producto: también orienta. Este bloque ayuda al alumno a elegir material según su nivel, su curso y el tipo de práctica que quiere hacer.</p>
+          <div class="cta-row">
+            <a class="button-secondary" href="https://wa.me/34655588489" target="_blank" rel="noreferrer">WhatsApp</a>
+            <a class="button-secondary" href="contacto.html">Formulario</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+
+
+
+
+
+
+
+

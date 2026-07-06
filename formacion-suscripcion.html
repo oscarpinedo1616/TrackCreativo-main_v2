@@ -1,476 +1,102 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formación por suscripción | INSTALLERSONTRUCK</title>
+  <meta name="description" content="Formación por suscripción de INSTALLERSONTRACK con biblioteca técnica, comunidad privada, soporte, directos y recursos para seguir aprendiendo wrapping.">
+  <meta name="theme-color" content="#050505">
+  <meta property="og:title" content="Formación por suscripción | INSTALLERSONTRACK">
+  <meta property="og:description" content="Formación por suscripción de INSTALLERSONTRACK con biblioteca técnica, comunidad privada, soporte, directos y recursos para seguir aprendiendo wrapping.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="logo.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Formación por suscripción | INSTALLERSONTRACK">
+  <meta name="twitter:description" content="Formación por suscripción de INSTALLERSONTRACK con biblioteca técnica, comunidad privada, soporte, directos y recursos para seguir aprendiendo wrapping.">
+  <meta name="twitter:image" content="logo.jpg">
+  <title>Formación por suscripción | INSTALLERSONTRACK</title>
+  <link rel="icon" href="logo.jpg" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #050505;
-      --bg-soft: #111111;
-      --line: rgba(255, 255, 255, 0.08);
-      --text: #f6f0e8;
-      --muted: #c2baae;
-      --orange: #ff6a00;
-      --yellow: #ffbf1f;
-      --shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
-      --max: 1180px;
-      --radius: 28px;
+  <link rel="stylesheet" href="formacion-suscripcion.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué incluye la formación por suscripción?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Incluye acceso a una biblioteca técnica de vídeos, nuevas lecciones, soporte para dudas, comunidad privada, recursos de práctica y acceso prioritario a novedades de formación."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cada cuánto se publica contenido nuevo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La plataforma se plantea como formación continua con novedades recurrentes y contenido actualizado según materiales, vehículos y dudas reales de alumnos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo resolver dudas dentro de la suscripción?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. La suscripción incorpora soporte y acceso a comunidad privada para compartir dudas, avances y trabajos con otros alumnos."
+          }
+        }
+      ]
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: "Space Grotesk", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 15% 20%, rgba(255, 106, 0, 0.22), transparent 24%),
-        radial-gradient(circle at 85% 18%, rgba(255, 44, 180, 0.16), transparent 20%),
-        linear-gradient(135deg, #030303, #0d0d0d 58%, #040404);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-    body::before {
-      content: ""; position: fixed; inset: 0;
-      background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 82px 82px;
-      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 92%);
-      pointer-events: none; z-index: -1;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    
-    .page-shell { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
-    
-    .hero { padding: 52px 0 34px; text-align: center; }
-    .eyebrow { display: inline-block; padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,0.03); color: var(--orange); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.8rem; margin-bottom: 20px; }
-    h1 { font-family: "Bebas Neue", sans-serif; font-size: clamp(3rem, 8vw, 5.5rem); margin: 0 auto 20px; max-width: none; line-height: 0.9; letter-spacing: 0.03em; text-transform: uppercase; }
-    .hero p { max-width: none; margin: 0 auto 30px; font-size: 1.1rem; line-height: 1.6; color: #dfd7cb; }
-    .hero-limit {
-      display: block;
-      margin: 24px auto 0;
-      font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(1.8rem, 4.5vw, 2.6rem);
-      line-height: 0.88;
-      color: transparent;
-      background: linear-gradient(180deg, #fff5c7 0%, var(--yellow) 38%, var(--orange) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      text-shadow:
-        0 0 18px rgba(255, 191, 31, 0.62),
-        0 0 34px rgba(255, 106, 0, 0.5),
-        0 0 58px rgba(255, 106, 0, 0.28);
-    }
-    
-    .mini-points {
-      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 40px; text-align: left;
-    }
-    .mini-point { padding: 20px; border-radius: 22px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--line); }
-    .mini-point strong { display: block; font-family: "Bebas Neue", sans-serif; font-size: 2.2rem; color: var(--yellow); margin-bottom: 6px; }
-    .mini-point span { font-size: 0.9rem; color: var(--muted); line-height: 1.5; display: block; }
-
-    section { padding: 50px 0; }
-    .section-title { font-family: "Bebas Neue", sans-serif; font-size: 3rem; margin: 0 0 16px; color: var(--orange); }
-    .section-desc { font-size: 1rem; color: var(--muted); max-width: 700px; line-height: 1.6; margin-bottom: 40px; }
-
-    /* Flip Cards Grid */
-    .offer-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-    .offer-card { position: relative; min-height: 380px; perspective: 1400px; -webkit-perspective: 1400px; }
-    .offer-card-inner { position: relative; min-height: 100%; transform-style: preserve-3d; -webkit-transform-style: preserve-3d; transition: transform 0.75s ease; }
-    .offer-card.is-flipped .offer-card-inner { transform: rotateY(180deg); -webkit-transform: rotateY(180deg); }
-    .offer-face { position: absolute; inset: 0; overflow: hidden; border-radius: 16px; border: 1px solid var(--line); box-shadow: var(--shadow); backface-visibility: hidden; -webkit-backface-visibility: hidden; padding: 20px; display: flex; flex-direction: column; }
-    
-    .offer-front { justify-content: flex-end; background: rgba(12, 12, 12, 0.92); pointer-events: auto; }
-    .offer-front img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
-    .offer-front::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,5,5,0.1), rgba(5,5,5,0.95)); }
-    .offer-front > *, .offer-back > * { position: relative; z-index: 1; }
-    
-    .offer-back { background: radial-gradient(circle at top right, rgba(255, 106, 0, 0.15), transparent 50%), #0a0a0a; transform: rotateY(180deg); justify-content: flex-start; pointer-events: none; overflow-y: auto; text-align: left; }
-    .offer-card.is-flipped .offer-front { pointer-events: none; }
-    .offer-card.is-flipped .offer-back { pointer-events: auto; }
-
-    .offer-tag { display: inline-flex; padding: 4px 8px; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid var(--line); color: var(--yellow); font-size: 0.65rem; text-transform: uppercase; margin-bottom: 12px; width: fit-content; }
-    .offer-front h3 { margin: 0 0 8px; font-family: "Bebas Neue", sans-serif; font-size: 1.8rem; text-transform: uppercase; line-height: 1; }
-    .offer-front p { color: #e8dfd3; margin-bottom: 16px; font-size: 0.85rem; max-width: 100%; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .offer-back h3 { font-family: "Bebas Neue", sans-serif; font-size: 1.5rem; color: var(--orange); margin: 0 0 10px; line-height: 1.1; }
-    .offer-back p { color: #f0e6d8; font-size: 0.8rem; line-height: 1.4; margin-bottom: 10px; }
-    
-    .offer-button { display: inline-flex; align-items: center; justify-content: center; min-height: 34px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.08); color: var(--text); font-size: 0.8rem; font-weight: 700; cursor: pointer; transition: all 0.25s ease; width: fit-content; }
-    .offer-button:hover { background: rgba(255,255,255,0.15); transform: translateY(-2px); }
-    .offer-button-primary { background: linear-gradient(135deg, var(--yellow), var(--orange)); color: #170900; border-color: transparent; }
-    .offer-actions { margin-top: auto; padding-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
-
-    /* Community & Chat Section */
-    .community-box { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--line); border-radius: var(--radius); padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-    .chat-mockup { background: #000; border: 1px solid var(--line); border-radius: 20px; padding: 20px; height: 300px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
-    .chat-mockup::before { content: "Foro general / chat por vídeo"; position: absolute; top: 0; left: 0; right: 0; background: rgba(255, 106, 0, 0.1); padding: 12px; text-align: center; font-size: 0.8rem; color: var(--yellow); font-weight: bold; text-transform: uppercase; border-bottom: 1px solid var(--line); }
-    .chat-messages { margin-top: 40px; display: flex; flex-direction: column; gap: 12px; }
-    .msg { background: rgba(255,255,255,0.05); padding: 12px 16px; border-radius: 12px; font-size: 0.85rem; width: 80%; }
-    .msg.own { background: rgba(255, 106, 0, 0.2); align-self: flex-end; }
-
-    .tienda-banner { margin-top: 40px; padding: 30px; border-radius: 20px; border: 1px dashed var(--orange); background: linear-gradient(135deg, rgba(255,106,0,0.05), rgba(255,191,31,0.02)); text-align: center; }
-    .tienda-banner h3 { font-family: "Bebas Neue", sans-serif; font-size: 2.2rem; margin: 0 0 10px; }
-    
-    /* YouTube Style Video Grid */
-    .video-category { margin-top: 40px; margin-bottom: 20px; }
-    .video-category h3 { font-family: "Space Grotesk", sans-serif; font-size: 1.8rem; color: #fff; margin-bottom: 20px; border-bottom: 1px solid var(--line); padding-bottom: 10px; font-weight: 700; }
-    .yt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; margin-bottom: 40px; }
-    @media (min-width: 1400px) { .yt-grid { grid-template-columns: repeat(6, 1fr); } }
-    @media (max-width: 1399px) and (min-width: 1100px) { .yt-grid { grid-template-columns: repeat(5, 1fr); } }
-    @media (max-width: 1099px) and (min-width: 800px) { .yt-grid { grid-template-columns: repeat(4, 1fr); } }
-    @media (max-width: 799px) and (min-width: 500px) { .yt-grid { grid-template-columns: repeat(2, 1fr); } }
-    .yt-video { display: flex; flex-direction: column; gap: 12px; cursor: pointer; transition: transform 0.2s ease; }
-    .yt-video:hover { transform: translateY(-4px); }
-    .yt-thumbnail { background-color: #000; aspect-ratio: 16 / 9; border-radius: 8px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); padding: 16px; box-shadow: inset 0 0 20px rgba(255,255,255,0.02); }
-    .yt-thumbnail-text { color: rgba(255,255,255,0.6); font-size: 0.85rem; text-align: center; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
-    .yt-lock { position: absolute; bottom: 8px; left: 8px; color: #fff; display: flex; align-items: center; justify-content: center; }
-    .yt-info { display: flex; flex-direction: column; align-items: center; padding: 0 10px; }
-    .yt-title { color: var(--orange); font-size: 0.9rem; font-weight: 500; line-height: 1.3; text-align: center; text-transform: uppercase; }
-
-    /* Modal Styles */
-    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 100; display: none; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
-    .modal-overlay.active { display: flex; }
-    .modal-content { background: #222; border: 1px solid var(--orange); border-radius: 8px; max-width: 900px; width: 90%; position: relative; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-    .modal-close { position: absolute; top: 12px; right: 16px; background: transparent; border: none; color: #fff; font-size: 2rem; cursor: pointer; z-index: 10; line-height: 1; }
-    .modal-close:hover { color: var(--orange); }
-    .modal-layout { display: grid; grid-template-columns: 1fr 1.2fr; }
-    .modal-left { background: #111; padding: 20px; display: flex; align-items: center; justify-content: center; border-right: 1px solid rgba(255,255,255,0.05); }
-    .modal-thumbnail { width: 100%; aspect-ratio: 16/9; background: #000; position: relative; display: flex; align-items: center; justify-content: center; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); }
-    .modal-right { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
-    .modal-title { color: var(--orange); font-family: "Space Grotesk", sans-serif; font-size: 2.2rem; margin: 0 0 16px; line-height: 1.1; font-weight: 700; }
-    .modal-desc { color: #ddd; font-size: 0.95rem; line-height: 1.5; margin-bottom: 24px; }
-    .modal-link { color: var(--orange); font-size: 0.9rem; text-decoration: none; margin-bottom: 30px; display: inline-block; transition: opacity 0.2s; font-weight: 500; }
-    .modal-link:hover { opacity: 0.8; }
-    .modal-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn-orange { background: var(--orange); color: #fff; padding: 12px 24px; border-radius: 4px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; transition: background 0.2s; border: none; cursor: pointer; text-align: center; }
-    .btn-orange:hover { background: #e65c00; }
-
-    @media (max-width: 768px) {
-      .hide-mobile { display: none !important; }
-      .modal-layout { grid-template-columns: 1fr; }
-      .modal-left { padding: 20px 20px 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
-      .modal-right { padding: 20px; }
-      .modal-title { font-size: 1.8rem; }
-    }
-
-    @media (max-width: 1100px) {
-      .offer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-    @media (max-width: 900px) {
-      .mini-points, .offer-grid, .community-box { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 640px) {
-      .page-shell { width: min(calc(100% - 22px), var(--max)); }
-      .hero { padding: 32px 0 26px; }
-      .eyebrow { font-size: 0.68rem; letter-spacing: 0.1em; }
-      h1 { font-size: clamp(2.55rem, 13vw, 3.6rem); line-height: 0.95; max-width: none; }
-      .hero p { font-size: 0.96rem; line-height: 1.55; margin-bottom: 22px; }
-      .hero-limit { margin-top: 22px; font-size: clamp(1.4rem, 8vw, 2.0rem); line-height: 0.9; text-align: left; }
-      section { padding: 34px 0; }
-      .section-title { font-size: 2.35rem; line-height: 0.96; }
-      .offer-card,
-      .offer-card-inner { min-height: auto; }
-      .offer-card-inner { transform-style: flat; transition: none; }
-      .offer-card.is-flipped .offer-card-inner { transform: none; }
-      .offer-face { position: relative; inset: auto; min-height: auto; backface-visibility: visible; -webkit-backface-visibility: visible; }
-      .offer-front { min-height: 300px; }
-      .offer-back { display: none; transform: none; overflow: visible; }
-      .offer-card.is-flipped .offer-front { display: none; }
-      .offer-card.is-flipped .offer-back { display: flex; }
-      .offer-front p { display: block; -webkit-line-clamp: initial; overflow: visible; }
-      .offer-back p { font-size: 0.88rem; }
-      .mini-point { padding: 16px; }
-      .video-category h3 { font-size: 1.35rem; }
-      .yt-grid { grid-template-columns: 1fr; }
-    }
-
-    .hero {
-      padding: 54px 0 30px;
-      text-align: left;
-    }
-
-    .hero .eyebrow {
-      display: inline-flex;
-      color: var(--yellow);
-      border-color: rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.04);
-    }
-
-    .hero h1 {
-      margin: 18px 0 14px;
-      max-width: none;
-      font-size: clamp(2.4rem, 5.5vw, 3.8rem);
-      line-height: 0.92;
-      letter-spacing: 0.04em;
-      text-align: left;
-    }
-
-    .hero p {
-      margin: 0;
-      max-width: none;
-      color: #dfd7cb;
-      font-size: 1.22rem;
-      line-height: 1.7;
-    }
-
-    .hero-limit {
-      position: relative;
-      width: fit-content;
-      margin: 24px 0 60px;
-      text-align: left;
-      padding-bottom: 12px;
-    }
-
-    .hero-limit::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--yellow) 15%, var(--orange) 85%, transparent);
-      border-radius: 99px;
-      box-shadow: 0 2px 10px rgba(255, 106, 0, 0.4);
-    }
-
-    section {
-      padding: 46px 0;
-    }
-
-    .section-title,
-    .section-title[style] {
-      max-width: none;
-      margin: 0 0 14px;
-      text-align: left;
-      color: var(--text);
-      font-size: clamp(2.4rem, 5vw, 3.8rem) !important;
-      line-height: 0.95;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .section-desc {
-      color: #dfd7cb;
-      line-height: 1.7;
-      font-size: 1.2rem;
-    }
-
-    .mini-points {
-      gap: 16px;
-      margin-top: 32px;
-    }
-
-    .mini-point {
-      padding: 18px;
-      border-radius: 22px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-      border-color: rgba(255, 255, 255, 0.08);
-      box-shadow: var(--shadow);
-    }
-
-    .offer-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .offer-card,
-    .offer-card-inner {
-      min-height: 500px;
-    }
-
-    .offer-face {
-      padding: 24px;
-      border-radius: var(--radius);
-      border-color: rgba(255, 255, 255, 0.08);
-    }
-
-    .offer-front {
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
-        rgba(12, 12, 12, 0.92);
-    }
-
-    .offer-front img {
-      opacity: 0.34;
-      transform: scale(1.04);
-    }
-
-    .offer-front::after {
-      background: linear-gradient(180deg, rgba(5, 5, 5, 0.08), rgba(5, 5, 5, 0.84) 55%, rgba(5, 5, 5, 0.98));
-    }
-
-    .offer-back {
-      background:
-        radial-gradient(circle at top right, rgba(255, 106, 0, 0.24), transparent 40%),
-        linear-gradient(180deg, rgba(29, 16, 11, 0.96), rgba(10, 10, 10, 0.98));
-      overscroll-behavior: contain;
-      scrollbar-gutter: stable;
-    }
-
-    .offer-tag {
-      padding: 8px 12px;
-      border-color: rgba(255, 255, 255, 0.08);
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-    }
-
-    .offer-front h3,
-    .offer-back h3,
-    .tienda-banner h3 {
-      font-family: "Bebas Neue", sans-serif;
-      font-size: 2.55rem;
-      line-height: 0.95;
-      letter-spacing: 0.05em;
-    }
-
-    .offer-front p,
-    .offer-back p {
-      color: #f0e6d8;
-      font-size: 0.95rem;
-      line-height: 1.55;
-    }
-
-    .offer-button,
-    .btn-orange {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 18px;
-      border-radius: 999px;
-      font-family: inherit;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .community-box,
-    .tienda-banner {
-      border-radius: var(--radius);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-      box-shadow: var(--shadow);
-    }
-
-    .chat-mockup,
-    .yt-thumbnail,
-    .modal-content {
-      border-radius: 22px;
-      border-color: rgba(255, 255, 255, 0.08);
-      background: rgba(5, 5, 5, 0.72);
-    }
-
-    .video-category {
-      margin-top: 36px;
-    }
-
-    .video-category h3 {
-      font-family: "Bebas Neue", sans-serif;
-      color: var(--yellow);
-      font-size: 2rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .yt-grid {
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-    }
-
-    .yt-video {
-      padding: 12px;
-      border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    .yt-thumbnail {
-      border-radius: 14px;
-      background: rgba(0, 0, 0, 0.76);
-    }
-
-    .yt-title {
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    .modal-content {
-      background: #111;
-      border-color: rgba(255, 106, 0, 0.28);
-    }
-
-    .modal-title {
-      font-family: "Bebas Neue", sans-serif;
-      color: var(--orange);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    @media (max-width: 900px) {
-      .offer-grid,
-      .mini-points,
-      .community-box {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero {
-        padding: 34px 0 28px;
-      }
-
-      .hero h1 {
-        max-width: none;
-        font-size: clamp(1.8rem, 8vw, 2.8rem);
-        text-align: left;
-      }
-
-      .hero p {
-        max-width: none;
-      }
-
-      .hero-limit {
-        font-size: clamp(1.4rem, 8vw, 2.0rem);
-      }
-
-      section {
-        padding: 34px 0;
-      }
-
-      .offer-face {
-        padding: 20px;
-      }
-
-      .offer-front {
-        min-height: 340px;
-      }
-
-      .offer-front h3,
-      .offer-back h3,
-      .tienda-banner h3 {
-        font-size: 2.15rem;
-      }
-    }
-  </style>
+  </script>
   <link rel="stylesheet" href="site-header.css">
+  <link rel="stylesheet" href="design-system.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "index.html" },
+      { "@type": "ListItem", "position": 2, "name": "Formación por suscripción", "item": "formacion-suscripcion.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Formación por suscripción INSTALLERSONTRACK",
+    "description": "Biblioteca técnica online con comunidad privada, soporte, directos y recursos para seguir aprendiendo wrapping, PPF y tintado.",
+    "provider": { "@type": "Organization", "name": "INSTALLERSONTRACK", "sameAs": "https://installersontrack.com/" },
+    "courseMode": "Online",
+    "inLanguage": "es"
+  }
+  </script>
 </head>
-<body>
+<body class="subscription-page">
   <header class="site-header">
     <div class="page-shell header-inner">
+      <div class="header-ribbon">
+        <span><strong>Academia de wrapping en Madrid</strong> · Taller real, criterio y comunidad</span>
+        <a class="ribbon-link" href="contacto.html">Solicita asesoramiento</a>
+      </div>
+
       <div class="header-top">
         <a class="brand" href="index.html" aria-label="Ir al inicio">
-          <img class="brand-logo" src="logo.jpg" alt="Logo de INSTALLERSONTRUCK">
+          <img decoding="async" class="brand-logo" src="logo.jpg" alt="Logo de INSTALLERSONTRACK">
           <div class="brand-copy">
-            <div class="brand-name">INSTALLERSONTRUCK</div>
-            <div class="brand-tag">Wrapping cars y sus derivados</div>
+            <div class="brand-name">INSTALLERSONTRACK</div>
+            <div class="brand-tag">Cursos profesionales en wrapping, PPF y tintado</div>
           </div>
         </a>
+
+ 
+
+        
 
         <div class="header-actions">
           <a class="header-cta" href="mi-cuenta.html">Mi cuenta</a>
@@ -480,10 +106,11 @@
 
       <div class="header-nav-row">
         <nav class="nav" aria-label="Principal">
-          <a href="index.html">Home</a>
+          <a href="index.html">Inicio</a>
           <a href="sobre-nosotros.html">Sobre nosotros</a>
           <a href="formacion-presencial.html">Formación presencial</a>
           <a class="is-active" href="formacion-suscripcion.html" aria-current="page">Formación por suscripción</a>
+          <a href="tienda.html">Tienda</a>
           <a href="contacto.html">Contacto</a>
         </nav>
       </div>
@@ -492,19 +119,227 @@
 
   <main>
     <section class="hero page-shell">
+      <span class="eyebrow">TRACKCREATIVO | INSTALLERSONTRACK</span>
       <h1>Formación por suscripción</h1>
       <p>
-        Más que un aprendizaje técnico, aquí vienes a encontrar tu camino profesional y rentabilizar tu pasión.<br>
-        Los que han acudido han mejorado sus técnicas de forma radical, y los que empiezan desde cero descubren cómo dedicarse a lo que les gusta.
-        <span class="hero-limit">EL CIELO ES EL LÍMITE</span>
+        Comprueba que la formación en vídeo sí funciona. Más que un aprendizaje técnico, aquí vienes a encontrar tu camino profesional y rentabilizar tu pasión. Los que han acudido han mejorado sus técnicas de forma radical, y los que empiezan desde cero descubren cómo dedicarse a lo que les gusta.<span class="hero-limit">EL CIELO ES EL LÍMITE</span>
       </p>
+    </section>
+
+    <section class="subscription-value">
+      <div class="page-shell">
+        <div class="value-layout">
+          <article class="value-panel">
+            <span class="eyebrow">Suscripción técnica</span>
+            <h2 class="section-title">Nuestra formación</h2>
+            <p class="section-desc wide">La suscripción está pensada para alumnos que quieren mantener el ritmo: consultar procesos cuando aparece una duda, ver casos reales y seguir conectados con el criterio de taller de INSTALLERSONTRACK.</p>
+
+            <div class="ecosystem-map" aria-label="Estructura de la formación por suscripción">
+              <div class="ecosystem-step">
+                <span>1</span>
+                <strong>Aprendes</strong>
+                <p>Vídeos técnicos ordenados por piezas, materiales y problemas reales.</p>
+              </div>
+              <div class="ecosystem-step">
+                <span>2</span>
+                <strong>Practicas</strong>
+                <p>Recursos y productos recomendados para llevar la lección al taller.</p>
+              </div>
+              <div class="ecosystem-step">
+                <span>3</span>
+                <strong>Preguntas</strong>
+                <p>Comunidad privada para resolver dudas y recibir criterio.</p>
+              </div>
+              <div class="ecosystem-step">
+                <span>4</span>
+                <strong>Avanzas</strong>
+                <p>Directos, seguimiento y nuevas lecciones para mantener retención.</p>
+              </div>
+            </div>
+
+            <div class="benefit-list">
+              <div class="benefit-item">
+                <strong>Biblioteca de vídeos</strong>
+                <span>Lecciones por piezas, materiales, errores frecuentes y procesos de instalación reales.</span>
+              </div>
+              <div class="benefit-item">
+                <strong>Contenido nuevo</strong>
+                <span>Novedades recurrentes con ejercicios, vehículos y dudas que salen del trabajo diario.</span>
+              </div>
+              <div class="benefit-item">
+                <strong>Soporte y directos</strong>
+                <span>Resolución de dudas, masterclass en directo y revisiones grupales para aprender con seguimiento.</span>
+              </div>
+              <div class="benefit-item">
+                <strong>Prioridad en cursos</strong>
+                <span>Acceso preferente a avisos, plazas y contenido vinculado a próximas formaciones.</span>
+              </div>
+            </div>
+
+            <section class="community-system" aria-labelledby="comunidad-mixta">
+              <div class="forum-head">
+                <div>
+                  <span class="eyebrow">Foro privado</span>
+                  <h3 id="comunidad-mixta">Comunidad por temas para alumnos</h3>
+                  <p>Un foro cerrado para consultar dudas, abrir hilos por técnica y encontrar respuestas sin perderlas en un chat infinito.</p>
+                </div>
+                <div class="forum-actions" aria-label="Acciones del foro">
+                  <a class="forum-button primary" href="registro.html">Entrar al foro</a>
+                  <a class="forum-button" href="contacto.html">Pedir acceso</a>
+                </div>
+              </div>
+
+              <div class="forum-shell">
+                <div class="forum-toolbar">
+                  <div class="forum-search">Buscar en el foro: remates, PPF, lunas, herramientas...</div>
+                  <div class="forum-tabs" aria-label="Filtros de foro">
+                    <span class="forum-tab is-active">Todos</span>
+                    <span class="forum-tab">Sin responder</span>
+                    <span class="forum-tab">Destacados</span>
+                  </div>
+                </div>
+
+                <div class="forum-list" aria-label="Categorías del foro privado">
+                  <div class="forum-row">
+                    <div class="forum-category">
+                      <div class="forum-icon">WR</div>
+                      <div>
+                        <strong>Wrapping y cambio de color</strong>
+                        <p>Tensión, calor, cortes, esquinas, interiores y piezas complicadas.</p>
+                      </div>
+                    </div>
+                    <div class="forum-count"><b>128</b><span>Hilos</span></div>
+                    <div class="forum-count"><b>642</b><span>Respuestas</span></div>
+                    <div class="forum-last">
+                      <strong>Paragolpes con mucha curva</strong>
+                      <span>Última respuesta hace 18 min</span>
+                    </div>
+                  </div>
+
+                  <div class="forum-row">
+                    <div class="forum-category">
+                      <div class="forum-icon">PPF</div>
+                      <div>
+                        <strong>PPF transparente y color</strong>
+                        <p>Precorte, instalación al líquido, seco, adherencia y contaminación.</p>
+                      </div>
+                    </div>
+                    <div class="forum-count"><b>74</b><span>Hilos</span></div>
+                    <div class="forum-count"><b>311</b><span>Respuestas</span></div>
+                    <div class="forum-last">
+                      <strong>Marcas de agua bajo clear PPF</strong>
+                      <span>Última respuesta hoy</span>
+                    </div>
+                  </div>
+
+                  <div class="forum-row">
+                    <div class="forum-category">
+                      <div class="forum-icon">TL</div>
+                      <div>
+                        <strong>Tintado de lunas</strong>
+                        <p>Termoformado, cortes, gomas, desmontajes y lunas traseras difíciles.</p>
+                      </div>
+                    </div>
+                    <div class="forum-count"><b>39</b><span>Hilos</span></div>
+                    <div class="forum-count"><b>146</b><span>Respuestas</span></div>
+                    <div class="forum-last">
+                      <strong>Burbuja en esquina inferior</strong>
+                      <span>Última respuesta ayer</span>
+                    </div>
+                  </div>
+
+                  <div class="forum-row">
+                    <div class="forum-category">
+                      <div class="forum-icon">HT</div>
+                      <div>
+                        <strong>Herramientas y materiales</strong>
+                        <p>Espátulas, cuchillas, guantes, líquidos, marcas y mantenimiento.</p>
+                      </div>
+                    </div>
+                    <div class="forum-count"><b>56</b><span>Hilos</span></div>
+                    <div class="forum-count"><b>203</b><span>Respuestas</span></div>
+                    <div class="forum-last">
+                      <strong>Qué guante usar con acabado satinado</strong>
+                      <span>Última respuesta lunes</span>
+                    </div>
+                  </div>
+
+                  <div class="forum-row">
+                    <div class="forum-category">
+                      <div class="forum-icon">PRO</div>
+                      <div>
+                        <strong>Negocio y clientes</strong>
+                        <p>Presupuestos, entrega, garantías, comunicación y organización del taller.</p>
+                      </div>
+                    </div>
+                    <div class="forum-count"><b>31</b><span>Hilos</span></div>
+                    <div class="forum-count"><b>118</b><span>Respuestas</span></div>
+                    <div class="forum-last">
+                      <strong>Cómo explicar un extra de desmontaje</strong>
+                      <span>Última respuesta esta semana</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div class="value-cta">
+              <a class="offer-button offer-button-primary" href="registro.html">Empezar la suscripción</a>
+              <a class="offer-button" href="contacto.html">Resolver una duda</a>
+              <span class="response-note">Respuesta habitual en menos de 24 h laborables.</span>
+            </div>
+          </article>
+        </div>
+
+        <section class="store-spotlight" aria-labelledby="tienda-suscripcion">
+          <div>
+            <span class="eyebrow">Tienda integrada</span>
+            <h2 id="tienda-suscripcion" class="section-title">Material recomendado para practicar cada lección</h2>
+            <p class="section-desc wide">La tienda aparece aquí porque acompaña el aprendizaje: cada alumno que ve una técnica entiende qué herramientas puede usar para practicarla y qué material complementa cada módulo.</p>
+          </div>
+          <div class="store-spotlight-products">
+            <a href="tienda.html">
+              <strong>Kit del alumno</strong>
+              <span>Base práctica para empezar a instalar.</span>
+            </a>
+            <a href="tienda.html">
+              <strong>Remate y corte</strong>
+              <span>Herramientas para trabajar con precisión.</span>
+            </a>
+            <a href="tienda.html">
+              <strong>Accesorios de taller</strong>
+              <span>Apoyo para piezas grandes y preparación.</span>
+            </a>
+          </div>
+          <a class="offer-button offer-button-primary" href="tienda.html">Ver productos</a>
+        </section>
+
+        <div class="preview-panel">
+          <h2 class="section-title">Vista previa del contenido</h2>
+          <p class="section-desc wide">Una muestra clara de lo que el alumno encontrará dentro: procesos concretos, explicaciones por pieza y recursos para practicar con intención.</p>
+          <div class="preview-grid">
+            <div class="preview-item">
+              <strong>Desmontajes guiados</strong>
+              <span>Puertas, manillas y piezas internas con pasos para evitar daños.</span>
+            </div>
+            <div class="preview-item">
+              <strong>Tensión y remates</strong>
+              <span>Lectura del material, cortes de seguridad y acabados limpios.</span>
+            </div>
+            <div class="preview-item">
+              <strong>Casos por vehículo</strong>
+              <span>Audi, Panamera, Corolla y otros ejemplos aplicados a piezas reales.</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="video-section">
       <div class="page-shell">
-        <div style="text-align: left; margin: 0 0 40px 0;">
+        <div class="section-heading">
           <h2 class="section-title">Catálogo de vídeos de la plataforma</h2>
-          <p class="section-desc" style="margin: 0; max-width: none;">Explora nuestra biblioteca de +300 vídeos. El contenido está bloqueado. Inicia sesión o suscríbete para acceder a todas las lecciones técnicas, guías paso a paso y trucos del wrapping.</p>
+          <p class="section-desc wide">Explora una biblioteca técnica con lecciones paso a paso, casos reales de instalación y recursos pensados para seguir practicando con criterio profesional.</p>
         </div>
 
         <div class="video-category">
@@ -665,10 +500,22 @@
     </section>
 
     <section class="page-shell">
-      <div class="tienda-banner">
-        <h3>Tienda Oficial TRACKCREATIVO</h3>
-        <p>Encuentra las herramientas, rasquetas y accesorios recomendados en nuestros cursos para lograr un acabado profesional sin complicaciones.</p>
-        <a href="#" class="offer-button offer-button-primary" style="margin-top: 14px;">Visitar la Tienda</a>
+      <div class="faq-panel">
+        <h2 class="section-title">Preguntas frecuentes</h2>
+        <div class="faq-list">
+          <details>
+            <summary>¿Qué incluye exactamente la suscripción?</summary>
+            <p>Biblioteca técnica, nuevas lecciones, soporte para dudas, comunidad privada, recursos de práctica y acceso prioritario a novedades de formación.</p>
+          </details>
+          <details>
+            <summary>¿Cada cuánto se publica contenido nuevo?</summary>
+            <p>La plataforma está planteada como formación continua, con novedades recurrentes basadas en materiales, vehículos y dudas reales de alumnos.</p>
+          </details>
+          <details>
+            <summary>¿Existe soporte o comunidad?</summary>
+            <p>Sí. La comunidad privada permite resolver dudas, compartir trabajos, recibir orientación y mantener contacto con otros alumnos.</p>
+          </details>
+        </div>
       </div>
     </section>
   </main>
@@ -686,7 +533,7 @@
         <div class="modal-right">
           <h2 class="modal-title">Regístrate para ver el contenido</h2>
           <p class="modal-desc" id="modal-desc-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. . Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+            Accede a tu cuenta o crea una nueva para desbloquear la lección completa, ver el proceso paso a paso y guardar tu progreso dentro de la plataforma.
           </p>
           <div class="modal-buttons">
             <a href="mi-cuenta.html" class="btn-orange">ACCEDER</a>
@@ -731,6 +578,15 @@
       }
     });
   </script>
-  <!-- Minor update to trigger GitHub action -->
-</body>
+  </body>
 </html>
+
+
+
+
+
+
+
+
+
+
