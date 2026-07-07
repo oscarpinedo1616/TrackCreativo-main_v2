@@ -689,6 +689,8 @@ p,
 
 .faq-list details[open] summary::after,
 .contact-faq-list details[open] summary::after {
+  content: "—";
+  transform: translateY(-50%) rotate(0deg);
   transform: translateY(-50%) rotate(180deg);
 }
 

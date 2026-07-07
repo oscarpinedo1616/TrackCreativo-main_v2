@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 ﻿<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -120,22 +121,55 @@
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 16px;
     }
-    .product-card, .bundle-panel, .support-panel, .logic-card {
+    .bundle-panel, .support-panel, .logic-card {
       border-radius: var(--radius);
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
       box-shadow: var(--shadow);
     }
     .product-card {
-      min-height: 260px;
-      padding: 20px;
       display: flex;
       flex-direction: column;
-      justify-content: end;
+      min-height: 380px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 166, 0, 0.28);
+    }
+    .product-image {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      gap: 2px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .product-image img {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+    .product-card-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px;
+      flex-grow: 1;
     }
     .product-tag {
       width: fit-content;
-      margin-bottom: auto;
       padding: 7px 10px;
       border-radius: 999px;
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -145,7 +179,7 @@
       font-size: 0.68rem;
     }
     .product-card h2 {
-      margin: 18px 0 8px;
+      margin: 0;
       font-size: 2rem;
       line-height: 0.95;
     }
@@ -339,24 +373,45 @@
       </div>
       <div class="product-grid">
         <article class="product-card">
-          <span class="product-tag">Instalación</span>
-          <h2>Rasquetas y fieltros</h2>
-          <p>Control de presión, deslizamiento y acabado limpio en vinilo y PPF.</p>
+          <div class="product-image">
+            <img loading="lazy" decoding="async" src="tienda-rasquetas.png" alt="Rasqueta de instalación de vinilo">
+          </div>
+          <div class="product-card-copy">
+            <span class="product-tag">Instalación</span>
+            <h2>Rasquetas y fieltros</h2>
+            <p>Control de presión, deslizamiento y acabado limpio en vinilo y PPF.</p>
+          </div>
         </article>
         <article class="product-card">
-          <span class="product-tag">Precisión</span>
-          <h2>Cuchillas y corte</h2>
-          <p>Herramientas para remates seguros, cortes limpios y trabajo con criterio.</p>
+          <div class="product-image">
+            <img loading="lazy" decoding="async" src="tienda-corte1.png" alt="Cinta de corte Knifeless">
+            <img loading="lazy" decoding="async" src="tienda-corte2.png" alt="Cutter para corte de vinilo">
+          </div>
+          <div class="product-card-copy">
+            <span class="product-tag">Precisión</span>
+            <h2>Cuchillas y corte</h2>
+            <p>Herramientas para remates seguros, cortes limpios y trabajo con criterio.</p>
+          </div>
         </article>
         <article class="product-card">
-          <span class="product-tag">Taller</span>
-          <h2>Imanes y soporte</h2>
-          <p>Accesorios para sujetar material y trabajar con más control en piezas grandes.</p>
+          <div class="product-image">
+            <img loading="lazy" decoding="async" src="tienda-imanes.png" alt="Imanes de posicionamiento de vinilo">
+          </div>
+          <div class="product-card-copy">
+            <span class="product-tag">Taller</span>
+            <h2>Imanes y soporte</h2>
+            <p>Accesorios para sujetar material y trabajar con más control en piezas grandes.</p>
+          </div>
         </article>
         <article class="product-card">
-          <span class="product-tag">PPF y tintado</span>
-          <h2>Aplicación y agua</h2>
-          <p>Apoyo para preparación, líquido, limpieza y manipulación en trabajos técnicos.</p>
+          <div class="product-image">
+            <img loading="lazy" decoding="async" src="tienda-aplicacion.png" alt="Pulverizador y accesorios de limpieza y aplicación">
+          </div>
+          <div class="product-card-copy">
+            <span class="product-tag">PPF y tintado</span>
+            <h2>Aplicación y agua</h2>
+            <p>Apoyo para preparación, líquido, limpieza y manipulación en trabajos técnicos.</p>
+          </div>
         </article>
       </div>
     </section>
